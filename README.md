@@ -18,7 +18,8 @@
 | `01_c_runtime_init` | 增加 `.data` 复制和 `.bss` 清零，但装载地址未对齐 | 已验证：不亮，未对齐访问导致 HardFault |
 | `02_c_runtime_aligned` | 仅把 `.data` 的 Flash 装载地址对齐到4字节 | 已验证：能闪 |
 | `03_hse_pll_48mhz` | 加入8 MHz HSE和PLL，切换系统时钟到48 MHz | 已验证：能闪 |
-| `04_full_dronecan_uart4` | 四路UART、DroneCAN Targetted双向隧道、NodeStatus、GetNodeInfo | 候选版：已编译和协议回环验证，待实物验证 |
+| `04_full_dronecan_uart4` | 四路UART、DroneCAN Targetted双向隧道、NodeStatus、GetNodeInfo | 实物失败：RUN快速闪烁，程序进入了主动故障分支 |
+| `05_systick_timebase` | 从03重新出发，只增加SysTick 1 ms时基 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

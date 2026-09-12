@@ -16,7 +16,8 @@
 | --- | --- | --- |
 | `00_baremetal_led_baseline` | 原始裸机 PB1 闪灯 | 已验证：能闪 |
 | `01_c_runtime_init` | 增加 `.data` 复制和 `.bss` 清零，但装载地址未对齐 | 已验证：不亮，未对齐访问导致 HardFault |
-| `02_c_runtime_aligned` | 仅把 `.data` 的 Flash 装载地址对齐到4字节 | 待实物验证 |
+| `02_c_runtime_aligned` | 仅把 `.data` 的 Flash 装载地址对齐到4字节 | 已验证：能闪 |
+| `03_hse_pll_48mhz` | 加入8 MHz HSE和PLL，切换系统时钟到48 MHz | 待实物验证 |
 
 只有当前阶段实物验证通过后，才继续引入下一层功能。这样第一个失败阶段就是问题所在的范围。
 

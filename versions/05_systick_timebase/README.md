@@ -12,7 +12,9 @@ RUN：根据计数器每500 ms翻转一次
 
 本版未加入 CAN、UART、libcanard、动态内存或RTOS。
 
-实物判定：
+实物结果：RUN稳定闪烁，SysTick异常向量、1 ms中断和48 MHz时基已验证正常。
+
+判定依据：
 
 - RUN稳定闪烁：SysTick异常向量、1 ms中断和48 MHz时基正常。
 - RUN不闪：问题局限在SysTick增量，与CAN、UART和libcanard无关。

@@ -12,6 +12,8 @@ serial_id 4：USART4，PA0 TX / PA1 RX，AF4
 
 本阶段不收发UART数据，不包含CAN和libcanard。
 
+实物结果：正常闪烁，四路UART引脚、时钟和寄存器初始化已验证不会导致启动故障。
+
 指示灯统一规则：
 
 - 正常：RUN每1秒翻转一次。

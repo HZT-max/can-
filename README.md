@@ -21,7 +21,7 @@
 | `04_full_dronecan_uart4` | 四路UART、DroneCAN Targetted双向隧道、NodeStatus、GetNodeInfo | 实物失败：RUN快速闪烁，程序进入了主动故障分支 |
 | `05_systick_timebase` | 从03重新出发，只增加SysTick 1 ms时基 | 已验证：正常闪烁 |
 | `06_uart4_init` | 在05基础上只增加四路UART引脚和115200初始化 | 已验证：正常闪烁 |
-| `07_bxcan_init` | 在06基础上只增加PB8/PB9和1 Mbit/s bxCAN底层初始化 | 待实物验证 |
+| `07_bxcan_init` | 在06基础上只增加PB8/PB9和1 Mbit/s bxCAN底层初始化 | 已验证失败：RUN不亮，bxCAN底层初始化返回失败 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

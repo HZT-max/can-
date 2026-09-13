@@ -14,6 +14,8 @@ canardSTM32Init()
 
 本版复用完整候选版中同一份开源 `canard_stm32` bxCAN底层驱动，但不加入libcanard协议栈、DroneCAN消息、NodeStatus或串口数据收发。
 
+实物结果：RUN不亮。因为06版已正常闪烁，07新增的bxCAN底层初始化是当前首个明确失败层。
+
 指示灯规则：
 
 - 正常：CAN底层成功退出初始化模式，RUN每1秒翻转一次。

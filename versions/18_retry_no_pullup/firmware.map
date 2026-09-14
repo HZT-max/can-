@@ -1,0 +1,452 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                              /tmp/ccwnTAok.o (__aeabi_uidiv)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                              /tmp/ccwnTAok.o (__aeabi_idiv)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                              /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_lshrdi3.o)
+                              /tmp/ccFIp7lG.o (__aeabi_llsr)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_ashldi3.o)
+                              /tmp/ccFIp7lG.o (__aeabi_llsl)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                              /tmp/ccFIp7lG.o (__aeabi_fcmpge)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                              /tmp/ccwnTAok.o (__aeabi_lmul)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+                              /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__eqsf2)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+                              /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__gesf2)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+                              /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o) (__lesf2)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+                              /tmp/ccFIp7lG.o (__aeabi_fmul)
+/home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+                              /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o) (__clzsi2)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 /tmp/ccwnTAok.o
+ .data          0x0000000000000000        0x0 /tmp/ccwnTAok.o
+ .bss           0x0000000000000000        0x0 /tmp/ccwnTAok.o
+ .comment       0x0000000000000000       0x4e /tmp/ccwnTAok.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccwnTAok.o
+ .text          0x0000000000000000        0x0 /tmp/ccasetAJ.o
+ .data          0x0000000000000000        0x0 /tmp/ccasetAJ.o
+ .bss           0x0000000000000000        0x0 /tmp/ccasetAJ.o
+ .comment       0x0000000000000000       0x4e /tmp/ccasetAJ.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccasetAJ.o
+ .text          0x0000000000000000        0x0 /tmp/ccFIp7lG.o
+ .data          0x0000000000000000        0x0 /tmp/ccFIp7lG.o
+ .bss           0x0000000000000000        0x0 /tmp/ccFIp7lG.o
+ .text.canardGetUserReference
+                0x0000000000000000        0x4 /tmp/ccFIp7lG.o
+ .text.canardGetLocalNodeID
+                0x0000000000000000        0x4 /tmp/ccFIp7lG.o
+ .text.canardForgetLocalNodeID
+                0x0000000000000000        0x6 /tmp/ccFIp7lG.o
+ .text.canardInitTxTransfer
+                0x0000000000000000        0xc /tmp/ccFIp7lG.o
+ .text.canardGetPoolAllocatorStatistics
+                0x0000000000000000       0x10 /tmp/ccFIp7lG.o
+ .text.canardConvertNativeFloatToFloat16
+                0x0000000000000000       0x64 /tmp/ccFIp7lG.o
+ .text.canardConvertFloat16ToNativeFloat
+                0x0000000000000000       0x34 /tmp/ccFIp7lG.o
+ .comment       0x0000000000000000       0x4e /tmp/ccFIp7lG.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccFIp7lG.o
+ .text          0x0000000000000000        0x0 /tmp/ccQSjrS0.o
+ .data          0x0000000000000000        0x0 /tmp/ccQSjrS0.o
+ .bss           0x0000000000000000        0x0 /tmp/ccQSjrS0.o
+ .text.canardSTM32ConfigureAcceptanceFilters
+                0x0000000000000000       0x90 /tmp/ccQSjrS0.o
+ .text.canardSTM32GetStats
+                0x0000000000000000       0x14 /tmp/ccQSjrS0.o
+ .comment       0x0000000000000000       0x4e /tmp/ccQSjrS0.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccQSjrS0.o
+ .text          0x0000000000000000        0x0 /tmp/ccWLGwnZ.o
+ .data          0x0000000000000000        0x0 /tmp/ccWLGwnZ.o
+ .bss           0x0000000000000000        0x0 /tmp/ccWLGwnZ.o
+ .text.uavcan_tunnel_Protocol_encode
+                0x0000000000000000       0x20 /tmp/ccWLGwnZ.o
+ .text.uavcan_tunnel_Protocol_decode
+                0x0000000000000000       0x36 /tmp/ccWLGwnZ.o
+ .comment       0x0000000000000000       0x4e /tmp/ccWLGwnZ.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccWLGwnZ.o
+ .text          0x0000000000000000        0x0 /tmp/ccEK9Zu1.o
+ .data          0x0000000000000000        0x0 /tmp/ccEK9Zu1.o
+ .bss           0x0000000000000000        0x0 /tmp/ccEK9Zu1.o
+ .comment       0x0000000000000000       0x4e /tmp/ccEK9Zu1.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccEK9Zu1.o
+ .text          0x0000000000000000        0x0 /tmp/cctIfFfS.o
+ .data          0x0000000000000000        0x0 /tmp/cctIfFfS.o
+ .bss           0x0000000000000000        0x0 /tmp/cctIfFfS.o
+ .text.uavcan_protocol_NodeStatus_decode
+                0x0000000000000000       0x7c /tmp/cctIfFfS.o
+ .comment       0x0000000000000000       0x4e /tmp/cctIfFfS.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/cctIfFfS.o
+ .text          0x0000000000000000        0x0 /tmp/ccSNENB0.o
+ .data          0x0000000000000000        0x0 /tmp/ccSNENB0.o
+ .bss           0x0000000000000000        0x0 /tmp/ccSNENB0.o
+ .text.uavcan_protocol_GetNodeInfoRequest_encode
+                0x0000000000000000       0x10 /tmp/ccSNENB0.o
+ .text.uavcan_protocol_GetNodeInfoRequest_decode
+                0x0000000000000000       0x12 /tmp/ccSNENB0.o
+ .comment       0x0000000000000000       0x4e /tmp/ccSNENB0.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccSNENB0.o
+ .text          0x0000000000000000        0x0 /tmp/ccBcHsgp.o
+ .data          0x0000000000000000        0x0 /tmp/ccBcHsgp.o
+ .bss           0x0000000000000000        0x0 /tmp/ccBcHsgp.o
+ .text.uavcan_protocol_GetNodeInfoResponse_decode
+                0x0000000000000000      0x1d0 /tmp/ccBcHsgp.o
+ .comment       0x0000000000000000       0x4e /tmp/ccBcHsgp.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccBcHsgp.o
+ .text          0x0000000000000000        0x0 /tmp/ccen4gvp.o
+ .data          0x0000000000000000        0x0 /tmp/ccen4gvp.o
+ .bss           0x0000000000000000        0x0 /tmp/ccen4gvp.o
+ .text.uavcan_protocol_HardwareVersion_encode
+                0x0000000000000000       0x90 /tmp/ccen4gvp.o
+ .text.uavcan_protocol_HardwareVersion_decode
+                0x0000000000000000       0xc0 /tmp/ccen4gvp.o
+ .comment       0x0000000000000000       0x4e /tmp/ccen4gvp.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccen4gvp.o
+ .text          0x0000000000000000        0x0 /tmp/ccGoa2yY.o
+ .data          0x0000000000000000        0x0 /tmp/ccGoa2yY.o
+ .bss           0x0000000000000000        0x0 /tmp/ccGoa2yY.o
+ .text.uavcan_protocol_SoftwareVersion_encode
+                0x0000000000000000       0x52 /tmp/ccGoa2yY.o
+ .text.uavcan_protocol_SoftwareVersion_decode
+                0x0000000000000000       0x7c /tmp/ccGoa2yY.o
+ .comment       0x0000000000000000       0x4e /tmp/ccGoa2yY.o
+ .ARM.attributes
+                0x0000000000000000       0x2c /tmp/ccGoa2yY.o
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_lshrdi3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_lshrdi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_lshrdi3.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_ashldi3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_ashldi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_ashldi3.o)
+ .text          0x0000000000000000       0x74 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+ .text          0x0000000000000000       0x4c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .debug_frame   0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(eqsf2.o)
+ .text          0x0000000000000000       0x8c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .debug_frame   0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(gesf2.o)
+ .text          0x0000000000000000       0x88 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .debug_frame   0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(lesf2.o)
+ .text          0x0000000000000000      0x24c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .rodata        0x0000000000000000       0x40 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .debug_frame   0x0000000000000000       0x38 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .ARM.attributes
+                0x0000000000000000       0x2c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .text          0x0000000000000000       0x3c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .data          0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+ .ARM.attributes
+                0x0000000000000000       0x1e /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_clzsi2.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000010000 xr
+RAM              0x0000000020000000 0x0000000000004000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000020004000                _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x0000000000000800                _stack_size = 0x800
+                0x0000000020003800                _stack_bottom = (_estack - _stack_size)
+
+.isr_vector     0x0000000008000000       0x40
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000       0x40 /tmp/ccwnTAok.o
+                0x0000000008000000                vector_table
+
+.text           0x0000000008000040     0x2328
+ *(.text*)
+ .text.SysTick_Handler
+                0x0000000008000040       0x10 /tmp/ccwnTAok.o
+                0x0000000008000040                SysTick_Handler
+ .text.stop_with_led_off
+                0x0000000008000050       0x10 /tmp/ccwnTAok.o
+ .text.gpio_config_af
+                0x0000000008000060       0x46 /tmp/ccwnTAok.o
+ *fill*         0x00000000080000a6        0x2 
+ .text.should_accept_transfer
+                0x00000000080000a8       0x44 /tmp/ccwnTAok.o
+ .text.Default_Handler
+                0x00000000080000ec        0x6 /tmp/ccwnTAok.o
+                0x00000000080000ec                Default_Handler
+ *fill*         0x00000000080000f2        0x2 
+ .text.can_process_tx
+                0x00000000080000f4       0x24 /tmp/ccwnTAok.o
+ .text.publish_uart_packet.part.0.isra.0
+                0x0000000008000118       0x7c /tmp/ccwnTAok.o
+ .text.on_transfer_received
+                0x0000000008000194      0x20c /tmp/ccwnTAok.o
+ .text.Reset_Handler
+                0x00000000080003a0      0x5f8 /tmp/ccwnTAok.o
+                0x00000000080003a0                Reset_Handler
+ .text.usleep   0x0000000008000998       0x28 /tmp/ccwnTAok.o
+                0x0000000008000998                usleep
+ .text.memset   0x00000000080009c0       0x10 /tmp/ccasetAJ.o
+                0x00000000080009c0                memset
+ .text.memcpy   0x00000000080009d0       0x12 /tmp/ccasetAJ.o
+                0x00000000080009d0                memcpy
+ .text.pushTxQueue
+                0x00000000080009e2       0x96 /tmp/ccFIp7lG.o
+ .text.copyBitArray
+                0x0000000008000a78       0x88 /tmp/ccFIp7lG.o
+ .text.crcAddByte
+                0x0000000008000b00       0x24 /tmp/ccFIp7lG.o
+ .text.crcAdd   0x0000000008000b24       0x16 /tmp/ccFIp7lG.o
+ .text.allocateBlock
+                0x0000000008000b3a       0x1e /tmp/ccFIp7lG.o
+ .text.createRxState
+                0x0000000008000b58       0x2c /tmp/ccFIp7lG.o
+ .text.dlcToDataLength
+                0x0000000008000b84       0x38 /tmp/ccFIp7lG.o
+ .text.dataLengthToDlc
+                0x0000000008000bbc       0x38 /tmp/ccFIp7lG.o
+ .text.calculateCRC
+                0x0000000008000bf4       0x44 /tmp/ccFIp7lG.o
+ .text.releaseStatePayload.isra.0
+                0x0000000008000c38       0x24 /tmp/ccFIp7lG.o
+ .text.bufferBlockPushBytes
+                0x0000000008000c5c      0x12c /tmp/ccFIp7lG.o
+ .text.enqueueTxFrames
+                0x0000000008000d88      0x166 /tmp/ccFIp7lG.o
+ *fill*         0x0000000008000eee        0x2 
+ .text.canardInit
+                0x0000000008000ef0       0x64 /tmp/ccFIp7lG.o
+                0x0000000008000ef0                canardInit
+ .text.canardSetLocalNodeID
+                0x0000000008000f54       0x10 /tmp/ccFIp7lG.o
+                0x0000000008000f54                canardSetLocalNodeID
+ .text.canardBroadcastObj
+                0x0000000008000f64       0x8c /tmp/ccFIp7lG.o
+                0x0000000008000f64                canardBroadcastObj
+ .text.canardBroadcast
+                0x0000000008000ff0       0x4c /tmp/ccFIp7lG.o
+                0x0000000008000ff0                canardBroadcast
+ .text.canardRequestOrRespondObj
+                0x000000000800103c       0x72 /tmp/ccFIp7lG.o
+                0x000000000800103c                canardRequestOrRespondObj
+ .text.canardRequestOrRespond
+                0x00000000080010ae       0x64 /tmp/ccFIp7lG.o
+                0x00000000080010ae                canardRequestOrRespond
+ .text.canardPeekTxQueue
+                0x0000000008001112        0xa /tmp/ccFIp7lG.o
+                0x0000000008001112                canardPeekTxQueue
+ .text.canardPopTxQueue
+                0x000000000800111c       0x14 /tmp/ccFIp7lG.o
+                0x000000000800111c                canardPopTxQueue
+ .text.canardCleanupStaleTransfers
+                0x0000000008001130       0x70 /tmp/ccFIp7lG.o
+                0x0000000008001130                canardCleanupStaleTransfers
+ .text.canardDecodeScalar
+                0x00000000080011a0      0x24c /tmp/ccFIp7lG.o
+                0x00000000080011a0                canardDecodeScalar
+ .text.canardEncodeScalar
+                0x00000000080013ec       0x7a /tmp/ccFIp7lG.o
+                0x00000000080013ec                canardEncodeScalar
+ .text.canardReleaseRxTransferPayload
+                0x0000000008001466       0x22 /tmp/ccFIp7lG.o
+                0x0000000008001466                canardReleaseRxTransferPayload
+ .text.extractTransferType
+                0x0000000008001488       0x10 /tmp/ccFIp7lG.o
+                0x0000000008001488                extractTransferType
+ .text.extractDataType
+                0x0000000008001498       0x20 /tmp/ccFIp7lG.o
+                0x0000000008001498                extractDataType
+ .text.canardHandleRxFrame
+                0x00000000080014b8      0x494 /tmp/ccFIp7lG.o
+                0x00000000080014b8                canardHandleRxFrame
+ .text.convertFrameIDRegisterToCanard
+                0x000000000800194c       0x1c /tmp/ccQSjrS0.o
+ .text.processErrorStatus
+                0x0000000008001968       0x48 /tmp/ccQSjrS0.o
+ .text.canardSTM32Init
+                0x00000000080019b0      0x158 /tmp/ccQSjrS0.o
+                0x00000000080019b0                canardSTM32Init
+ .text.canardSTM32Transmit
+                0x0000000008001b08      0x11c /tmp/ccQSjrS0.o
+                0x0000000008001b08                canardSTM32Transmit
+ .text.canardSTM32Receive
+                0x0000000008001c24       0x80 /tmp/ccQSjrS0.o
+                0x0000000008001c24                canardSTM32Receive
+ .text.uavcan_tunnel_Targetted_encode
+                0x0000000008001ca4       0x9e /tmp/ccEK9Zu1.o
+                0x0000000008001ca4                uavcan_tunnel_Targetted_encode
+ .text.uavcan_tunnel_Targetted_decode
+                0x0000000008001d42       0xd0 /tmp/ccEK9Zu1.o
+                0x0000000008001d42                uavcan_tunnel_Targetted_decode
+ .text.uavcan_protocol_NodeStatus_encode
+                0x0000000008001e12       0x52 /tmp/cctIfFfS.o
+                0x0000000008001e12                uavcan_protocol_NodeStatus_encode
+ .text.uavcan_protocol_GetNodeInfoResponse_encode
+                0x0000000008001e64      0x174 /tmp/ccBcHsgp.o
+                0x0000000008001e64                uavcan_protocol_GetNodeInfoResponse_encode
+ .text          0x0000000008001fd8      0x114 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x0000000008001fd8                __udivsi3
+                0x0000000008001fd8                __aeabi_uidiv
+                0x00000000080020e4                __aeabi_uidivmod
+ .text          0x00000000080020ec      0x1d4 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+                0x00000000080020ec                __aeabi_idiv
+                0x00000000080020ec                __divsi3
+                0x00000000080022b8                __aeabi_idivmod
+ .text          0x00000000080022c0        0x4 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000000080022c0                __aeabi_ldiv0
+                0x00000000080022c0                __aeabi_idiv0
+ .text          0x00000000080022c4       0x18 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_lshrdi3.o)
+                0x00000000080022c4                __aeabi_llsr
+                0x00000000080022c4                __lshrdi3
+ .text          0x00000000080022dc       0x18 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_ashldi3.o)
+                0x00000000080022dc                __ashldi3
+                0x00000000080022dc                __aeabi_llsl
+ .text          0x00000000080022f4       0x5c /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)
+                0x00000000080022f4                __aeabi_lmul
+                0x00000000080022f4                __muldi3
+ *(.rodata*)
+ .rodata.node_name.1
+                0x0000000008002350       0x16 /tmp/ccwnTAok.o
+                0x0000000008002368                . = ALIGN (0x4)
+ *fill*         0x0000000008002366        0x2 
+                0x0000000008002368                _sidata = LOADADDR (.data)
+
+.glue_7         0x0000000008002368        0x0
+ .glue_7        0x0000000008002368        0x0 linker stubs
+
+.glue_7t        0x0000000008002368        0x0
+ .glue_7t       0x0000000008002368        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008002368        0x0
+ .vfp11_veneer  0x0000000008002368        0x0 linker stubs
+
+.v4_bx          0x0000000008002368        0x0
+ .v4_bx         0x0000000008002368        0x0 linker stubs
+
+.iplt           0x0000000008002368        0x0
+ .iplt          0x0000000008002368        0x0 /tmp/ccwnTAok.o
+
+.rel.dyn        0x0000000008002368        0x0
+ .rel.iplt      0x0000000008002368        0x0 /tmp/ccwnTAok.o
+
+.data           0x0000000020000000      0x674 load address 0x0000000008002368
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sdata = .
+ *(.data*)
+ .data.g_uart_ports
+                0x0000000020000000      0x670 /tmp/ccwnTAok.o
+ .data.initialized_marker
+                0x0000000020000670        0x4 /tmp/ccwnTAok.o
+                0x0000000020000670                initialized_marker
+                0x0000000020000674                . = ALIGN (0x4)
+                0x0000000020000674                _edata = .
+
+.igot.plt       0x0000000020000674        0x0 load address 0x00000000080029dc
+ .igot.plt      0x0000000020000674        0x0 /tmp/ccwnTAok.o
+
+.bss            0x0000000020000678     0x1b58 load address 0x00000000080029dc
+                0x0000000020000678                . = ALIGN (0x8)
+                0x0000000020000678                _sbss = .
+ *(.bss*)
+ .bss.g_canard  0x0000000020000678       0x30 /tmp/ccwnTAok.o
+ .bss.g_canard_memory_pool
+                0x00000000200006a8     0x1800 /tmp/ccwnTAok.o
+ .bss.g_led2_off_ms
+                0x0000000020001ea8        0x4 /tmp/ccwnTAok.o
+ .bss.g_millis  0x0000000020001eac        0x4 /tmp/ccwnTAok.o
+ .bss.g_node_status_transfer_id
+                0x0000000020001eb0        0x1 /tmp/ccwnTAok.o
+ .bss.g_tunnel_transfer_id
+                0x0000000020001eb1        0x1 /tmp/ccwnTAok.o
+ .bss.payload.0
+                0x0000000020001eb2      0x179 /tmp/ccwnTAok.o
+ *fill*         0x000000002000202b        0x5 
+ .bss.response.2
+                0x0000000020002030      0x188 /tmp/ccwnTAok.o
+ .bss.zero_marker
+                0x00000000200021b8        0x4 /tmp/ccwnTAok.o
+                0x00000000200021b8                zero_marker
+ .bss.g_abort_tx_on_error
+                0x00000000200021bc        0x1 /tmp/ccQSjrS0.o
+ *fill*         0x00000000200021bd        0x3 
+ .bss.g_stats   0x00000000200021c0       0x10 /tmp/ccQSjrS0.o
+ *(COMMON)
+                0x00000000200021d0                . = ALIGN (0x8)
+                0x00000000200021d0                _ebss = .
+                0x0000000000000001                ASSERT (((_sidata & 0x3) == 0x0), .data Flash load address must be 4-byte aligned)
+                0x0000000000000001                ASSERT ((_ebss <= _stack_bottom), RAM overflow: static data collides with reserved stack)
+
+/DISCARD/
+ *(.comment*)
+ *(.ARM.attributes*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /tmp/ccwnTAok.o
+LOAD /tmp/ccasetAJ.o
+LOAD /tmp/ccFIp7lG.o
+LOAD /tmp/ccQSjrS0.o
+LOAD /tmp/ccWLGwnZ.o
+LOAD /tmp/ccEK9Zu1.o
+LOAD /tmp/cctIfFfS.o
+LOAD /tmp/ccSNENB0.o
+LOAD /tmp/ccBcHsgp.o
+LOAD /tmp/ccen4gvp.o
+LOAD /tmp/ccGoa2yY.o
+LOAD /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a
+OUTPUT(firmware.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_frame    0x0000000000000000       0x74
+ .debug_frame   0x0000000000000000       0x20 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000020       0x20 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_divsi3.o)
+ .debug_frame   0x0000000000000040       0x34 /home/hzt/.local/toolchains/gcc-arm-none-eabi-10-2020-q4-major/bin/../lib/gcc/arm-none-eabi/10.2.1/thumb/v6-m/nofp/libgcc.a(_muldi3.o)

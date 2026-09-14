@@ -1,0 +1,10 @@
+firmware.elf  :
+section         size        addr
+.isr_vector       64   134217728
+.text           8992   134217792
+.data           1652   536870912
+.bss            7008   536872568
+.debug_frame     116           0
+Total          17832
+
+

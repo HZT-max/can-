@@ -26,9 +26,10 @@
 | `09_bxcan_enter_init` | 从06出发，只检查bxCAN能否进入初始化模式 | 已验证：有无CAN收发器供电均正常闪烁 |
 | `10_bxcan_exit_init` | 在09基础上写入1 Mbit/s时序并检查bxCAN能否退出初始化模式 | 已验证失败：单独供电和接入飞控均不能稳定退出 |
 | `11_bxcan_internal_loopback` | 使用静默内部回环隔离收发器和外部总线，再检查bxCAN退出初始化 | 待实物验证 |
-| `12_full_dronecan_uart4_retry` | 四路UART、完整DroneCAN隧道和节点服务；增加CAN上电重试与RX上拉 | 待实物验证 |
-| `13_full_retry_no_canrx_pullup` | 保留完整功能与CAN重试，仅取消CAN_RX弱上拉以定位根因 | 待实物验证 |
-| `14_full_canrx_pullup_single_init` | 保留完整功能与CAN_RX弱上拉，CAN只初始化一次以定位根因 | 待实物验证 |
+| `12_full_dronecan_uart4_retry` | 四路UART、完整DroneCAN隧道和节点服务；增加CAN上电重试与RX上拉 | 启动正常，但节点125尚未被地面站发现 |
+| `13_full_retry_no_canrx_pullup` | 保留完整功能与CAN重试，仅取消CAN_RX弱上拉以定位根因 | 已验证失败：仅前两次启动成功，随后不稳定 |
+| `14_full_canrx_pullup_single_init` | 保留完整功能与CAN_RX弱上拉，CAN只初始化一次以定位根因 | 启动正常，但节点125尚未被地面站发现 |
+| `15_full_can_tx_diagnostic` | 保留第12版完整功能，RUN灯改为显示bxCAN发送确认或错误 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

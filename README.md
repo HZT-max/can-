@@ -23,6 +23,7 @@
 | `06_uart4_init` | 在05基础上只增加四路UART引脚和115200初始化 | 已验证：正常闪烁 |
 | `07_bxcan_init` | 在06基础上只增加PB8/PB9和1 Mbit/s bxCAN底层初始化 | 已验证失败：RUN不亮，bxCAN底层初始化返回失败 |
 | `08_full_bypass_can_hardware` | 保留完整应用路径，但不初始化或访问bxCAN硬件 | 已验证：正常闪烁 |
+| `09_bxcan_enter_init` | 从06出发，只检查bxCAN能否进入初始化模式 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

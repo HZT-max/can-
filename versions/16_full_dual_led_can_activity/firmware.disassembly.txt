@@ -1,0 +1,4343 @@
+
+firmware.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+08000040 <SysTick_Handler>:
+ 8000040:	4a02      	ldr	r2, [pc, #8]	; (800004c <SysTick_Handler+0xc>)
+ 8000042:	6813      	ldr	r3, [r2, #0]
+ 8000044:	3301      	adds	r3, #1
+ 8000046:	6013      	str	r3, [r2, #0]
+ 8000048:	4770      	bx	lr
+ 800004a:	46c0      	nop			; (mov r8, r8)
+ 800004c:	20001eac 	.word	0x20001eac
+
+08000050 <stop_with_led_off>:
+ 8000050:	2103      	movs	r1, #3
+ 8000052:	4a02      	ldr	r2, [pc, #8]	; (800005c <stop_with_led_off+0xc>)
+ 8000054:	6953      	ldr	r3, [r2, #20]
+ 8000056:	438b      	bics	r3, r1
+ 8000058:	6153      	str	r3, [r2, #20]
+ 800005a:	e7fe      	b.n	800005a <stop_with_led_off+0xa>
+ 800005c:	48000400 	.word	0x48000400
+
+08000060 <gpio_config_af>:
+ 8000060:	b570      	push	{r4, r5, r6, lr}
+ 8000062:	2403      	movs	r4, #3
+ 8000064:	2502      	movs	r5, #2
+ 8000066:	004e      	lsls	r6, r1, #1
+ 8000068:	40b4      	lsls	r4, r6
+ 800006a:	40b5      	lsls	r5, r6
+ 800006c:	6803      	ldr	r3, [r0, #0]
+ 800006e:	43a3      	bics	r3, r4
+ 8000070:	432b      	orrs	r3, r5
+ 8000072:	2501      	movs	r5, #1
+ 8000074:	408d      	lsls	r5, r1
+ 8000076:	6003      	str	r3, [r0, #0]
+ 8000078:	6843      	ldr	r3, [r0, #4]
+ 800007a:	43ab      	bics	r3, r5
+ 800007c:	6043      	str	r3, [r0, #4]
+ 800007e:	6883      	ldr	r3, [r0, #8]
+ 8000080:	4323      	orrs	r3, r4
+ 8000082:	6083      	str	r3, [r0, #8]
+ 8000084:	68c3      	ldr	r3, [r0, #12]
+ 8000086:	43a3      	bics	r3, r4
+ 8000088:	2407      	movs	r4, #7
+ 800008a:	60c3      	str	r3, [r0, #12]
+ 800008c:	08cb      	lsrs	r3, r1, #3
+ 800008e:	4021      	ands	r1, r4
+ 8000090:	0089      	lsls	r1, r1, #2
+ 8000092:	3408      	adds	r4, #8
+ 8000094:	408c      	lsls	r4, r1
+ 8000096:	408a      	lsls	r2, r1
+ 8000098:	009b      	lsls	r3, r3, #2
+ 800009a:	18c0      	adds	r0, r0, r3
+ 800009c:	6a03      	ldr	r3, [r0, #32]
+ 800009e:	43a3      	bics	r3, r4
+ 80000a0:	4313      	orrs	r3, r2
+ 80000a2:	6203      	str	r3, [r0, #32]
+ 80000a4:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+080000a8 <should_accept_transfer>:
+ 80000a8:	2000      	movs	r0, #0
+ 80000aa:	b530      	push	{r4, r5, lr}
+ 80000ac:	2b01      	cmp	r3, #1
+ 80000ae:	d107      	bne.n	80000c0 <should_accept_transfer+0x18>
+ 80000b0:	2a01      	cmp	r2, #1
+ 80000b2:	d104      	bne.n	80000be <should_accept_transfer+0x16>
+ 80000b4:	0010      	movs	r0, r2
+ 80000b6:	4c08      	ldr	r4, [pc, #32]	; (80000d8 <should_accept_transfer+0x30>)
+ 80000b8:	4d08      	ldr	r5, [pc, #32]	; (80000dc <should_accept_transfer+0x34>)
+ 80000ba:	600c      	str	r4, [r1, #0]
+ 80000bc:	604d      	str	r5, [r1, #4]
+ 80000be:	bd30      	pop	{r4, r5, pc}
+ 80000c0:	2b02      	cmp	r3, #2
+ 80000c2:	d1fc      	bne.n	80000be <should_accept_transfer+0x16>
+ 80000c4:	4b06      	ldr	r3, [pc, #24]	; (80000e0 <should_accept_transfer+0x38>)
+ 80000c6:	429a      	cmp	r2, r3
+ 80000c8:	d1f9      	bne.n	80000be <should_accept_transfer+0x16>
+ 80000ca:	4a06      	ldr	r2, [pc, #24]	; (80000e4 <should_accept_transfer+0x3c>)
+ 80000cc:	4b06      	ldr	r3, [pc, #24]	; (80000e8 <should_accept_transfer+0x40>)
+ 80000ce:	3001      	adds	r0, #1
+ 80000d0:	600a      	str	r2, [r1, #0]
+ 80000d2:	604b      	str	r3, [r1, #4]
+ 80000d4:	e7f3      	b.n	80000be <should_accept_transfer+0x16>
+ 80000d6:	46c0      	nop			; (mov r8, r8)
+ 80000d8:	21c46a9e 	.word	0x21c46a9e
+ 80000dc:	ee468a81 	.word	0xee468a81
+ 80000e0:	00000bb9 	.word	0x00000bb9
+ 80000e4:	72a2a2e9 	.word	0x72a2a2e9
+ 80000e8:	b138e7ea 	.word	0xb138e7ea
+
+080000ec <Default_Handler>:
+ 80000ec:	b510      	push	{r4, lr}
+ 80000ee:	f7ff ffaf 	bl	8000050 <stop_with_led_off>
+	...
+
+080000f4 <can_process_tx>:
+ 80000f4:	b510      	push	{r4, lr}
+ 80000f6:	4c07      	ldr	r4, [pc, #28]	; (8000114 <can_process_tx+0x20>)
+ 80000f8:	0020      	movs	r0, r4
+ 80000fa:	f001 f812 	bl	8001122 <canardPeekTxQueue>
+ 80000fe:	2800      	cmp	r0, #0
+ 8000100:	d007      	beq.n	8000112 <can_process_tx+0x1e>
+ 8000102:	f001 fd09 	bl	8001b18 <canardSTM32Transmit>
+ 8000106:	2800      	cmp	r0, #0
+ 8000108:	d003      	beq.n	8000112 <can_process_tx+0x1e>
+ 800010a:	0020      	movs	r0, r4
+ 800010c:	f001 f80e 	bl	800112c <canardPopTxQueue>
+ 8000110:	e7f1      	b.n	80000f6 <can_process_tx+0x2>
+ 8000112:	bd10      	pop	{r4, pc}
+ 8000114:	20000678 	.word	0x20000678
+
+08000118 <publish_uart_packet.part.0.isra.0>:
+ 8000118:	b570      	push	{r4, r5, r6, lr}
+ 800011a:	0004      	movs	r4, r0
+ 800011c:	b0c8      	sub	sp, #288	; 0x120
+ 800011e:	ad27      	add	r5, sp, #156	; 0x9c
+ 8000120:	0026      	movs	r6, r4
+ 8000122:	2284      	movs	r2, #132	; 0x84
+ 8000124:	2100      	movs	r1, #0
+ 8000126:	0028      	movs	r0, r5
+ 8000128:	f000 fc52 	bl	80009d0 <memset>
+ 800012c:	0021      	movs	r1, r4
+ 800012e:	20a5      	movs	r0, #165	; 0xa5
+ 8000130:	8a23      	ldrh	r3, [r4, #16]
+ 8000132:	368c      	adds	r6, #140	; 0x8c
+ 8000134:	ba5b      	rev16	r3, r3
+ 8000136:	802b      	strh	r3, [r5, #0]
+ 8000138:	7ca3      	ldrb	r3, [r4, #18]
+ 800013a:	3114      	adds	r1, #20
+ 800013c:	70ab      	strb	r3, [r5, #2]
+ 800013e:	6863      	ldr	r3, [r4, #4]
+ 8000140:	4468      	add	r0, sp
+ 8000142:	9328      	str	r3, [sp, #160]	; 0xa0
+ 8000144:	7832      	ldrb	r2, [r6, #0]
+ 8000146:	ac07      	add	r4, sp, #28
+ 8000148:	722a      	strb	r2, [r5, #8]
+ 800014a:	f000 fc49 	bl	80009e0 <memcpy>
+ 800014e:	2201      	movs	r2, #1
+ 8000150:	0021      	movs	r1, r4
+ 8000152:	0028      	movs	r0, r5
+ 8000154:	f001 fdae 	bl	8001cb4 <uavcan_tunnel_Targetted_encode>
+ 8000158:	2310      	movs	r3, #16
+ 800015a:	9302      	str	r3, [sp, #8]
+ 800015c:	4b08      	ldr	r3, [pc, #32]	; (8000180 <publish_uart_packet.part.0.isra.0+0x68>)
+ 800015e:	b280      	uxth	r0, r0
+ 8000160:	9301      	str	r3, [sp, #4]
+ 8000162:	4b08      	ldr	r3, [pc, #32]	; (8000184 <publish_uart_packet.part.0.isra.0+0x6c>)
+ 8000164:	9004      	str	r0, [sp, #16]
+ 8000166:	9300      	str	r3, [sp, #0]
+ 8000168:	4a07      	ldr	r2, [pc, #28]	; (8000188 <publish_uart_packet.part.0.isra.0+0x70>)
+ 800016a:	4b08      	ldr	r3, [pc, #32]	; (800018c <publish_uart_packet.part.0.isra.0+0x74>)
+ 800016c:	4808      	ldr	r0, [pc, #32]	; (8000190 <publish_uart_packet.part.0.isra.0+0x78>)
+ 800016e:	9403      	str	r4, [sp, #12]
+ 8000170:	f000 ff46 	bl	8001000 <canardBroadcast>
+ 8000174:	2800      	cmp	r0, #0
+ 8000176:	dd01      	ble.n	800017c <publish_uart_packet.part.0.isra.0+0x64>
+ 8000178:	2300      	movs	r3, #0
+ 800017a:	7033      	strb	r3, [r6, #0]
+ 800017c:	b048      	add	sp, #288	; 0x120
+ 800017e:	bd70      	pop	{r4, r5, r6, pc}
+ 8000180:	20001eb1 	.word	0x20001eb1
+ 8000184:	00000bb9 	.word	0x00000bb9
+ 8000188:	72a2a2e9 	.word	0x72a2a2e9
+ 800018c:	b138e7ea 	.word	0xb138e7ea
+ 8000190:	20000678 	.word	0x20000678
+
+08000194 <on_transfer_received>:
+ 8000194:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8000196:	7e0b      	ldrb	r3, [r1, #24]
+ 8000198:	0005      	movs	r5, r0
+ 800019a:	000e      	movs	r6, r1
+ 800019c:	b0ab      	sub	sp, #172	; 0xac
+ 800019e:	2b01      	cmp	r3, #1
+ 80001a0:	d15d      	bne.n	800025e <on_transfer_received+0xca>
+ 80001a2:	8acf      	ldrh	r7, [r1, #22]
+ 80001a4:	2f01      	cmp	r7, #1
+ 80001a6:	d158      	bne.n	800025a <on_transfer_received+0xc6>
+ 80001a8:	22c4      	movs	r2, #196	; 0xc4
+ 80001aa:	4c67      	ldr	r4, [pc, #412]	; (8000348 <on_transfer_received+0x1b4>)
+ 80001ac:	0052      	lsls	r2, r2, #1
+ 80001ae:	2100      	movs	r1, #0
+ 80001b0:	0020      	movs	r0, r4
+ 80001b2:	f000 fc0d 	bl	80009d0 <memset>
+ 80001b6:	21fa      	movs	r1, #250	; 0xfa
+ 80001b8:	4b64      	ldr	r3, [pc, #400]	; (800034c <on_transfer_received+0x1b8>)
+ 80001ba:	0089      	lsls	r1, r1, #2
+ 80001bc:	6818      	ldr	r0, [r3, #0]
+ 80001be:	f001 ff13 	bl	8001fe8 <__udivsi3>
+ 80001c2:	2300      	movs	r3, #0
+ 80001c4:	80a3      	strh	r3, [r4, #4]
+ 80001c6:	4b62      	ldr	r3, [pc, #392]	; (8000350 <on_transfer_received+0x1bc>)
+ 80001c8:	6020      	str	r0, [r4, #0]
+ 80001ca:	001a      	movs	r2, r3
+ 80001cc:	4861      	ldr	r0, [pc, #388]	; (8000354 <on_transfer_received+0x1c0>)
+ 80001ce:	4962      	ldr	r1, [pc, #392]	; (8000358 <on_transfer_received+0x1c4>)
+ 80001d0:	8227      	strh	r7, [r4, #16]
+ 80001d2:	8427      	strh	r7, [r4, #32]
+ 80001d4:	781f      	ldrb	r7, [r3, #0]
+ 80001d6:	54c7      	strb	r7, [r0, r3]
+ 80001d8:	3301      	adds	r3, #1
+ 80001da:	428b      	cmp	r3, r1
+ 80001dc:	d1fa      	bne.n	80001d4 <on_transfer_received+0x40>
+ 80001de:	7813      	ldrb	r3, [r2, #0]
+ 80001e0:	4a5e      	ldr	r2, [pc, #376]	; (800035c <on_transfer_received+0x1c8>)
+ 80001e2:	495f      	ldr	r1, [pc, #380]	; (8000360 <on_transfer_received+0x1cc>)
+ 80001e4:	7812      	ldrb	r2, [r2, #0]
+ 80001e6:	485f      	ldr	r0, [pc, #380]	; (8000364 <on_transfer_received+0x1d0>)
+ 80001e8:	4053      	eors	r3, r2
+ 80001ea:	0022      	movs	r2, r4
+ 80001ec:	322e      	adds	r2, #46	; 0x2e
+ 80001ee:	7013      	strb	r3, [r2, #0]
+ 80001f0:	4b5d      	ldr	r3, [pc, #372]	; (8000368 <on_transfer_received+0x1d4>)
+ 80001f2:	4a5e      	ldr	r2, [pc, #376]	; (800036c <on_transfer_received+0x1d8>)
+ 80001f4:	781b      	ldrb	r3, [r3, #0]
+ 80001f6:	7812      	ldrb	r2, [r2, #0]
+ 80001f8:	3619      	adds	r6, #25
+ 80001fa:	4053      	eors	r3, r2
+ 80001fc:	0022      	movs	r2, r4
+ 80001fe:	322f      	adds	r2, #47	; 0x2f
+ 8000200:	7013      	strb	r3, [r2, #0]
+ 8000202:	4b5b      	ldr	r3, [pc, #364]	; (8000370 <on_transfer_received+0x1dc>)
+ 8000204:	4a5b      	ldr	r2, [pc, #364]	; (8000374 <on_transfer_received+0x1e0>)
+ 8000206:	781b      	ldrb	r3, [r3, #0]
+ 8000208:	7812      	ldrb	r2, [r2, #0]
+ 800020a:	4053      	eors	r3, r2
+ 800020c:	0022      	movs	r2, r4
+ 800020e:	3230      	adds	r2, #48	; 0x30
+ 8000210:	7013      	strb	r3, [r2, #0]
+ 8000212:	4b59      	ldr	r3, [pc, #356]	; (8000378 <on_transfer_received+0x1e4>)
+ 8000214:	4a59      	ldr	r2, [pc, #356]	; (800037c <on_transfer_received+0x1e8>)
+ 8000216:	781b      	ldrb	r3, [r3, #0]
+ 8000218:	7812      	ldrb	r2, [r2, #0]
+ 800021a:	4053      	eors	r3, r2
+ 800021c:	0022      	movs	r2, r4
+ 800021e:	3231      	adds	r2, #49	; 0x31
+ 8000220:	7013      	strb	r3, [r2, #0]
+ 8000222:	2399      	movs	r3, #153	; 0x99
+ 8000224:	2215      	movs	r2, #21
+ 8000226:	005b      	lsls	r3, r3, #1
+ 8000228:	54e2      	strb	r2, [r4, r3]
+ 800022a:	f000 fbd9 	bl	80009e0 <memcpy>
+ 800022e:	4f54      	ldr	r7, [pc, #336]	; (8000380 <on_transfer_received+0x1ec>)
+ 8000230:	2201      	movs	r2, #1
+ 8000232:	0039      	movs	r1, r7
+ 8000234:	0020      	movs	r0, r4
+ 8000236:	f001 fe1d 	bl	8001e74 <uavcan_protocol_GetNodeInfoResponse_encode>
+ 800023a:	2300      	movs	r3, #0
+ 800023c:	b280      	uxth	r0, r0
+ 800023e:	78b1      	ldrb	r1, [r6, #2]
+ 8000240:	9005      	str	r0, [sp, #20]
+ 8000242:	9704      	str	r7, [sp, #16]
+ 8000244:	9303      	str	r3, [sp, #12]
+ 8000246:	7873      	ldrb	r3, [r6, #1]
+ 8000248:	0028      	movs	r0, r5
+ 800024a:	9302      	str	r3, [sp, #8]
+ 800024c:	2301      	movs	r3, #1
+ 800024e:	4a4d      	ldr	r2, [pc, #308]	; (8000384 <on_transfer_received+0x1f0>)
+ 8000250:	9300      	str	r3, [sp, #0]
+ 8000252:	9601      	str	r6, [sp, #4]
+ 8000254:	4b4c      	ldr	r3, [pc, #304]	; (8000388 <on_transfer_received+0x1f4>)
+ 8000256:	f000 ff32 	bl	80010be <canardRequestOrRespond>
+ 800025a:	b02b      	add	sp, #172	; 0xac
+ 800025c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800025e:	2b02      	cmp	r3, #2
+ 8000260:	d1fb      	bne.n	800025a <on_transfer_received+0xc6>
+ 8000262:	4b4a      	ldr	r3, [pc, #296]	; (800038c <on_transfer_received+0x1f8>)
+ 8000264:	8aca      	ldrh	r2, [r1, #22]
+ 8000266:	429a      	cmp	r2, r3
+ 8000268:	d1f7      	bne.n	800025a <on_transfer_received+0xc6>
+ 800026a:	ac09      	add	r4, sp, #36	; 0x24
+ 800026c:	0021      	movs	r1, r4
+ 800026e:	0030      	movs	r0, r6
+ 8000270:	f001 fd6f 	bl	8001d52 <uavcan_tunnel_Targetted_decode>
+ 8000274:	2800      	cmp	r0, #0
+ 8000276:	d1f0      	bne.n	800025a <on_transfer_received+0xc6>
+ 8000278:	7863      	ldrb	r3, [r4, #1]
+ 800027a:	2b7d      	cmp	r3, #125	; 0x7d
+ 800027c:	d1ed      	bne.n	800025a <on_transfer_received+0xc6>
+ 800027e:	2502      	movs	r5, #2
+ 8000280:	5765      	ldrsb	r5, [r4, r5]
+ 8000282:	1c6b      	adds	r3, r5, #1
+ 8000284:	d100      	bne.n	8000288 <on_transfer_received+0xf4>
+ 8000286:	3502      	adds	r5, #2
+ 8000288:	b2ed      	uxtb	r5, r5
+ 800028a:	3d01      	subs	r5, #1
+ 800028c:	b2eb      	uxtb	r3, r5
+ 800028e:	2b03      	cmp	r3, #3
+ 8000290:	d8e3      	bhi.n	800025a <on_transfer_received+0xc6>
+ 8000292:	22ce      	movs	r2, #206	; 0xce
+ 8000294:	0052      	lsls	r2, r2, #1
+ 8000296:	436a      	muls	r2, r5
+ 8000298:	7ef3      	ldrb	r3, [r6, #27]
+ 800029a:	9207      	str	r2, [sp, #28]
+ 800029c:	9907      	ldr	r1, [sp, #28]
+ 800029e:	4a3c      	ldr	r2, [pc, #240]	; (8000390 <on_transfer_received+0x1fc>)
+ 80002a0:	6867      	ldr	r7, [r4, #4]
+ 80002a2:	1856      	adds	r6, r2, r1
+ 80002a4:	7822      	ldrb	r2, [r4, #0]
+ 80002a6:	7433      	strb	r3, [r6, #16]
+ 80002a8:	7472      	strb	r2, [r6, #17]
+ 80002aa:	4a28      	ldr	r2, [pc, #160]	; (800034c <on_transfer_received+0x1b8>)
+ 80002ac:	6812      	ldr	r2, [r2, #0]
+ 80002ae:	60b2      	str	r2, [r6, #8]
+ 80002b0:	1e5a      	subs	r2, r3, #1
+ 80002b2:	4193      	sbcs	r3, r2
+ 80002b4:	74f3      	strb	r3, [r6, #19]
+ 80002b6:	2f00      	cmp	r7, #0
+ 80002b8:	d01a      	beq.n	80002f0 <on_transfer_received+0x15c>
+ 80002ba:	6873      	ldr	r3, [r6, #4]
+ 80002bc:	429f      	cmp	r7, r3
+ 80002be:	d017      	beq.n	80002f0 <on_transfer_received+0x15c>
+ 80002c0:	4b34      	ldr	r3, [pc, #208]	; (8000394 <on_transfer_received+0x200>)
+ 80002c2:	4a35      	ldr	r2, [pc, #212]	; (8000398 <on_transfer_received+0x204>)
+ 80002c4:	18fb      	adds	r3, r7, r3
+ 80002c6:	4293      	cmp	r3, r2
+ 80002c8:	d812      	bhi.n	80002f0 <on_transfer_received+0x15c>
+ 80002ca:	4b34      	ldr	r3, [pc, #208]	; (800039c <on_transfer_received+0x208>)
+ 80002cc:	0878      	lsrs	r0, r7, #1
+ 80002ce:	18c0      	adds	r0, r0, r3
+ 80002d0:	0039      	movs	r1, r7
+ 80002d2:	f001 fe89 	bl	8001fe8 <__udivsi3>
+ 80002d6:	9a07      	ldr	r2, [sp, #28]
+ 80002d8:	4b2d      	ldr	r3, [pc, #180]	; (8000390 <on_transfer_received+0x1fc>)
+ 80002da:	58d3      	ldr	r3, [r2, r3]
+ 80002dc:	2200      	movs	r2, #0
+ 80002de:	601a      	str	r2, [r3, #0]
+ 80002e0:	605a      	str	r2, [r3, #4]
+ 80002e2:	609a      	str	r2, [r3, #8]
+ 80002e4:	3a01      	subs	r2, #1
+ 80002e6:	60d8      	str	r0, [r3, #12]
+ 80002e8:	621a      	str	r2, [r3, #32]
+ 80002ea:	320e      	adds	r2, #14
+ 80002ec:	601a      	str	r2, [r3, #0]
+ 80002ee:	6077      	str	r7, [r6, #4]
+ 80002f0:	7a20      	ldrb	r0, [r4, #8]
+ 80002f2:	2800      	cmp	r0, #0
+ 80002f4:	d0b1      	beq.n	800025a <on_transfer_received+0xc6>
+ 80002f6:	23ce      	movs	r3, #206	; 0xce
+ 80002f8:	005b      	lsls	r3, r3, #1
+ 80002fa:	435d      	muls	r5, r3
+ 80002fc:	4b24      	ldr	r3, [pc, #144]	; (8000390 <on_transfer_received+0x1fc>)
+ 80002fe:	22ff      	movs	r2, #255	; 0xff
+ 8000300:	195d      	adds	r5, r3, r5
+ 8000302:	002b      	movs	r3, r5
+ 8000304:	3391      	adds	r3, #145	; 0x91
+ 8000306:	33ff      	adds	r3, #255	; 0xff
+ 8000308:	881b      	ldrh	r3, [r3, #0]
+ 800030a:	002e      	movs	r6, r5
+ 800030c:	9307      	str	r3, [sp, #28]
+ 800030e:	4694      	mov	ip, r2
+ 8000310:	2300      	movs	r3, #0
+ 8000312:	368f      	adds	r6, #143	; 0x8f
+ 8000314:	36ff      	adds	r6, #255	; 0xff
+ 8000316:	4667      	mov	r7, ip
+ 8000318:	8832      	ldrh	r2, [r6, #0]
+ 800031a:	1c51      	adds	r1, r2, #1
+ 800031c:	4039      	ands	r1, r7
+ 800031e:	9f07      	ldr	r7, [sp, #28]
+ 8000320:	42b9      	cmp	r1, r7
+ 8000322:	d106      	bne.n	8000332 <on_transfer_received+0x19e>
+ 8000324:	3599      	adds	r5, #153	; 0x99
+ 8000326:	35ff      	adds	r5, #255	; 0xff
+ 8000328:	682a      	ldr	r2, [r5, #0]
+ 800032a:	1ac3      	subs	r3, r0, r3
+ 800032c:	18d3      	adds	r3, r2, r3
+ 800032e:	602b      	str	r3, [r5, #0]
+ 8000330:	e793      	b.n	800025a <on_transfer_received+0xc6>
+ 8000332:	7a67      	ldrb	r7, [r4, #9]
+ 8000334:	18aa      	adds	r2, r5, r2
+ 8000336:	3301      	adds	r3, #1
+ 8000338:	328d      	adds	r2, #141	; 0x8d
+ 800033a:	b2db      	uxtb	r3, r3
+ 800033c:	7017      	strb	r7, [r2, #0]
+ 800033e:	8031      	strh	r1, [r6, #0]
+ 8000340:	3401      	adds	r4, #1
+ 8000342:	4298      	cmp	r0, r3
+ 8000344:	d1e7      	bne.n	8000316 <on_transfer_received+0x182>
+ 8000346:	e788      	b.n	800025a <on_transfer_received+0xc6>
+ 8000348:	20002030 	.word	0x20002030
+ 800034c:	20001eac 	.word	0x20001eac
+ 8000350:	1ffff7ac 	.word	0x1ffff7ac
+ 8000354:	000028a6 	.word	0x000028a6
+ 8000358:	1ffff7b8 	.word	0x1ffff7b8
+ 800035c:	1ffff7b0 	.word	0x1ffff7b0
+ 8000360:	08002360 	.word	0x08002360
+ 8000364:	20002163 	.word	0x20002163
+ 8000368:	1ffff7ad 	.word	0x1ffff7ad
+ 800036c:	1ffff7b1 	.word	0x1ffff7b1
+ 8000370:	1ffff7ae 	.word	0x1ffff7ae
+ 8000374:	1ffff7b2 	.word	0x1ffff7b2
+ 8000378:	1ffff7af 	.word	0x1ffff7af
+ 800037c:	1ffff7b3 	.word	0x1ffff7b3
+ 8000380:	20001eb2 	.word	0x20001eb2
+ 8000384:	21c46a9e 	.word	0x21c46a9e
+ 8000388:	ee468a81 	.word	0xee468a81
+ 800038c:	00000bb9 	.word	0x00000bb9
+ 8000390:	20000000 	.word	0x20000000
+ 8000394:	fffffb50 	.word	0xfffffb50
+ 8000398:	002dc210 	.word	0x002dc210
+ 800039c:	02dc6c00 	.word	0x02dc6c00
+
+080003a0 <Reset_Handler>:
+ 80003a0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80003a2:	4ab8      	ldr	r2, [pc, #736]	; (8000684 <Reset_Handler+0x2e4>)
+ 80003a4:	4bb8      	ldr	r3, [pc, #736]	; (8000688 <Reset_Handler+0x2e8>)
+ 80003a6:	49b9      	ldr	r1, [pc, #740]	; (800068c <Reset_Handler+0x2ec>)
+ 80003a8:	b093      	sub	sp, #76	; 0x4c
+ 80003aa:	428b      	cmp	r3, r1
+ 80003ac:	d373      	bcc.n	8000496 <Reset_Handler+0xf6>
+ 80003ae:	2100      	movs	r1, #0
+ 80003b0:	4bb7      	ldr	r3, [pc, #732]	; (8000690 <Reset_Handler+0x2f0>)
+ 80003b2:	4ab8      	ldr	r2, [pc, #736]	; (8000694 <Reset_Handler+0x2f4>)
+ 80003b4:	4293      	cmp	r3, r2
+ 80003b6:	d371      	bcc.n	800049c <Reset_Handler+0xfc>
+ 80003b8:	23c0      	movs	r3, #192	; 0xc0
+ 80003ba:	2603      	movs	r6, #3
+ 80003bc:	2501      	movs	r5, #1
+ 80003be:	4ab6      	ldr	r2, [pc, #728]	; (8000698 <Reset_Handler+0x2f8>)
+ 80003c0:	02db      	lsls	r3, r3, #11
+ 80003c2:	6811      	ldr	r1, [r2, #0]
+ 80003c4:	2404      	movs	r4, #4
+ 80003c6:	430b      	orrs	r3, r1
+ 80003c8:	6013      	str	r3, [r2, #0]
+ 80003ca:	220c      	movs	r2, #12
+ 80003cc:	2102      	movs	r1, #2
+ 80003ce:	4fb3      	ldr	r7, [pc, #716]	; (800069c <Reset_Handler+0x2fc>)
+ 80003d0:	2090      	movs	r0, #144	; 0x90
+ 80003d2:	683b      	ldr	r3, [r7, #0]
+ 80003d4:	05c0      	lsls	r0, r0, #23
+ 80003d6:	43b3      	bics	r3, r6
+ 80003d8:	432b      	orrs	r3, r5
+ 80003da:	603b      	str	r3, [r7, #0]
+ 80003dc:	687b      	ldr	r3, [r7, #4]
+ 80003de:	43ab      	bics	r3, r5
+ 80003e0:	607b      	str	r3, [r7, #4]
+ 80003e2:	68bb      	ldr	r3, [r7, #8]
+ 80003e4:	4333      	orrs	r3, r6
+ 80003e6:	60bb      	str	r3, [r7, #8]
+ 80003e8:	68fb      	ldr	r3, [r7, #12]
+ 80003ea:	43b3      	bics	r3, r6
+ 80003ec:	60fb      	str	r3, [r7, #12]
+ 80003ee:	683b      	ldr	r3, [r7, #0]
+ 80003f0:	4393      	bics	r3, r2
+ 80003f2:	4323      	orrs	r3, r4
+ 80003f4:	603b      	str	r3, [r7, #0]
+ 80003f6:	687b      	ldr	r3, [r7, #4]
+ 80003f8:	438b      	bics	r3, r1
+ 80003fa:	607b      	str	r3, [r7, #4]
+ 80003fc:	68bb      	ldr	r3, [r7, #8]
+ 80003fe:	3107      	adds	r1, #7
+ 8000400:	4313      	orrs	r3, r2
+ 8000402:	60bb      	str	r3, [r7, #8]
+ 8000404:	68fb      	ldr	r3, [r7, #12]
+ 8000406:	4393      	bics	r3, r2
+ 8000408:	60fb      	str	r3, [r7, #12]
+ 800040a:	697b      	ldr	r3, [r7, #20]
+ 800040c:	002a      	movs	r2, r5
+ 800040e:	43b3      	bics	r3, r6
+ 8000410:	617b      	str	r3, [r7, #20]
+ 8000412:	f7ff fe25 	bl	8000060 <gpio_config_af>
+ 8000416:	2090      	movs	r0, #144	; 0x90
+ 8000418:	002a      	movs	r2, r5
+ 800041a:	210a      	movs	r1, #10
+ 800041c:	05c0      	lsls	r0, r0, #23
+ 800041e:	f7ff fe1f 	bl	8000060 <gpio_config_af>
+ 8000422:	2090      	movs	r0, #144	; 0x90
+ 8000424:	002a      	movs	r2, r5
+ 8000426:	2102      	movs	r1, #2
+ 8000428:	05c0      	lsls	r0, r0, #23
+ 800042a:	f7ff fe19 	bl	8000060 <gpio_config_af>
+ 800042e:	2090      	movs	r0, #144	; 0x90
+ 8000430:	002a      	movs	r2, r5
+ 8000432:	0031      	movs	r1, r6
+ 8000434:	05c0      	lsls	r0, r0, #23
+ 8000436:	f7ff fe13 	bl	8000060 <gpio_config_af>
+ 800043a:	0022      	movs	r2, r4
+ 800043c:	210a      	movs	r1, #10
+ 800043e:	0038      	movs	r0, r7
+ 8000440:	f7ff fe0e 	bl	8000060 <gpio_config_af>
+ 8000444:	0022      	movs	r2, r4
+ 8000446:	210b      	movs	r1, #11
+ 8000448:	0038      	movs	r0, r7
+ 800044a:	f7ff fe09 	bl	8000060 <gpio_config_af>
+ 800044e:	2090      	movs	r0, #144	; 0x90
+ 8000450:	0022      	movs	r2, r4
+ 8000452:	2100      	movs	r1, #0
+ 8000454:	05c0      	lsls	r0, r0, #23
+ 8000456:	f7ff fe03 	bl	8000060 <gpio_config_af>
+ 800045a:	2090      	movs	r0, #144	; 0x90
+ 800045c:	0022      	movs	r2, r4
+ 800045e:	0029      	movs	r1, r5
+ 8000460:	05c0      	lsls	r0, r0, #23
+ 8000462:	f7ff fdfd 	bl	8000060 <gpio_config_af>
+ 8000466:	0022      	movs	r2, r4
+ 8000468:	2108      	movs	r1, #8
+ 800046a:	0038      	movs	r0, r7
+ 800046c:	f7ff fdf8 	bl	8000060 <gpio_config_af>
+ 8000470:	0022      	movs	r2, r4
+ 8000472:	2109      	movs	r1, #9
+ 8000474:	0038      	movs	r0, r7
+ 8000476:	f7ff fdf3 	bl	8000060 <gpio_config_af>
+ 800047a:	68fb      	ldr	r3, [r7, #12]
+ 800047c:	4a88      	ldr	r2, [pc, #544]	; (80006a0 <Reset_Handler+0x300>)
+ 800047e:	4013      	ands	r3, r2
+ 8000480:	2280      	movs	r2, #128	; 0x80
+ 8000482:	0252      	lsls	r2, r2, #9
+ 8000484:	4313      	orrs	r3, r2
+ 8000486:	60fb      	str	r3, [r7, #12]
+ 8000488:	4b86      	ldr	r3, [pc, #536]	; (80006a4 <Reset_Handler+0x304>)
+ 800048a:	6819      	ldr	r1, [r3, #0]
+ 800048c:	4b86      	ldr	r3, [pc, #536]	; (80006a8 <Reset_Handler+0x308>)
+ 800048e:	4299      	cmp	r1, r3
+ 8000490:	d006      	beq.n	80004a0 <Reset_Handler+0x100>
+ 8000492:	f7ff fddd 	bl	8000050 <stop_with_led_off>
+ 8000496:	ca01      	ldmia	r2!, {r0}
+ 8000498:	c301      	stmia	r3!, {r0}
+ 800049a:	e786      	b.n	80003aa <Reset_Handler+0xa>
+ 800049c:	c302      	stmia	r3!, {r1}
+ 800049e:	e789      	b.n	80003b4 <Reset_Handler+0x14>
+ 80004a0:	4b82      	ldr	r3, [pc, #520]	; (80006ac <Reset_Handler+0x30c>)
+ 80004a2:	681b      	ldr	r3, [r3, #0]
+ 80004a4:	2b00      	cmp	r3, #0
+ 80004a6:	d1f4      	bne.n	8000492 <Reset_Handler+0xf2>
+ 80004a8:	4b81      	ldr	r3, [pc, #516]	; (80006b0 <Reset_Handler+0x310>)
+ 80004aa:	6819      	ldr	r1, [r3, #0]
+ 80004ac:	430a      	orrs	r2, r1
+ 80004ae:	2180      	movs	r1, #128	; 0x80
+ 80004b0:	601a      	str	r2, [r3, #0]
+ 80004b2:	4a80      	ldr	r2, [pc, #512]	; (80006b4 <Reset_Handler+0x314>)
+ 80004b4:	0289      	lsls	r1, r1, #10
+ 80004b6:	6818      	ldr	r0, [r3, #0]
+ 80004b8:	4208      	tst	r0, r1
+ 80004ba:	d000      	beq.n	80004be <Reset_Handler+0x11e>
+ 80004bc:	e21f      	b.n	80008fe <Reset_Handler+0x55e>
+ 80004be:	3a01      	subs	r2, #1
+ 80004c0:	2a00      	cmp	r2, #0
+ 80004c2:	d1f8      	bne.n	80004b6 <Reset_Handler+0x116>
+ 80004c4:	e7e5      	b.n	8000492 <Reset_Handler+0xf2>
+ 80004c6:	0035      	movs	r5, r6
+ 80004c8:	2e02      	cmp	r6, #2
+ 80004ca:	d000      	beq.n	80004ce <Reset_Handler+0x12e>
+ 80004cc:	e168      	b.n	80007a0 <Reset_Handler+0x400>
+ 80004ce:	2202      	movs	r2, #2
+ 80004d0:	697b      	ldr	r3, [r7, #20]
+ 80004d2:	4393      	bics	r3, r2
+ 80004d4:	4a78      	ldr	r2, [pc, #480]	; (80006b8 <Reset_Handler+0x318>)
+ 80004d6:	617b      	str	r3, [r7, #20]
+ 80004d8:	6811      	ldr	r1, [r2, #0]
+ 80004da:	6813      	ldr	r3, [r2, #0]
+ 80004dc:	1a5b      	subs	r3, r3, r1
+ 80004de:	2b63      	cmp	r3, #99	; 0x63
+ 80004e0:	d9fb      	bls.n	80004da <Reset_Handler+0x13a>
+ 80004e2:	e14a      	b.n	800077a <Reset_Handler+0x3da>
+ 80004e4:	9d09      	ldr	r5, [sp, #36]	; 0x24
+ 80004e6:	002e      	movs	r6, r5
+ 80004e8:	e190      	b.n	800080c <Reset_Handler+0x46c>
+ 80004ea:	22fa      	movs	r2, #250	; 0xfa
+ 80004ec:	4b72      	ldr	r3, [pc, #456]	; (80006b8 <Reset_Handler+0x318>)
+ 80004ee:	0092      	lsls	r2, r2, #2
+ 80004f0:	6818      	ldr	r0, [r3, #0]
+ 80004f2:	2100      	movs	r1, #0
+ 80004f4:	2300      	movs	r3, #0
+ 80004f6:	f001 ff05 	bl	8002304 <__aeabi_lmul>
+ 80004fa:	3c01      	subs	r4, #1
+ 80004fc:	0002      	movs	r2, r0
+ 80004fe:	000b      	movs	r3, r1
+ 8000500:	486e      	ldr	r0, [pc, #440]	; (80006bc <Reset_Handler+0x31c>)
+ 8000502:	a90e      	add	r1, sp, #56	; 0x38
+ 8000504:	b2e4      	uxtb	r4, r4
+ 8000506:	f000 ffdf 	bl	80014c8 <canardHandleRxFrame>
+ 800050a:	2c00      	cmp	r4, #0
+ 800050c:	d000      	beq.n	8000510 <Reset_Handler+0x170>
+ 800050e:	e1aa      	b.n	8000866 <Reset_Handler+0x4c6>
+ 8000510:	e1af      	b.n	8000872 <Reset_Handler+0x4d2>
+ 8000512:	6a5b      	ldr	r3, [r3, #36]	; 0x24
+ 8000514:	930b      	str	r3, [sp, #44]	; 0x2c
+ 8000516:	7ce3      	ldrb	r3, [r4, #19]
+ 8000518:	2b00      	cmp	r3, #0
+ 800051a:	d017      	beq.n	800054c <Reset_Handler+0x1ac>
+ 800051c:	2a77      	cmp	r2, #119	; 0x77
+ 800051e:	d902      	bls.n	8000526 <Reset_Handler+0x186>
+ 8000520:	0020      	movs	r0, r4
+ 8000522:	f7ff fdf9 	bl	8000118 <publish_uart_packet.part.0.isra.0>
+ 8000526:	9b07      	ldr	r3, [sp, #28]
+ 8000528:	781a      	ldrb	r2, [r3, #0]
+ 800052a:	2a77      	cmp	r2, #119	; 0x77
+ 800052c:	d900      	bls.n	8000530 <Reset_Handler+0x190>
+ 800052e:	e0a3      	b.n	8000678 <Reset_Handler+0x2d8>
+ 8000530:	9907      	ldr	r1, [sp, #28]
+ 8000532:	1c53      	adds	r3, r2, #1
+ 8000534:	700b      	strb	r3, [r1, #0]
+ 8000536:	21ce      	movs	r1, #206	; 0xce
+ 8000538:	9b08      	ldr	r3, [sp, #32]
+ 800053a:	0049      	lsls	r1, r1, #1
+ 800053c:	4359      	muls	r1, r3
+ 800053e:	4b60      	ldr	r3, [pc, #384]	; (80006c0 <Reset_Handler+0x320>)
+ 8000540:	185b      	adds	r3, r3, r1
+ 8000542:	189b      	adds	r3, r3, r2
+ 8000544:	9a0b      	ldr	r2, [sp, #44]	; 0x2c
+ 8000546:	751a      	strb	r2, [r3, #20]
+ 8000548:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 800054a:	60e3      	str	r3, [r4, #12]
+ 800054c:	2020      	movs	r0, #32
+ 800054e:	6823      	ldr	r3, [r4, #0]
+ 8000550:	9a07      	ldr	r2, [sp, #28]
+ 8000552:	69d9      	ldr	r1, [r3, #28]
+ 8000554:	7812      	ldrb	r2, [r2, #0]
+ 8000556:	4201      	tst	r1, r0
+ 8000558:	d003      	beq.n	8000562 <Reset_Handler+0x1c2>
+ 800055a:	3d01      	subs	r5, #1
+ 800055c:	b2ed      	uxtb	r5, r5
+ 800055e:	2d00      	cmp	r5, #0
+ 8000560:	d1d7      	bne.n	8000512 <Reset_Handler+0x172>
+ 8000562:	69d8      	ldr	r0, [r3, #28]
+ 8000564:	210f      	movs	r1, #15
+ 8000566:	0005      	movs	r5, r0
+ 8000568:	400d      	ands	r5, r1
+ 800056a:	4208      	tst	r0, r1
+ 800056c:	d000      	beq.n	8000570 <Reset_Handler+0x1d0>
+ 800056e:	621d      	str	r5, [r3, #32]
+ 8000570:	2a77      	cmp	r2, #119	; 0x77
+ 8000572:	d806      	bhi.n	8000582 <Reset_Handler+0x1e2>
+ 8000574:	2a00      	cmp	r2, #0
+ 8000576:	d00c      	beq.n	8000592 <Reset_Handler+0x1f2>
+ 8000578:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 800057a:	68e1      	ldr	r1, [r4, #12]
+ 800057c:	1a5b      	subs	r3, r3, r1
+ 800057e:	2b01      	cmp	r3, #1
+ 8000580:	d907      	bls.n	8000592 <Reset_Handler+0x1f2>
+ 8000582:	7ce3      	ldrb	r3, [r4, #19]
+ 8000584:	2b00      	cmp	r3, #0
+ 8000586:	d004      	beq.n	8000592 <Reset_Handler+0x1f2>
+ 8000588:	2a00      	cmp	r2, #0
+ 800058a:	d002      	beq.n	8000592 <Reset_Handler+0x1f2>
+ 800058c:	0020      	movs	r0, r4
+ 800058e:	f7ff fdc3 	bl	8000118 <publish_uart_packet.part.0.isra.0>
+ 8000592:	9b08      	ldr	r3, [sp, #32]
+ 8000594:	349d      	adds	r4, #157	; 0x9d
+ 8000596:	3301      	adds	r3, #1
+ 8000598:	9308      	str	r3, [sp, #32]
+ 800059a:	9b07      	ldr	r3, [sp, #28]
+ 800059c:	369d      	adds	r6, #157	; 0x9d
+ 800059e:	339d      	adds	r3, #157	; 0x9d
+ 80005a0:	33ff      	adds	r3, #255	; 0xff
+ 80005a2:	9307      	str	r3, [sp, #28]
+ 80005a4:	9b08      	ldr	r3, [sp, #32]
+ 80005a6:	34ff      	adds	r4, #255	; 0xff
+ 80005a8:	36ff      	adds	r6, #255	; 0xff
+ 80005aa:	2b04      	cmp	r3, #4
+ 80005ac:	d000      	beq.n	80005b0 <Reset_Handler+0x210>
+ 80005ae:	e168      	b.n	8000882 <Reset_Handler+0x4e2>
+ 80005b0:	4d41      	ldr	r5, [pc, #260]	; (80006b8 <Reset_Handler+0x318>)
+ 80005b2:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 80005b4:	682b      	ldr	r3, [r5, #0]
+ 80005b6:	9307      	str	r3, [sp, #28]
+ 80005b8:	1a9b      	subs	r3, r3, r2
+ 80005ba:	22fa      	movs	r2, #250	; 0xfa
+ 80005bc:	0092      	lsls	r2, r2, #2
+ 80005be:	4293      	cmp	r3, r2
+ 80005c0:	d334      	bcc.n	800062c <Reset_Handler+0x28c>
+ 80005c2:	2600      	movs	r6, #0
+ 80005c4:	22fa      	movs	r2, #250	; 0xfa
+ 80005c6:	6828      	ldr	r0, [r5, #0]
+ 80005c8:	2300      	movs	r3, #0
+ 80005ca:	0092      	lsls	r2, r2, #2
+ 80005cc:	0031      	movs	r1, r6
+ 80005ce:	f001 fe99 	bl	8002304 <__aeabi_lmul>
+ 80005d2:	0002      	movs	r2, r0
+ 80005d4:	000b      	movs	r3, r1
+ 80005d6:	4839      	ldr	r0, [pc, #228]	; (80006bc <Reset_Handler+0x31c>)
+ 80005d8:	f000 fdb2 	bl	8001140 <canardCleanupStaleTransfers>
+ 80005dc:	2302      	movs	r3, #2
+ 80005de:	697a      	ldr	r2, [r7, #20]
+ 80005e0:	ac0e      	add	r4, sp, #56	; 0x38
+ 80005e2:	4053      	eors	r3, r2
+ 80005e4:	617b      	str	r3, [r7, #20]
+ 80005e6:	220c      	movs	r2, #12
+ 80005e8:	0031      	movs	r1, r6
+ 80005ea:	0020      	movs	r0, r4
+ 80005ec:	f000 f9f0 	bl	80009d0 <memset>
+ 80005f0:	21fa      	movs	r1, #250	; 0xfa
+ 80005f2:	6828      	ldr	r0, [r5, #0]
+ 80005f4:	0089      	lsls	r1, r1, #2
+ 80005f6:	f001 fcf7 	bl	8001fe8 <__udivsi3>
+ 80005fa:	ad0c      	add	r5, sp, #48	; 0x30
+ 80005fc:	900e      	str	r0, [sp, #56]	; 0x38
+ 80005fe:	2201      	movs	r2, #1
+ 8000600:	0029      	movs	r1, r5
+ 8000602:	0020      	movs	r0, r4
+ 8000604:	80a6      	strh	r6, [r4, #4]
+ 8000606:	f001 fc0c 	bl	8001e22 <uavcan_protocol_NodeStatus_encode>
+ 800060a:	2318      	movs	r3, #24
+ 800060c:	9302      	str	r3, [sp, #8]
+ 800060e:	4b2d      	ldr	r3, [pc, #180]	; (80006c4 <Reset_Handler+0x324>)
+ 8000610:	b280      	uxth	r0, r0
+ 8000612:	9301      	str	r3, [sp, #4]
+ 8000614:	2356      	movs	r3, #86	; 0x56
+ 8000616:	33ff      	adds	r3, #255	; 0xff
+ 8000618:	9004      	str	r0, [sp, #16]
+ 800061a:	9300      	str	r3, [sp, #0]
+ 800061c:	4a2a      	ldr	r2, [pc, #168]	; (80006c8 <Reset_Handler+0x328>)
+ 800061e:	4b2b      	ldr	r3, [pc, #172]	; (80006cc <Reset_Handler+0x32c>)
+ 8000620:	4826      	ldr	r0, [pc, #152]	; (80006bc <Reset_Handler+0x31c>)
+ 8000622:	9503      	str	r5, [sp, #12]
+ 8000624:	f000 fcec 	bl	8001000 <canardBroadcast>
+ 8000628:	9b07      	ldr	r3, [sp, #28]
+ 800062a:	930a      	str	r3, [sp, #40]	; 0x28
+ 800062c:	f7ff fd62 	bl	80000f4 <can_process_tx>
+ 8000630:	4b21      	ldr	r3, [pc, #132]	; (80006b8 <Reset_Handler+0x318>)
+ 8000632:	4827      	ldr	r0, [pc, #156]	; (80006d0 <Reset_Handler+0x330>)
+ 8000634:	681b      	ldr	r3, [r3, #0]
+ 8000636:	4927      	ldr	r1, [pc, #156]	; (80006d4 <Reset_Handler+0x334>)
+ 8000638:	6802      	ldr	r2, [r0, #0]
+ 800063a:	420a      	tst	r2, r1
+ 800063c:	d007      	beq.n	800064e <Reset_Handler+0x2ae>
+ 800063e:	2101      	movs	r1, #1
+ 8000640:	697c      	ldr	r4, [r7, #20]
+ 8000642:	4321      	orrs	r1, r4
+ 8000644:	6179      	str	r1, [r7, #20]
+ 8000646:	0019      	movs	r1, r3
+ 8000648:	4c23      	ldr	r4, [pc, #140]	; (80006d8 <Reset_Handler+0x338>)
+ 800064a:	3164      	adds	r1, #100	; 0x64
+ 800064c:	6021      	str	r1, [r4, #0]
+ 800064e:	0014      	movs	r4, r2
+ 8000650:	4922      	ldr	r1, [pc, #136]	; (80006dc <Reset_Handler+0x33c>)
+ 8000652:	400c      	ands	r4, r1
+ 8000654:	420a      	tst	r2, r1
+ 8000656:	d000      	beq.n	800065a <Reset_Handler+0x2ba>
+ 8000658:	6004      	str	r4, [r0, #0]
+ 800065a:	2101      	movs	r1, #1
+ 800065c:	4a0f      	ldr	r2, [pc, #60]	; (800069c <Reset_Handler+0x2fc>)
+ 800065e:	6950      	ldr	r0, [r2, #20]
+ 8000660:	4208      	tst	r0, r1
+ 8000662:	d100      	bne.n	8000666 <Reset_Handler+0x2c6>
+ 8000664:	e0fe      	b.n	8000864 <Reset_Handler+0x4c4>
+ 8000666:	481c      	ldr	r0, [pc, #112]	; (80006d8 <Reset_Handler+0x338>)
+ 8000668:	6800      	ldr	r0, [r0, #0]
+ 800066a:	1a1b      	subs	r3, r3, r0
+ 800066c:	d500      	bpl.n	8000670 <Reset_Handler+0x2d0>
+ 800066e:	e0f9      	b.n	8000864 <Reset_Handler+0x4c4>
+ 8000670:	6953      	ldr	r3, [r2, #20]
+ 8000672:	438b      	bics	r3, r1
+ 8000674:	6153      	str	r3, [r2, #20]
+ 8000676:	e0f5      	b.n	8000864 <Reset_Handler+0x4c4>
+ 8000678:	1db2      	adds	r2, r6, #6
+ 800067a:	6813      	ldr	r3, [r2, #0]
+ 800067c:	3301      	adds	r3, #1
+ 800067e:	6013      	str	r3, [r2, #0]
+ 8000680:	e764      	b.n	800054c <Reset_Handler+0x1ac>
+ 8000682:	46c0      	nop			; (mov r8, r8)
+ 8000684:	08002378 	.word	0x08002378
+ 8000688:	20000000 	.word	0x20000000
+ 800068c:	20000674 	.word	0x20000674
+ 8000690:	20000678 	.word	0x20000678
+ 8000694:	200021d0 	.word	0x200021d0
+ 8000698:	40021014 	.word	0x40021014
+ 800069c:	48000400 	.word	0x48000400
+ 80006a0:	fffcffff 	.word	0xfffcffff
+ 80006a4:	20000670 	.word	0x20000670
+ 80006a8:	13579bdf 	.word	0x13579bdf
+ 80006ac:	200021b8 	.word	0x200021b8
+ 80006b0:	40021000 	.word	0x40021000
+ 80006b4:	000f4240 	.word	0x000f4240
+ 80006b8:	20001eac 	.word	0x20001eac
+ 80006bc:	20000678 	.word	0x20000678
+ 80006c0:	20000000 	.word	0x20000000
+ 80006c4:	20001eb0 	.word	0x20001eb0
+ 80006c8:	c1a7c6f1 	.word	0xc1a7c6f1
+ 80006cc:	0f0868d0 	.word	0x0f0868d0
+ 80006d0:	40006408 	.word	0x40006408
+ 80006d4:	00020202 	.word	0x00020202
+ 80006d8:	20001ea8 	.word	0x20001ea8
+ 80006dc:	00010101 	.word	0x00010101
+ 80006e0:	4b96      	ldr	r3, [pc, #600]	; (800093c <Reset_Handler+0x59c>)
+ 80006e2:	4a97      	ldr	r2, [pc, #604]	; (8000940 <Reset_Handler+0x5a0>)
+ 80006e4:	2000      	movs	r0, #0
+ 80006e6:	601a      	str	r2, [r3, #0]
+ 80006e8:	2207      	movs	r2, #7
+ 80006ea:	2180      	movs	r1, #128	; 0x80
+ 80006ec:	4b95      	ldr	r3, [pc, #596]	; (8000944 <Reset_Handler+0x5a4>)
+ 80006ee:	01c9      	lsls	r1, r1, #7
+ 80006f0:	6018      	str	r0, [r3, #0]
+ 80006f2:	4b95      	ldr	r3, [pc, #596]	; (8000948 <Reset_Handler+0x5a8>)
+ 80006f4:	4c95      	ldr	r4, [pc, #596]	; (800094c <Reset_Handler+0x5ac>)
+ 80006f6:	601a      	str	r2, [r3, #0]
+ 80006f8:	4a95      	ldr	r2, [pc, #596]	; (8000950 <Reset_Handler+0x5b0>)
+ 80006fa:	2501      	movs	r5, #1
+ 80006fc:	6813      	ldr	r3, [r2, #0]
+ 80006fe:	426d      	negs	r5, r5
+ 8000700:	430b      	orrs	r3, r1
+ 8000702:	6013      	str	r3, [r2, #0]
+ 8000704:	23e0      	movs	r3, #224	; 0xe0
+ 8000706:	6822      	ldr	r2, [r4, #0]
+ 8000708:	031b      	lsls	r3, r3, #12
+ 800070a:	431a      	orrs	r2, r3
+ 800070c:	6022      	str	r2, [r4, #0]
+ 800070e:	4a91      	ldr	r2, [pc, #580]	; (8000954 <Reset_Handler+0x5b4>)
+ 8000710:	6814      	ldr	r4, [r2, #0]
+ 8000712:	4321      	orrs	r1, r4
+ 8000714:	6011      	str	r1, [r2, #0]
+ 8000716:	6811      	ldr	r1, [r2, #0]
+ 8000718:	4c8f      	ldr	r4, [pc, #572]	; (8000958 <Reset_Handler+0x5b8>)
+ 800071a:	4021      	ands	r1, r4
+ 800071c:	4c8f      	ldr	r4, [pc, #572]	; (800095c <Reset_Handler+0x5bc>)
+ 800071e:	6011      	str	r1, [r2, #0]
+ 8000720:	6822      	ldr	r2, [r4, #0]
+ 8000722:	498f      	ldr	r1, [pc, #572]	; (8000960 <Reset_Handler+0x5c0>)
+ 8000724:	4313      	orrs	r3, r2
+ 8000726:	6023      	str	r3, [r4, #0]
+ 8000728:	6823      	ldr	r3, [r4, #0]
+ 800072a:	4a8e      	ldr	r2, [pc, #568]	; (8000964 <Reset_Handler+0x5c4>)
+ 800072c:	4013      	ands	r3, r2
+ 800072e:	220d      	movs	r2, #13
+ 8000730:	6023      	str	r3, [r4, #0]
+ 8000732:	4694      	mov	ip, r2
+ 8000734:	2304      	movs	r3, #4
+ 8000736:	26a2      	movs	r6, #162	; 0xa2
+ 8000738:	680a      	ldr	r2, [r1, #0]
+ 800073a:	36ff      	adds	r6, #255	; 0xff
+ 800073c:	6010      	str	r0, [r2, #0]
+ 800073e:	6050      	str	r0, [r2, #4]
+ 8000740:	6090      	str	r0, [r2, #8]
+ 8000742:	60d6      	str	r6, [r2, #12]
+ 8000744:	4666      	mov	r6, ip
+ 8000746:	6215      	str	r5, [r2, #32]
+ 8000748:	6016      	str	r6, [r2, #0]
+ 800074a:	22e1      	movs	r2, #225	; 0xe1
+ 800074c:	3b01      	subs	r3, #1
+ 800074e:	0252      	lsls	r2, r2, #9
+ 8000750:	604a      	str	r2, [r1, #4]
+ 8000752:	b2db      	uxtb	r3, r3
+ 8000754:	319d      	adds	r1, #157	; 0x9d
+ 8000756:	31ff      	adds	r1, #255	; 0xff
+ 8000758:	2b00      	cmp	r3, #0
+ 800075a:	d1ec      	bne.n	8000736 <Reset_Handler+0x396>
+ 800075c:	22c0      	movs	r2, #192	; 0xc0
+ 800075e:	4d82      	ldr	r5, [pc, #520]	; (8000968 <Reset_Handler+0x5c8>)
+ 8000760:	9301      	str	r3, [sp, #4]
+ 8000762:	4b82      	ldr	r3, [pc, #520]	; (800096c <Reset_Handler+0x5cc>)
+ 8000764:	0028      	movs	r0, r5
+ 8000766:	4982      	ldr	r1, [pc, #520]	; (8000970 <Reset_Handler+0x5d0>)
+ 8000768:	9300      	str	r3, [sp, #0]
+ 800076a:	0152      	lsls	r2, r2, #5
+ 800076c:	4b81      	ldr	r3, [pc, #516]	; (8000974 <Reset_Handler+0x5d4>)
+ 800076e:	f000 fbc7 	bl	8000f00 <canardInit>
+ 8000772:	217d      	movs	r1, #125	; 0x7d
+ 8000774:	0028      	movs	r0, r5
+ 8000776:	f000 fbf5 	bl	8000f64 <canardSetLocalNodeID>
+ 800077a:	2180      	movs	r1, #128	; 0x80
+ 800077c:	4a73      	ldr	r2, [pc, #460]	; (800094c <Reset_Handler+0x5ac>)
+ 800077e:	0489      	lsls	r1, r1, #18
+ 8000780:	6813      	ldr	r3, [r2, #0]
+ 8000782:	a80e      	add	r0, sp, #56	; 0x38
+ 8000784:	430b      	orrs	r3, r1
+ 8000786:	6013      	str	r3, [r2, #0]
+ 8000788:	6823      	ldr	r3, [r4, #0]
+ 800078a:	4a7b      	ldr	r2, [pc, #492]	; (8000978 <Reset_Handler+0x5d8>)
+ 800078c:	430b      	orrs	r3, r1
+ 800078e:	6023      	str	r3, [r4, #0]
+ 8000790:	6823      	ldr	r3, [r4, #0]
+ 8000792:	2100      	movs	r1, #0
+ 8000794:	4013      	ands	r3, r2
+ 8000796:	6023      	str	r3, [r4, #0]
+ 8000798:	2206      	movs	r2, #6
+ 800079a:	f000 f919 	bl	80009d0 <memset>
+ 800079e:	250a      	movs	r5, #10
+ 80007a0:	1e6e      	subs	r6, r5, #1
+ 80007a2:	b2f3      	uxtb	r3, r6
+ 80007a4:	0029      	movs	r1, r5
+ 80007a6:	2030      	movs	r0, #48	; 0x30
+ 80007a8:	9308      	str	r3, [sp, #32]
+ 80007aa:	f001 fca3 	bl	80020f4 <__aeabi_uidivmod>
+ 80007ae:	9109      	str	r1, [sp, #36]	; 0x24
+ 80007b0:	2900      	cmp	r1, #0
+ 80007b2:	d000      	beq.n	80007b6 <Reset_Handler+0x416>
+ 80007b4:	e687      	b.n	80004c6 <Reset_Handler+0x126>
+ 80007b6:	0029      	movs	r1, r5
+ 80007b8:	2030      	movs	r0, #48	; 0x30
+ 80007ba:	f001 fc15 	bl	8001fe8 <__udivsi3>
+ 80007be:	2607      	movs	r6, #7
+ 80007c0:	900a      	str	r0, [sp, #40]	; 0x28
+ 80007c2:	20fa      	movs	r0, #250	; 0xfa
+ 80007c4:	9b08      	ldr	r3, [sp, #32]
+ 80007c6:	0080      	lsls	r0, r0, #2
+ 80007c8:	435e      	muls	r6, r3
+ 80007ca:	1cf1      	adds	r1, r6, #3
+ 80007cc:	10c9      	asrs	r1, r1, #3
+ 80007ce:	b2cd      	uxtb	r5, r1
+ 80007d0:	1b5b      	subs	r3, r3, r5
+ 80007d2:	b2db      	uxtb	r3, r3
+ 80007d4:	3101      	adds	r1, #1
+ 80007d6:	4348      	muls	r0, r1
+ 80007d8:	1859      	adds	r1, r3, r1
+ 80007da:	9307      	str	r3, [sp, #28]
+ 80007dc:	f001 fc04 	bl	8001fe8 <__udivsi3>
+ 80007e0:	23e1      	movs	r3, #225	; 0xe1
+ 80007e2:	009b      	lsls	r3, r3, #2
+ 80007e4:	4298      	cmp	r0, r3
+ 80007e6:	d90a      	bls.n	80007fe <Reset_Handler+0x45e>
+ 80007e8:	3e01      	subs	r6, #1
+ 80007ea:	9b08      	ldr	r3, [sp, #32]
+ 80007ec:	10f5      	asrs	r5, r6, #3
+ 80007ee:	b2ed      	uxtb	r5, r5
+ 80007f0:	1b5b      	subs	r3, r3, r5
+ 80007f2:	b2db      	uxtb	r3, r3
+ 80007f4:	9307      	str	r3, [sp, #28]
+ 80007f6:	1e6b      	subs	r3, r5, #1
+ 80007f8:	2b0f      	cmp	r3, #15
+ 80007fa:	d900      	bls.n	80007fe <Reset_Handler+0x45e>
+ 80007fc:	e672      	b.n	80004e4 <Reset_Handler+0x144>
+ 80007fe:	2600      	movs	r6, #0
+ 8000800:	2207      	movs	r2, #7
+ 8000802:	9b07      	ldr	r3, [sp, #28]
+ 8000804:	3b01      	subs	r3, #1
+ 8000806:	b2db      	uxtb	r3, r3
+ 8000808:	429a      	cmp	r2, r3
+ 800080a:	4176      	adcs	r6, r6
+ 800080c:	9b07      	ldr	r3, [sp, #28]
+ 800080e:	485b      	ldr	r0, [pc, #364]	; (800097c <Reset_Handler+0x5dc>)
+ 8000810:	18e9      	adds	r1, r5, r3
+ 8000812:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+ 8000814:	3101      	adds	r1, #1
+ 8000816:	4359      	muls	r1, r3
+ 8000818:	f001 fbe6 	bl	8001fe8 <__udivsi3>
+ 800081c:	4b58      	ldr	r3, [pc, #352]	; (8000980 <Reset_Handler+0x5e0>)
+ 800081e:	4298      	cmp	r0, r3
+ 8000820:	d000      	beq.n	8000824 <Reset_Handler+0x484>
+ 8000822:	e654      	b.n	80004ce <Reset_Handler+0x12e>
+ 8000824:	2e00      	cmp	r6, #0
+ 8000826:	d100      	bne.n	800082a <Reset_Handler+0x48a>
+ 8000828:	e651      	b.n	80004ce <Reset_Handler+0x12e>
+ 800082a:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 800082c:	2124      	movs	r1, #36	; 0x24
+ 800082e:	ab06      	add	r3, sp, #24
+ 8000830:	841a      	strh	r2, [r3, #32]
+ 8000832:	2301      	movs	r3, #1
+ 8000834:	aa06      	add	r2, sp, #24
+ 8000836:	1852      	adds	r2, r2, r1
+ 8000838:	7013      	strb	r3, [r2, #0]
+ 800083a:	2222      	movs	r2, #34	; 0x22
+ 800083c:	ab06      	add	r3, sp, #24
+ 800083e:	189b      	adds	r3, r3, r2
+ 8000840:	701d      	strb	r5, [r3, #0]
+ 8000842:	3201      	adds	r2, #1
+ 8000844:	ab06      	add	r3, sp, #24
+ 8000846:	189b      	adds	r3, r3, r2
+ 8000848:	9a07      	ldr	r2, [sp, #28]
+ 800084a:	2100      	movs	r1, #0
+ 800084c:	701a      	strb	r2, [r3, #0]
+ 800084e:	a80e      	add	r0, sp, #56	; 0x38
+ 8000850:	f001 f8b6 	bl	80019c0 <canardSTM32Init>
+ 8000854:	2800      	cmp	r0, #0
+ 8000856:	d000      	beq.n	800085a <Reset_Handler+0x4ba>
+ 8000858:	e639      	b.n	80004ce <Reset_Handler+0x12e>
+ 800085a:	4b4a      	ldr	r3, [pc, #296]	; (8000984 <Reset_Handler+0x5e4>)
+ 800085c:	4a4a      	ldr	r2, [pc, #296]	; (8000988 <Reset_Handler+0x5e8>)
+ 800085e:	681b      	ldr	r3, [r3, #0]
+ 8000860:	189b      	adds	r3, r3, r2
+ 8000862:	930a      	str	r3, [sp, #40]	; 0x28
+ 8000864:	2420      	movs	r4, #32
+ 8000866:	a80e      	add	r0, sp, #56	; 0x38
+ 8000868:	f001 f9e4 	bl	8001c34 <canardSTM32Receive>
+ 800086c:	2800      	cmp	r0, #0
+ 800086e:	dd00      	ble.n	8000872 <Reset_Handler+0x4d2>
+ 8000870:	e63b      	b.n	80004ea <Reset_Handler+0x14a>
+ 8000872:	f7ff fc3f 	bl	80000f4 <can_process_tx>
+ 8000876:	4b45      	ldr	r3, [pc, #276]	; (800098c <Reset_Handler+0x5ec>)
+ 8000878:	4e45      	ldr	r6, [pc, #276]	; (8000990 <Reset_Handler+0x5f0>)
+ 800087a:	9307      	str	r3, [sp, #28]
+ 800087c:	2300      	movs	r3, #0
+ 800087e:	4c38      	ldr	r4, [pc, #224]	; (8000960 <Reset_Handler+0x5c0>)
+ 8000880:	9308      	str	r3, [sp, #32]
+ 8000882:	8873      	ldrh	r3, [r6, #2]
+ 8000884:	8832      	ldrh	r2, [r6, #0]
+ 8000886:	429a      	cmp	r2, r3
+ 8000888:	d011      	beq.n	80008ae <Reset_Handler+0x50e>
+ 800088a:	2080      	movs	r0, #128	; 0x80
+ 800088c:	6821      	ldr	r1, [r4, #0]
+ 800088e:	69ca      	ldr	r2, [r1, #28]
+ 8000890:	4202      	tst	r2, r0
+ 8000892:	d00c      	beq.n	80008ae <Reset_Handler+0x50e>
+ 8000894:	9a08      	ldr	r2, [sp, #32]
+ 8000896:	301d      	adds	r0, #29
+ 8000898:	30ff      	adds	r0, #255	; 0xff
+ 800089a:	4350      	muls	r0, r2
+ 800089c:	4a30      	ldr	r2, [pc, #192]	; (8000960 <Reset_Handler+0x5c0>)
+ 800089e:	1812      	adds	r2, r2, r0
+ 80008a0:	18d2      	adds	r2, r2, r3
+ 80008a2:	328d      	adds	r2, #141	; 0x8d
+ 80008a4:	7812      	ldrb	r2, [r2, #0]
+ 80008a6:	3301      	adds	r3, #1
+ 80008a8:	b2db      	uxtb	r3, r3
+ 80008aa:	628a      	str	r2, [r1, #40]	; 0x28
+ 80008ac:	8073      	strh	r3, [r6, #2]
+ 80008ae:	4b35      	ldr	r3, [pc, #212]	; (8000984 <Reset_Handler+0x5e4>)
+ 80008b0:	681b      	ldr	r3, [r3, #0]
+ 80008b2:	9309      	str	r3, [sp, #36]	; 0x24
+ 80008b4:	7ce3      	ldrb	r3, [r4, #19]
+ 80008b6:	2b00      	cmp	r3, #0
+ 80008b8:	d009      	beq.n	80008ce <Reset_Handler+0x52e>
+ 80008ba:	68a2      	ldr	r2, [r4, #8]
+ 80008bc:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 80008be:	1a9b      	subs	r3, r3, r2
+ 80008c0:	4a34      	ldr	r2, [pc, #208]	; (8000994 <Reset_Handler+0x5f4>)
+ 80008c2:	4293      	cmp	r3, r2
+ 80008c4:	d903      	bls.n	80008ce <Reset_Handler+0x52e>
+ 80008c6:	2300      	movs	r3, #0
+ 80008c8:	9a07      	ldr	r2, [sp, #28]
+ 80008ca:	74e3      	strb	r3, [r4, #19]
+ 80008cc:	7013      	strb	r3, [r2, #0]
+ 80008ce:	2521      	movs	r5, #33	; 0x21
+ 80008d0:	e63c      	b.n	800054c <Reset_Handler+0x1ac>
+ 80008d2:	2211      	movs	r2, #17
+ 80008d4:	2103      	movs	r1, #3
+ 80008d6:	4b30      	ldr	r3, [pc, #192]	; (8000998 <Reset_Handler+0x5f8>)
+ 80008d8:	200c      	movs	r0, #12
+ 80008da:	601a      	str	r2, [r3, #0]
+ 80008dc:	4a2f      	ldr	r2, [pc, #188]	; (800099c <Reset_Handler+0x5fc>)
+ 80008de:	6813      	ldr	r3, [r2, #0]
+ 80008e0:	438b      	bics	r3, r1
+ 80008e2:	0019      	movs	r1, r3
+ 80008e4:	2302      	movs	r3, #2
+ 80008e6:	430b      	orrs	r3, r1
+ 80008e8:	6013      	str	r3, [r2, #0]
+ 80008ea:	4b25      	ldr	r3, [pc, #148]	; (8000980 <Reset_Handler+0x5e0>)
+ 80008ec:	6811      	ldr	r1, [r2, #0]
+ 80008ee:	4001      	ands	r1, r0
+ 80008f0:	2908      	cmp	r1, #8
+ 80008f2:	d100      	bne.n	80008f6 <Reset_Handler+0x556>
+ 80008f4:	e6f4      	b.n	80006e0 <Reset_Handler+0x340>
+ 80008f6:	3b01      	subs	r3, #1
+ 80008f8:	2b00      	cmp	r3, #0
+ 80008fa:	d1f7      	bne.n	80008ec <Reset_Handler+0x54c>
+ 80008fc:	e5c9      	b.n	8000492 <Reset_Handler+0xf2>
+ 80008fe:	200f      	movs	r0, #15
+ 8000900:	4927      	ldr	r1, [pc, #156]	; (80009a0 <Reset_Handler+0x600>)
+ 8000902:	680a      	ldr	r2, [r1, #0]
+ 8000904:	4382      	bics	r2, r0
+ 8000906:	600a      	str	r2, [r1, #0]
+ 8000908:	4a24      	ldr	r2, [pc, #144]	; (800099c <Reset_Handler+0x5fc>)
+ 800090a:	4826      	ldr	r0, [pc, #152]	; (80009a4 <Reset_Handler+0x604>)
+ 800090c:	6811      	ldr	r1, [r2, #0]
+ 800090e:	4001      	ands	r1, r0
+ 8000910:	6011      	str	r1, [r2, #0]
+ 8000912:	2188      	movs	r1, #136	; 0x88
+ 8000914:	6810      	ldr	r0, [r2, #0]
+ 8000916:	0349      	lsls	r1, r1, #13
+ 8000918:	4301      	orrs	r1, r0
+ 800091a:	6011      	str	r1, [r2, #0]
+ 800091c:	2280      	movs	r2, #128	; 0x80
+ 800091e:	6819      	ldr	r1, [r3, #0]
+ 8000920:	0452      	lsls	r2, r2, #17
+ 8000922:	430a      	orrs	r2, r1
+ 8000924:	2180      	movs	r1, #128	; 0x80
+ 8000926:	601a      	str	r2, [r3, #0]
+ 8000928:	4a15      	ldr	r2, [pc, #84]	; (8000980 <Reset_Handler+0x5e0>)
+ 800092a:	0489      	lsls	r1, r1, #18
+ 800092c:	6818      	ldr	r0, [r3, #0]
+ 800092e:	4208      	tst	r0, r1
+ 8000930:	d1cf      	bne.n	80008d2 <Reset_Handler+0x532>
+ 8000932:	3a01      	subs	r2, #1
+ 8000934:	2a00      	cmp	r2, #0
+ 8000936:	d1f9      	bne.n	800092c <Reset_Handler+0x58c>
+ 8000938:	e5ab      	b.n	8000492 <Reset_Handler+0xf2>
+ 800093a:	46c0      	nop			; (mov r8, r8)
+ 800093c:	e000e014 	.word	0xe000e014
+ 8000940:	0000bb7f 	.word	0x0000bb7f
+ 8000944:	e000e018 	.word	0xe000e018
+ 8000948:	e000e010 	.word	0xe000e010
+ 800094c:	4002101c 	.word	0x4002101c
+ 8000950:	40021018 	.word	0x40021018
+ 8000954:	4002100c 	.word	0x4002100c
+ 8000958:	ffffbfff 	.word	0xffffbfff
+ 800095c:	40021010 	.word	0x40021010
+ 8000960:	20000000 	.word	0x20000000
+ 8000964:	fff1ffff 	.word	0xfff1ffff
+ 8000968:	20000678 	.word	0x20000678
+ 800096c:	080000a9 	.word	0x080000a9
+ 8000970:	200006a8 	.word	0x200006a8
+ 8000974:	08000195 	.word	0x08000195
+ 8000978:	fdffffff 	.word	0xfdffffff
+ 800097c:	02dc6c00 	.word	0x02dc6c00
+ 8000980:	000f4240 	.word	0x000f4240
+ 8000984:	20001eac 	.word	0x20001eac
+ 8000988:	fffffc18 	.word	0xfffffc18
+ 800098c:	2000008c 	.word	0x2000008c
+ 8000990:	2000018e 	.word	0x2000018e
+ 8000994:	00000bb7 	.word	0x00000bb7
+ 8000998:	40022000 	.word	0x40022000
+ 800099c:	40021004 	.word	0x40021004
+ 80009a0:	4002102c 	.word	0x4002102c
+ 80009a4:	ffc27fff 	.word	0xffc27fff
+
+080009a8 <usleep>:
+ 80009a8:	21fa      	movs	r1, #250	; 0xfa
+ 80009aa:	4b07      	ldr	r3, [pc, #28]	; (80009c8 <usleep+0x20>)
+ 80009ac:	0089      	lsls	r1, r1, #2
+ 80009ae:	b510      	push	{r4, lr}
+ 80009b0:	18c0      	adds	r0, r0, r3
+ 80009b2:	f001 fb19 	bl	8001fe8 <__udivsi3>
+ 80009b6:	4a05      	ldr	r2, [pc, #20]	; (80009cc <usleep+0x24>)
+ 80009b8:	6811      	ldr	r1, [r2, #0]
+ 80009ba:	6813      	ldr	r3, [r2, #0]
+ 80009bc:	1a5b      	subs	r3, r3, r1
+ 80009be:	4283      	cmp	r3, r0
+ 80009c0:	d3fb      	bcc.n	80009ba <usleep+0x12>
+ 80009c2:	2000      	movs	r0, #0
+ 80009c4:	bd10      	pop	{r4, pc}
+ 80009c6:	46c0      	nop			; (mov r8, r8)
+ 80009c8:	000003e7 	.word	0x000003e7
+ 80009cc:	20001eac 	.word	0x20001eac
+
+080009d0 <memset>:
+ 80009d0:	0003      	movs	r3, r0
+ 80009d2:	1882      	adds	r2, r0, r2
+ 80009d4:	4293      	cmp	r3, r2
+ 80009d6:	d100      	bne.n	80009da <memset+0xa>
+ 80009d8:	4770      	bx	lr
+ 80009da:	7019      	strb	r1, [r3, #0]
+ 80009dc:	3301      	adds	r3, #1
+ 80009de:	e7f9      	b.n	80009d4 <memset+0x4>
+
+080009e0 <memcpy>:
+ 80009e0:	2300      	movs	r3, #0
+ 80009e2:	b510      	push	{r4, lr}
+ 80009e4:	429a      	cmp	r2, r3
+ 80009e6:	d100      	bne.n	80009ea <memcpy+0xa>
+ 80009e8:	bd10      	pop	{r4, pc}
+ 80009ea:	5ccc      	ldrb	r4, [r1, r3]
+ 80009ec:	54c4      	strb	r4, [r0, r3]
+ 80009ee:	3301      	adds	r3, #1
+ 80009f0:	e7f8      	b.n	80009e4 <memcpy+0x4>
+
+080009f2 <pushTxQueue>:
+ 80009f2:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80009f4:	6a46      	ldr	r6, [r0, #36]	; 0x24
+ 80009f6:	b085      	sub	sp, #20
+ 80009f8:	2e00      	cmp	r6, #0
+ 80009fa:	d102      	bne.n	8000a02 <pushTxQueue+0x10>
+ 80009fc:	6241      	str	r1, [r0, #36]	; 0x24
+ 80009fe:	b005      	add	sp, #20
+ 8000a00:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000a02:	684b      	ldr	r3, [r1, #4]
+ 8000a04:	00da      	lsls	r2, r3, #3
+ 8000a06:	08d4      	lsrs	r4, r2, #3
+ 8000a08:	9400      	str	r4, [sp, #0]
+ 8000a0a:	0fdc      	lsrs	r4, r3, #31
+ 8000a0c:	46a4      	mov	ip, r4
+ 8000a0e:	005c      	lsls	r4, r3, #1
+ 8000a10:	0fe4      	lsrs	r4, r4, #31
+ 8000a12:	9402      	str	r4, [sp, #8]
+ 8000a14:	0d52      	lsrs	r2, r2, #21
+ 8000a16:	2b00      	cmp	r3, #0
+ 8000a18:	db00      	blt.n	8000a1c <pushTxQueue+0x2a>
+ 8000a1a:	9a00      	ldr	r2, [sp, #0]
+ 8000a1c:	0033      	movs	r3, r6
+ 8000a1e:	9601      	str	r6, [sp, #4]
+ 8000a20:	685c      	ldr	r4, [r3, #4]
+ 8000a22:	00e5      	lsls	r5, r4, #3
+ 8000a24:	9503      	str	r5, [sp, #12]
+ 8000a26:	0fe7      	lsrs	r7, r4, #31
+ 8000a28:	08ed      	lsrs	r5, r5, #3
+ 8000a2a:	45bc      	cmp	ip, r7
+ 8000a2c:	d00b      	beq.n	8000a46 <pushTxQueue+0x54>
+ 8000a2e:	2c00      	cmp	r4, #0
+ 8000a30:	da20      	bge.n	8000a74 <pushTxQueue+0x82>
+ 8000a32:	9c03      	ldr	r4, [sp, #12]
+ 8000a34:	0d65      	lsrs	r5, r4, #21
+ 8000a36:	4295      	cmp	r5, r2
+ 8000a38:	d11e      	bne.n	8000a78 <pushTxQueue+0x86>
+ 8000a3a:	429e      	cmp	r6, r3
+ 8000a3c:	d116      	bne.n	8000a6c <pushTxQueue+0x7a>
+ 8000a3e:	600e      	str	r6, [r1, #0]
+ 8000a40:	e7dc      	b.n	80009fc <pushTxQueue+0xa>
+ 8000a42:	0023      	movs	r3, r4
+ 8000a44:	e7ec      	b.n	8000a20 <pushTxQueue+0x2e>
+ 8000a46:	9f00      	ldr	r7, [sp, #0]
+ 8000a48:	42af      	cmp	r7, r5
+ 8000a4a:	d10b      	bne.n	8000a64 <pushTxQueue+0x72>
+ 8000a4c:	2580      	movs	r5, #128	; 0x80
+ 8000a4e:	05ed      	lsls	r5, r5, #23
+ 8000a50:	402c      	ands	r4, r5
+ 8000a52:	0025      	movs	r5, r4
+ 8000a54:	1e6f      	subs	r7, r5, #1
+ 8000a56:	41bd      	sbcs	r5, r7
+ 8000a58:	9f02      	ldr	r7, [sp, #8]
+ 8000a5a:	42bd      	cmp	r5, r7
+ 8000a5c:	d00e      	beq.n	8000a7c <pushTxQueue+0x8a>
+ 8000a5e:	2c00      	cmp	r4, #0
+ 8000a60:	d00c      	beq.n	8000a7c <pushTxQueue+0x8a>
+ 8000a62:	e7ea      	b.n	8000a3a <pushTxQueue+0x48>
+ 8000a64:	9c00      	ldr	r4, [sp, #0]
+ 8000a66:	42ac      	cmp	r4, r5
+ 8000a68:	d208      	bcs.n	8000a7c <pushTxQueue+0x8a>
+ 8000a6a:	e7e6      	b.n	8000a3a <pushTxQueue+0x48>
+ 8000a6c:	9a01      	ldr	r2, [sp, #4]
+ 8000a6e:	6011      	str	r1, [r2, #0]
+ 8000a70:	600b      	str	r3, [r1, #0]
+ 8000a72:	e7c4      	b.n	80009fe <pushTxQueue+0xc>
+ 8000a74:	4295      	cmp	r5, r2
+ 8000a76:	d001      	beq.n	8000a7c <pushTxQueue+0x8a>
+ 8000a78:	4295      	cmp	r5, r2
+ 8000a7a:	d8de      	bhi.n	8000a3a <pushTxQueue+0x48>
+ 8000a7c:	681c      	ldr	r4, [r3, #0]
+ 8000a7e:	9301      	str	r3, [sp, #4]
+ 8000a80:	2c00      	cmp	r4, #0
+ 8000a82:	d1de      	bne.n	8000a42 <pushTxQueue+0x50>
+ 8000a84:	6019      	str	r1, [r3, #0]
+ 8000a86:	e7ba      	b.n	80009fe <pushTxQueue+0xc>
+
+08000a88 <copyBitArray>:
+ 8000a88:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8000a8a:	b087      	sub	sp, #28
+ 8000a8c:	9302      	str	r3, [sp, #8]
+ 8000a8e:	9b0c      	ldr	r3, [sp, #48]	; 0x30
+ 8000a90:	9005      	str	r0, [sp, #20]
+ 8000a92:	08c8      	lsrs	r0, r1, #3
+ 8000a94:	4684      	mov	ip, r0
+ 8000a96:	08d8      	lsrs	r0, r3, #3
+ 8000a98:	9004      	str	r0, [sp, #16]
+ 8000a9a:	2007      	movs	r0, #7
+ 8000a9c:	4003      	ands	r3, r0
+ 8000a9e:	4001      	ands	r1, r0
+ 8000aa0:	001c      	movs	r4, r3
+ 8000aa2:	188b      	adds	r3, r1, r2
+ 8000aa4:	9301      	str	r3, [sp, #4]
+ 8000aa6:	9b01      	ldr	r3, [sp, #4]
+ 8000aa8:	4299      	cmp	r1, r3
+ 8000aaa:	d101      	bne.n	8000ab0 <copyBitArray+0x28>
+ 8000aac:	b007      	add	sp, #28
+ 8000aae:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000ab0:	000e      	movs	r6, r1
+ 8000ab2:	0025      	movs	r5, r4
+ 8000ab4:	4006      	ands	r6, r0
+ 8000ab6:	4005      	ands	r5, r0
+ 8000ab8:	1c33      	adds	r3, r6, #0
+ 8000aba:	42ae      	cmp	r6, r5
+ 8000abc:	d200      	bcs.n	8000ac0 <copyBitArray+0x38>
+ 8000abe:	1c2b      	adds	r3, r5, #0
+ 8000ac0:	2708      	movs	r7, #8
+ 8000ac2:	9a01      	ldr	r2, [sp, #4]
+ 8000ac4:	b2db      	uxtb	r3, r3
+ 8000ac6:	1a52      	subs	r2, r2, r1
+ 8000ac8:	1afb      	subs	r3, r7, r3
+ 8000aca:	4293      	cmp	r3, r2
+ 8000acc:	d900      	bls.n	8000ad0 <copyBitArray+0x48>
+ 8000ace:	0013      	movs	r3, r2
+ 8000ad0:	9f04      	ldr	r7, [sp, #16]
+ 8000ad2:	08e2      	lsrs	r2, r4, #3
+ 8000ad4:	19d2      	adds	r2, r2, r7
+ 8000ad6:	9f02      	ldr	r7, [sp, #8]
+ 8000ad8:	9203      	str	r2, [sp, #12]
+ 8000ada:	5cbf      	ldrb	r7, [r7, r2]
+ 8000adc:	9a05      	ldr	r2, [sp, #20]
+ 8000ade:	9700      	str	r7, [sp, #0]
+ 8000ae0:	0017      	movs	r7, r2
+ 8000ae2:	4467      	add	r7, ip
+ 8000ae4:	003a      	movs	r2, r7
+ 8000ae6:	08cf      	lsrs	r7, r1, #3
+ 8000ae8:	5dd7      	ldrb	r7, [r2, r7]
+ 8000aea:	9a00      	ldr	r2, [sp, #0]
+ 8000aec:	40b7      	lsls	r7, r6
+ 8000aee:	26ff      	movs	r6, #255	; 0xff
+ 8000af0:	40ef      	lsrs	r7, r5
+ 8000af2:	0236      	lsls	r6, r6, #8
+ 8000af4:	4057      	eors	r7, r2
+ 8000af6:	40de      	lsrs	r6, r3
+ 8000af8:	22ff      	movs	r2, #255	; 0xff
+ 8000afa:	4016      	ands	r6, r2
+ 8000afc:	412e      	asrs	r6, r5
+ 8000afe:	9a00      	ldr	r2, [sp, #0]
+ 8000b00:	403e      	ands	r6, r7
+ 8000b02:	4056      	eors	r6, r2
+ 8000b04:	9d03      	ldr	r5, [sp, #12]
+ 8000b06:	9a02      	ldr	r2, [sp, #8]
+ 8000b08:	18c9      	adds	r1, r1, r3
+ 8000b0a:	5556      	strb	r6, [r2, r5]
+ 8000b0c:	18e4      	adds	r4, r4, r3
+ 8000b0e:	e7ca      	b.n	8000aa6 <copyBitArray+0x1e>
+
+08000b10 <crcAddByte>:
+ 8000b10:	2308      	movs	r3, #8
+ 8000b12:	0209      	lsls	r1, r1, #8
+ 8000b14:	4a06      	ldr	r2, [pc, #24]	; (8000b30 <crcAddByte+0x20>)
+ 8000b16:	4048      	eors	r0, r1
+ 8000b18:	b201      	sxth	r1, r0
+ 8000b1a:	0040      	lsls	r0, r0, #1
+ 8000b1c:	b280      	uxth	r0, r0
+ 8000b1e:	2900      	cmp	r1, #0
+ 8000b20:	da00      	bge.n	8000b24 <crcAddByte+0x14>
+ 8000b22:	4050      	eors	r0, r2
+ 8000b24:	3b01      	subs	r3, #1
+ 8000b26:	b2db      	uxtb	r3, r3
+ 8000b28:	2b00      	cmp	r3, #0
+ 8000b2a:	d1f5      	bne.n	8000b18 <crcAddByte+0x8>
+ 8000b2c:	4770      	bx	lr
+ 8000b2e:	46c0      	nop			; (mov r8, r8)
+ 8000b30:	00001021 	.word	0x00001021
+
+08000b34 <crcAdd>:
+ 8000b34:	b570      	push	{r4, r5, r6, lr}
+ 8000b36:	000c      	movs	r4, r1
+ 8000b38:	188d      	adds	r5, r1, r2
+ 8000b3a:	42ac      	cmp	r4, r5
+ 8000b3c:	d100      	bne.n	8000b40 <crcAdd+0xc>
+ 8000b3e:	bd70      	pop	{r4, r5, r6, pc}
+ 8000b40:	7821      	ldrb	r1, [r4, #0]
+ 8000b42:	f7ff ffe5 	bl	8000b10 <crcAddByte>
+ 8000b46:	3401      	adds	r4, #1
+ 8000b48:	e7f7      	b.n	8000b3a <crcAdd+0x6>
+
+08000b4a <allocateBlock>:
+ 8000b4a:	0003      	movs	r3, r0
+ 8000b4c:	6840      	ldr	r0, [r0, #4]
+ 8000b4e:	2800      	cmp	r0, #0
+ 8000b50:	d009      	beq.n	8000b66 <allocateBlock+0x1c>
+ 8000b52:	6802      	ldr	r2, [r0, #0]
+ 8000b54:	8999      	ldrh	r1, [r3, #12]
+ 8000b56:	605a      	str	r2, [r3, #4]
+ 8000b58:	895a      	ldrh	r2, [r3, #10]
+ 8000b5a:	3201      	adds	r2, #1
+ 8000b5c:	b292      	uxth	r2, r2
+ 8000b5e:	815a      	strh	r2, [r3, #10]
+ 8000b60:	4291      	cmp	r1, r2
+ 8000b62:	d200      	bcs.n	8000b66 <allocateBlock+0x1c>
+ 8000b64:	819a      	strh	r2, [r3, #12]
+ 8000b66:	4770      	bx	lr
+
+08000b68 <createRxState>:
+ 8000b68:	b530      	push	{r4, r5, lr}
+ 8000b6a:	0004      	movs	r4, r0
+ 8000b6c:	000d      	movs	r5, r1
+ 8000b6e:	b089      	sub	sp, #36	; 0x24
+ 8000b70:	2220      	movs	r2, #32
+ 8000b72:	2100      	movs	r1, #0
+ 8000b74:	4668      	mov	r0, sp
+ 8000b76:	f7ff ff2b 	bl	80009d0 <memset>
+ 8000b7a:	0020      	movs	r0, r4
+ 8000b7c:	9504      	str	r5, [sp, #16]
+ 8000b7e:	f7ff ffe4 	bl	8000b4a <allocateBlock>
+ 8000b82:	1e04      	subs	r4, r0, #0
+ 8000b84:	d003      	beq.n	8000b8e <createRxState+0x26>
+ 8000b86:	2220      	movs	r2, #32
+ 8000b88:	4669      	mov	r1, sp
+ 8000b8a:	f7ff ff29 	bl	80009e0 <memcpy>
+ 8000b8e:	0020      	movs	r0, r4
+ 8000b90:	b009      	add	sp, #36	; 0x24
+ 8000b92:	bd30      	pop	{r4, r5, pc}
+
+08000b94 <dlcToDataLength>:
+ 8000b94:	2808      	cmp	r0, #8
+ 8000b96:	d90c      	bls.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000b98:	2809      	cmp	r0, #9
+ 8000b9a:	d00b      	beq.n	8000bb4 <dlcToDataLength+0x20>
+ 8000b9c:	280a      	cmp	r0, #10
+ 8000b9e:	d00b      	beq.n	8000bb8 <dlcToDataLength+0x24>
+ 8000ba0:	280b      	cmp	r0, #11
+ 8000ba2:	d00b      	beq.n	8000bbc <dlcToDataLength+0x28>
+ 8000ba4:	280c      	cmp	r0, #12
+ 8000ba6:	d00b      	beq.n	8000bc0 <dlcToDataLength+0x2c>
+ 8000ba8:	280d      	cmp	r0, #13
+ 8000baa:	d00b      	beq.n	8000bc4 <dlcToDataLength+0x30>
+ 8000bac:	280e      	cmp	r0, #14
+ 8000bae:	d10b      	bne.n	8000bc8 <dlcToDataLength+0x34>
+ 8000bb0:	3022      	adds	r0, #34	; 0x22
+ 8000bb2:	4770      	bx	lr
+ 8000bb4:	200c      	movs	r0, #12
+ 8000bb6:	e7fc      	b.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000bb8:	2010      	movs	r0, #16
+ 8000bba:	e7fa      	b.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000bbc:	2014      	movs	r0, #20
+ 8000bbe:	e7f8      	b.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000bc0:	2018      	movs	r0, #24
+ 8000bc2:	e7f6      	b.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000bc4:	2020      	movs	r0, #32
+ 8000bc6:	e7f4      	b.n	8000bb2 <dlcToDataLength+0x1e>
+ 8000bc8:	2040      	movs	r0, #64	; 0x40
+ 8000bca:	e7f2      	b.n	8000bb2 <dlcToDataLength+0x1e>
+
+08000bcc <dataLengthToDlc>:
+ 8000bcc:	2808      	cmp	r0, #8
+ 8000bce:	d90e      	bls.n	8000bee <dataLengthToDlc+0x22>
+ 8000bd0:	280c      	cmp	r0, #12
+ 8000bd2:	d90d      	bls.n	8000bf0 <dataLengthToDlc+0x24>
+ 8000bd4:	2810      	cmp	r0, #16
+ 8000bd6:	d90d      	bls.n	8000bf4 <dataLengthToDlc+0x28>
+ 8000bd8:	2814      	cmp	r0, #20
+ 8000bda:	d90d      	bls.n	8000bf8 <dataLengthToDlc+0x2c>
+ 8000bdc:	2818      	cmp	r0, #24
+ 8000bde:	d90d      	bls.n	8000bfc <dataLengthToDlc+0x30>
+ 8000be0:	2820      	cmp	r0, #32
+ 8000be2:	d90d      	bls.n	8000c00 <dataLengthToDlc+0x34>
+ 8000be4:	2330      	movs	r3, #48	; 0x30
+ 8000be6:	4283      	cmp	r3, r0
+ 8000be8:	4180      	sbcs	r0, r0
+ 8000bea:	4240      	negs	r0, r0
+ 8000bec:	300e      	adds	r0, #14
+ 8000bee:	4770      	bx	lr
+ 8000bf0:	2009      	movs	r0, #9
+ 8000bf2:	e7fc      	b.n	8000bee <dataLengthToDlc+0x22>
+ 8000bf4:	200a      	movs	r0, #10
+ 8000bf6:	e7fa      	b.n	8000bee <dataLengthToDlc+0x22>
+ 8000bf8:	200b      	movs	r0, #11
+ 8000bfa:	e7f8      	b.n	8000bee <dataLengthToDlc+0x22>
+ 8000bfc:	200c      	movs	r0, #12
+ 8000bfe:	e7f6      	b.n	8000bee <dataLengthToDlc+0x22>
+ 8000c00:	200d      	movs	r0, #13
+ 8000c02:	e7f4      	b.n	8000bee <dataLengthToDlc+0x22>
+
+08000c04 <calculateCRC>:
+ 8000c04:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 8000c06:	8c07      	ldrh	r7, [r0, #32]
+ 8000c08:	0005      	movs	r5, r0
+ 8000c0a:	2f07      	cmp	r7, #7
+ 8000c0c:	d917      	bls.n	8000c3e <calculateCRC+0x3a>
+ 8000c0e:	6883      	ldr	r3, [r0, #8]
+ 8000c10:	68c4      	ldr	r4, [r0, #12]
+ 8000c12:	2600      	movs	r6, #0
+ 8000c14:	9300      	str	r3, [sp, #0]
+ 8000c16:	9401      	str	r4, [sp, #4]
+ 8000c18:	4c0a      	ldr	r4, [pc, #40]	; (8000c44 <calculateCRC+0x40>)
+ 8000c1a:	0032      	movs	r2, r6
+ 8000c1c:	9800      	ldr	r0, [sp, #0]
+ 8000c1e:	9901      	ldr	r1, [sp, #4]
+ 8000c20:	f001 fb58 	bl	80022d4 <__aeabi_llsr>
+ 8000c24:	b2c1      	uxtb	r1, r0
+ 8000c26:	0020      	movs	r0, r4
+ 8000c28:	f7ff ff72 	bl	8000b10 <crcAddByte>
+ 8000c2c:	3608      	adds	r6, #8
+ 8000c2e:	0004      	movs	r4, r0
+ 8000c30:	2e40      	cmp	r6, #64	; 0x40
+ 8000c32:	d1f2      	bne.n	8000c1a <calculateCRC+0x16>
+ 8000c34:	003a      	movs	r2, r7
+ 8000c36:	69e9      	ldr	r1, [r5, #28]
+ 8000c38:	f7ff ff7c 	bl	8000b34 <crcAdd>
+ 8000c3c:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 8000c3e:	4801      	ldr	r0, [pc, #4]	; (8000c44 <calculateCRC+0x40>)
+ 8000c40:	e7fc      	b.n	8000c3c <calculateCRC+0x38>
+ 8000c42:	46c0      	nop			; (mov r8, r8)
+ 8000c44:	0000ffff 	.word	0x0000ffff
+
+08000c48 <releaseStatePayload.isra.0>:
+ 8000c48:	b510      	push	{r4, lr}
+ 8000c4a:	684b      	ldr	r3, [r1, #4]
+ 8000c4c:	2b00      	cmp	r3, #0
+ 8000c4e:	d104      	bne.n	8000c5a <releaseStatePayload.isra.0+0x12>
+ 8000c50:	8acb      	ldrh	r3, [r1, #22]
+ 8000c52:	0a9b      	lsrs	r3, r3, #10
+ 8000c54:	029b      	lsls	r3, r3, #10
+ 8000c56:	82cb      	strh	r3, [r1, #22]
+ 8000c58:	bd10      	pop	{r4, pc}
+ 8000c5a:	6904      	ldr	r4, [r0, #16]
+ 8000c5c:	681a      	ldr	r2, [r3, #0]
+ 8000c5e:	601c      	str	r4, [r3, #0]
+ 8000c60:	6103      	str	r3, [r0, #16]
+ 8000c62:	8ac3      	ldrh	r3, [r0, #22]
+ 8000c64:	3b01      	subs	r3, #1
+ 8000c66:	82c3      	strh	r3, [r0, #22]
+ 8000c68:	604a      	str	r2, [r1, #4]
+ 8000c6a:	e7ee      	b.n	8000c4a <releaseStatePayload.isra.0+0x2>
+
+08000c6c <bufferBlockPushBytes>:
+ 8000c6c:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8000c6e:	b087      	sub	sp, #28
+ 8000c70:	9302      	str	r3, [sp, #8]
+ 8000c72:	8acb      	ldrh	r3, [r1, #22]
+ 8000c74:	9205      	str	r2, [sp, #20]
+ 8000c76:	059b      	lsls	r3, r3, #22
+ 8000c78:	0d9a      	lsrs	r2, r3, #22
+ 8000c7a:	000d      	movs	r5, r1
+ 8000c7c:	9004      	str	r0, [sp, #16]
+ 8000c7e:	9201      	str	r2, [sp, #4]
+ 8000c80:	2a05      	cmp	r2, #5
+ 8000c82:	d034      	beq.n	8000cee <bufferBlockPushBytes+0x82>
+ 8000c84:	4669      	mov	r1, sp
+ 8000c86:	8908      	ldrh	r0, [r1, #8]
+ 8000c88:	0029      	movs	r1, r5
+ 8000c8a:	2300      	movs	r3, #0
+ 8000c8c:	311b      	adds	r1, #27
+ 8000c8e:	b294      	uxth	r4, r2
+ 8000c90:	b29f      	uxth	r7, r3
+ 8000c92:	2c04      	cmp	r4, #4
+ 8000c94:	d812      	bhi.n	8000cbc <bufferBlockPushBytes+0x50>
+ 8000c96:	4287      	cmp	r7, r0
+ 8000c98:	d30a      	bcc.n	8000cb0 <bufferBlockPushBytes+0x44>
+ 8000c9a:	9b01      	ldr	r3, [sp, #4]
+ 8000c9c:	8aef      	ldrh	r7, [r5, #22]
+ 8000c9e:	1818      	adds	r0, r3, r0
+ 8000ca0:	0580      	lsls	r0, r0, #22
+ 8000ca2:	0abf      	lsrs	r7, r7, #10
+ 8000ca4:	0d80      	lsrs	r0, r0, #22
+ 8000ca6:	02bf      	lsls	r7, r7, #10
+ 8000ca8:	4338      	orrs	r0, r7
+ 8000caa:	82e8      	strh	r0, [r5, #22]
+ 8000cac:	2001      	movs	r0, #1
+ 8000cae:	e01c      	b.n	8000cea <bufferBlockPushBytes+0x7e>
+ 8000cb0:	9c05      	ldr	r4, [sp, #20]
+ 8000cb2:	5ce4      	ldrb	r4, [r4, r3]
+ 8000cb4:	3301      	adds	r3, #1
+ 8000cb6:	548c      	strb	r4, [r1, r2]
+ 8000cb8:	3201      	adds	r2, #1
+ 8000cba:	e7e8      	b.n	8000c8e <bufferBlockPushBytes+0x22>
+ 8000cbc:	4287      	cmp	r7, r0
+ 8000cbe:	d2ec      	bcs.n	8000c9a <bufferBlockPushBytes+0x2e>
+ 8000cc0:	9b01      	ldr	r3, [sp, #4]
+ 8000cc2:	211c      	movs	r1, #28
+ 8000cc4:	1f58      	subs	r0, r3, #5
+ 8000cc6:	f001 fa15 	bl	80020f4 <__aeabi_uidivmod>
+ 8000cca:	b28b      	uxth	r3, r1
+ 8000ccc:	9300      	str	r3, [sp, #0]
+ 8000cce:	2301      	movs	r3, #1
+ 8000cd0:	686c      	ldr	r4, [r5, #4]
+ 8000cd2:	000e      	movs	r6, r1
+ 8000cd4:	9303      	str	r3, [sp, #12]
+ 8000cd6:	2c00      	cmp	r4, #0
+ 8000cd8:	d115      	bne.n	8000d06 <bufferBlockPushBytes+0x9a>
+ 8000cda:	9804      	ldr	r0, [sp, #16]
+ 8000cdc:	f7ff ff35 	bl	8000b4a <allocateBlock>
+ 8000ce0:	1e04      	subs	r4, r0, #0
+ 8000ce2:	d106      	bne.n	8000cf2 <bufferBlockPushBytes+0x86>
+ 8000ce4:	6068      	str	r0, [r5, #4]
+ 8000ce6:	2003      	movs	r0, #3
+ 8000ce8:	4240      	negs	r0, r0
+ 8000cea:	b007      	add	sp, #28
+ 8000cec:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000cee:	2700      	movs	r7, #0
+ 8000cf0:	e7e6      	b.n	8000cc0 <bufferBlockPushBytes+0x54>
+ 8000cf2:	2300      	movs	r3, #0
+ 8000cf4:	6003      	str	r3, [r0, #0]
+ 8000cf6:	6068      	str	r0, [r5, #4]
+ 8000cf8:	9300      	str	r3, [sp, #0]
+ 8000cfa:	e021      	b.n	8000d40 <bufferBlockPushBytes+0xd4>
+ 8000cfc:	001c      	movs	r4, r3
+ 8000cfe:	9a03      	ldr	r2, [sp, #12]
+ 8000d00:	3201      	adds	r2, #1
+ 8000d02:	b292      	uxth	r2, r2
+ 8000d04:	9203      	str	r2, [sp, #12]
+ 8000d06:	6823      	ldr	r3, [r4, #0]
+ 8000d08:	2b00      	cmp	r3, #0
+ 8000d0a:	d1f7      	bne.n	8000cfc <bufferBlockPushBytes+0x90>
+ 8000d0c:	9b02      	ldr	r3, [sp, #8]
+ 8000d0e:	211c      	movs	r1, #28
+ 8000d10:	1f58      	subs	r0, r3, #5
+ 8000d12:	9b01      	ldr	r3, [sp, #4]
+ 8000d14:	18c0      	adds	r0, r0, r3
+ 8000d16:	f001 f967 	bl	8001fe8 <__udivsi3>
+ 8000d1a:	9b03      	ldr	r3, [sp, #12]
+ 8000d1c:	3001      	adds	r0, #1
+ 8000d1e:	b280      	uxth	r0, r0
+ 8000d20:	4283      	cmp	r3, r0
+ 8000d22:	d20d      	bcs.n	8000d40 <bufferBlockPushBytes+0xd4>
+ 8000d24:	2e00      	cmp	r6, #0
+ 8000d26:	d10b      	bne.n	8000d40 <bufferBlockPushBytes+0xd4>
+ 8000d28:	9804      	ldr	r0, [sp, #16]
+ 8000d2a:	f7ff ff0e 	bl	8000b4a <allocateBlock>
+ 8000d2e:	2800      	cmp	r0, #0
+ 8000d30:	d102      	bne.n	8000d38 <bufferBlockPushBytes+0xcc>
+ 8000d32:	6026      	str	r6, [r4, #0]
+ 8000d34:	3803      	subs	r0, #3
+ 8000d36:	e7d8      	b.n	8000cea <bufferBlockPushBytes+0x7e>
+ 8000d38:	6006      	str	r6, [r0, #0]
+ 8000d3a:	6020      	str	r0, [r4, #0]
+ 8000d3c:	0004      	movs	r4, r0
+ 8000d3e:	9600      	str	r6, [sp, #0]
+ 8000d40:	466b      	mov	r3, sp
+ 8000d42:	9a02      	ldr	r2, [sp, #8]
+ 8000d44:	891b      	ldrh	r3, [r3, #8]
+ 8000d46:	42ba      	cmp	r2, r7
+ 8000d48:	d808      	bhi.n	8000d5c <bufferBlockPushBytes+0xf0>
+ 8000d4a:	8aea      	ldrh	r2, [r5, #22]
+ 8000d4c:	18d3      	adds	r3, r2, r3
+ 8000d4e:	059b      	lsls	r3, r3, #22
+ 8000d50:	0a92      	lsrs	r2, r2, #10
+ 8000d52:	0d9b      	lsrs	r3, r3, #22
+ 8000d54:	0292      	lsls	r2, r2, #10
+ 8000d56:	4313      	orrs	r3, r2
+ 8000d58:	82eb      	strh	r3, [r5, #22]
+ 8000d5a:	e7a7      	b.n	8000cac <bufferBlockPushBytes+0x40>
+ 8000d5c:	9905      	ldr	r1, [sp, #20]
+ 8000d5e:	9a00      	ldr	r2, [sp, #0]
+ 8000d60:	19c9      	adds	r1, r1, r7
+ 8000d62:	1d20      	adds	r0, r4, #4
+ 8000d64:	780e      	ldrb	r6, [r1, #0]
+ 8000d66:	3701      	adds	r7, #1
+ 8000d68:	5486      	strb	r6, [r0, r2]
+ 8000d6a:	b296      	uxth	r6, r2
+ 8000d6c:	b2bf      	uxth	r7, r7
+ 8000d6e:	2e1b      	cmp	r6, #27
+ 8000d70:	d004      	beq.n	8000d7c <bufferBlockPushBytes+0x110>
+ 8000d72:	3201      	adds	r2, #1
+ 8000d74:	3101      	adds	r1, #1
+ 8000d76:	42bb      	cmp	r3, r7
+ 8000d78:	d8f4      	bhi.n	8000d64 <bufferBlockPushBytes+0xf8>
+ 8000d7a:	e7e1      	b.n	8000d40 <bufferBlockPushBytes+0xd4>
+ 8000d7c:	42bb      	cmp	r3, r7
+ 8000d7e:	d9df      	bls.n	8000d40 <bufferBlockPushBytes+0xd4>
+ 8000d80:	9804      	ldr	r0, [sp, #16]
+ 8000d82:	f7ff fee2 	bl	8000b4a <allocateBlock>
+ 8000d86:	2800      	cmp	r0, #0
+ 8000d88:	d101      	bne.n	8000d8e <bufferBlockPushBytes+0x122>
+ 8000d8a:	6020      	str	r0, [r4, #0]
+ 8000d8c:	e7d2      	b.n	8000d34 <bufferBlockPushBytes+0xc8>
+ 8000d8e:	2300      	movs	r3, #0
+ 8000d90:	6003      	str	r3, [r0, #0]
+ 8000d92:	6020      	str	r0, [r4, #0]
+ 8000d94:	0004      	movs	r4, r0
+ 8000d96:	e7af      	b.n	8000cf8 <bufferBlockPushBytes+0x8c>
+
+08000d98 <enqueueTxFrames>:
+ 8000d98:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8000d9a:	001c      	movs	r4, r3
+ 8000d9c:	695b      	ldr	r3, [r3, #20]
+ 8000d9e:	b087      	sub	sp, #28
+ 8000da0:	0007      	movs	r7, r0
+ 8000da2:	9104      	str	r1, [sp, #16]
+ 8000da4:	9205      	str	r2, [sp, #20]
+ 8000da6:	2b00      	cmp	r3, #0
+ 8000da8:	d100      	bne.n	8000dac <enqueueTxFrames+0x14>
+ 8000daa:	e0a6      	b.n	8000efa <enqueueTxFrames+0x162>
+ 8000dac:	8c20      	ldrh	r0, [r4, #32]
+ 8000dae:	2800      	cmp	r0, #0
+ 8000db0:	d005      	beq.n	8000dbe <enqueueTxFrames+0x26>
+ 8000db2:	69e3      	ldr	r3, [r4, #28]
+ 8000db4:	2b00      	cmp	r3, #0
+ 8000db6:	d100      	bne.n	8000dba <enqueueTxFrames+0x22>
+ 8000db8:	e09f      	b.n	8000efa <enqueueTxFrames+0x162>
+ 8000dba:	2807      	cmp	r0, #7
+ 8000dbc:	d834      	bhi.n	8000e28 <enqueueTxFrames+0x90>
+ 8000dbe:	0038      	movs	r0, r7
+ 8000dc0:	300c      	adds	r0, #12
+ 8000dc2:	f7ff fec2 	bl	8000b4a <allocateBlock>
+ 8000dc6:	1e05      	subs	r5, r0, #0
+ 8000dc8:	d102      	bne.n	8000dd0 <enqueueTxFrames+0x38>
+ 8000dca:	2603      	movs	r6, #3
+ 8000dcc:	4276      	negs	r6, r6
+ 8000dce:	e028      	b.n	8000e22 <enqueueTxFrames+0x8a>
+ 8000dd0:	2214      	movs	r2, #20
+ 8000dd2:	2100      	movs	r1, #0
+ 8000dd4:	f7ff fdfc 	bl	80009d0 <memset>
+ 8000dd8:	0028      	movs	r0, r5
+ 8000dda:	8c22      	ldrh	r2, [r4, #32]
+ 8000ddc:	69e1      	ldr	r1, [r4, #28]
+ 8000dde:	3008      	adds	r0, #8
+ 8000de0:	f7ff fdfe 	bl	80009e0 <memcpy>
+ 8000de4:	8c20      	ldrh	r0, [r4, #32]
+ 8000de6:	2601      	movs	r6, #1
+ 8000de8:	3001      	adds	r0, #1
+ 8000dea:	b280      	uxth	r0, r0
+ 8000dec:	f7ff feee 	bl	8000bcc <dataLengthToDlc>
+ 8000df0:	f7ff fed0 	bl	8000b94 <dlcToDataLength>
+ 8000df4:	221f      	movs	r2, #31
+ 8000df6:	3801      	subs	r0, #1
+ 8000df8:	b280      	uxth	r0, r0
+ 8000dfa:	1c43      	adds	r3, r0, #1
+ 8000dfc:	8420      	strh	r0, [r4, #32]
+ 8000dfe:	742b      	strb	r3, [r5, #16]
+ 8000e00:	6963      	ldr	r3, [r4, #20]
+ 8000e02:	2180      	movs	r1, #128	; 0x80
+ 8000e04:	781b      	ldrb	r3, [r3, #0]
+ 8000e06:	1828      	adds	r0, r5, r0
+ 8000e08:	401a      	ands	r2, r3
+ 8000e0a:	2340      	movs	r3, #64	; 0x40
+ 8000e0c:	425b      	negs	r3, r3
+ 8000e0e:	4313      	orrs	r3, r2
+ 8000e10:	7203      	strb	r3, [r0, #8]
+ 8000e12:	9b04      	ldr	r3, [sp, #16]
+ 8000e14:	0609      	lsls	r1, r1, #24
+ 8000e16:	4319      	orrs	r1, r3
+ 8000e18:	6069      	str	r1, [r5, #4]
+ 8000e1a:	0038      	movs	r0, r7
+ 8000e1c:	0029      	movs	r1, r5
+ 8000e1e:	f7ff fde8 	bl	80009f2 <pushTxQueue>
+ 8000e22:	0030      	movs	r0, r6
+ 8000e24:	b007      	add	sp, #28
+ 8000e26:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000e28:	3002      	adds	r0, #2
+ 8000e2a:	b280      	uxth	r0, r0
+ 8000e2c:	2107      	movs	r1, #7
+ 8000e2e:	3006      	adds	r0, #6
+ 8000e30:	f001 f964 	bl	80020fc <__divsi3>
+ 8000e34:	8abb      	ldrh	r3, [r7, #20]
+ 8000e36:	8afa      	ldrh	r2, [r7, #22]
+ 8000e38:	b280      	uxth	r0, r0
+ 8000e3a:	1a9b      	subs	r3, r3, r2
+ 8000e3c:	b29b      	uxth	r3, r3
+ 8000e3e:	4298      	cmp	r0, r3
+ 8000e40:	d8c3      	bhi.n	8000dca <enqueueTxFrames+0x32>
+ 8000e42:	2380      	movs	r3, #128	; 0x80
+ 8000e44:	9302      	str	r3, [sp, #8]
+ 8000e46:	2300      	movs	r3, #0
+ 8000e48:	001e      	movs	r6, r3
+ 8000e4a:	9303      	str	r3, [sp, #12]
+ 8000e4c:	9301      	str	r3, [sp, #4]
+ 8000e4e:	0038      	movs	r0, r7
+ 8000e50:	300c      	adds	r0, #12
+ 8000e52:	f7ff fe7a 	bl	8000b4a <allocateBlock>
+ 8000e56:	1e05      	subs	r5, r0, #0
+ 8000e58:	d0b7      	beq.n	8000dca <enqueueTxFrames+0x32>
+ 8000e5a:	2214      	movs	r2, #20
+ 8000e5c:	2100      	movs	r1, #0
+ 8000e5e:	f7ff fdb7 	bl	80009d0 <memset>
+ 8000e62:	2300      	movs	r3, #0
+ 8000e64:	9a01      	ldr	r2, [sp, #4]
+ 8000e66:	429a      	cmp	r2, r3
+ 8000e68:	d102      	bne.n	8000e70 <enqueueTxFrames+0xd8>
+ 8000e6a:	9b05      	ldr	r3, [sp, #20]
+ 8000e6c:	812b      	strh	r3, [r5, #8]
+ 8000e6e:	2302      	movs	r3, #2
+ 8000e70:	2208      	movs	r2, #8
+ 8000e72:	4694      	mov	ip, r2
+ 8000e74:	44ac      	add	ip, r5
+ 8000e76:	b299      	uxth	r1, r3
+ 8000e78:	1c48      	adds	r0, r1, #1
+ 8000e7a:	8c22      	ldrh	r2, [r4, #32]
+ 8000e7c:	b280      	uxth	r0, r0
+ 8000e7e:	2906      	cmp	r1, #6
+ 8000e80:	d802      	bhi.n	8000e88 <enqueueTxFrames+0xf0>
+ 8000e82:	9901      	ldr	r1, [sp, #4]
+ 8000e84:	4291      	cmp	r1, r2
+ 8000e86:	d32d      	bcc.n	8000ee4 <enqueueTxFrames+0x14c>
+ 8000e88:	9b01      	ldr	r3, [sp, #4]
+ 8000e8a:	4293      	cmp	r3, r2
+ 8000e8c:	d101      	bne.n	8000e92 <enqueueTxFrames+0xfa>
+ 8000e8e:	2340      	movs	r3, #64	; 0x40
+ 8000e90:	9302      	str	r3, [sp, #8]
+ 8000e92:	f7ff fe9b 	bl	8000bcc <dataLengthToDlc>
+ 8000e96:	f7ff fe7d 	bl	8000b94 <dlcToDataLength>
+ 8000e9a:	211f      	movs	r1, #31
+ 8000e9c:	6963      	ldr	r3, [r4, #20]
+ 8000e9e:	3801      	subs	r0, #1
+ 8000ea0:	781b      	ldrb	r3, [r3, #0]
+ 8000ea2:	b280      	uxth	r0, r0
+ 8000ea4:	400b      	ands	r3, r1
+ 8000ea6:	9903      	ldr	r1, [sp, #12]
+ 8000ea8:	182a      	adds	r2, r5, r0
+ 8000eaa:	0149      	lsls	r1, r1, #5
+ 8000eac:	430b      	orrs	r3, r1
+ 8000eae:	9902      	ldr	r1, [sp, #8]
+ 8000eb0:	3001      	adds	r0, #1
+ 8000eb2:	4319      	orrs	r1, r3
+ 8000eb4:	2380      	movs	r3, #128	; 0x80
+ 8000eb6:	7211      	strb	r1, [r2, #8]
+ 8000eb8:	9a04      	ldr	r2, [sp, #16]
+ 8000eba:	061b      	lsls	r3, r3, #24
+ 8000ebc:	4313      	orrs	r3, r2
+ 8000ebe:	606b      	str	r3, [r5, #4]
+ 8000ec0:	7428      	strb	r0, [r5, #16]
+ 8000ec2:	0029      	movs	r1, r5
+ 8000ec4:	0038      	movs	r0, r7
+ 8000ec6:	f7ff fd94 	bl	80009f2 <pushTxQueue>
+ 8000eca:	2301      	movs	r3, #1
+ 8000ecc:	9a03      	ldr	r2, [sp, #12]
+ 8000ece:	3601      	adds	r6, #1
+ 8000ed0:	405a      	eors	r2, r3
+ 8000ed2:	2300      	movs	r3, #0
+ 8000ed4:	9203      	str	r2, [sp, #12]
+ 8000ed6:	9302      	str	r3, [sp, #8]
+ 8000ed8:	9a01      	ldr	r2, [sp, #4]
+ 8000eda:	8c23      	ldrh	r3, [r4, #32]
+ 8000edc:	b236      	sxth	r6, r6
+ 8000ede:	4293      	cmp	r3, r2
+ 8000ee0:	d1b5      	bne.n	8000e4e <enqueueTxFrames+0xb6>
+ 8000ee2:	e79e      	b.n	8000e22 <enqueueTxFrames+0x8a>
+ 8000ee4:	9901      	ldr	r1, [sp, #4]
+ 8000ee6:	69e2      	ldr	r2, [r4, #28]
+ 8000ee8:	5c52      	ldrb	r2, [r2, r1]
+ 8000eea:	4661      	mov	r1, ip
+ 8000eec:	54ca      	strb	r2, [r1, r3]
+ 8000eee:	9a01      	ldr	r2, [sp, #4]
+ 8000ef0:	3301      	adds	r3, #1
+ 8000ef2:	3201      	adds	r2, #1
+ 8000ef4:	b292      	uxth	r2, r2
+ 8000ef6:	9201      	str	r2, [sp, #4]
+ 8000ef8:	e7bd      	b.n	8000e76 <enqueueTxFrames+0xde>
+ 8000efa:	2602      	movs	r6, #2
+ 8000efc:	e766      	b.n	8000dcc <enqueueTxFrames+0x34>
+	...
+
+08000f00 <canardInit>:
+ 8000f00:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000f02:	0004      	movs	r4, r0
+ 8000f04:	0016      	movs	r6, r2
+ 8000f06:	000d      	movs	r5, r1
+ 8000f08:	2230      	movs	r2, #48	; 0x30
+ 8000f0a:	2100      	movs	r1, #0
+ 8000f0c:	001f      	movs	r7, r3
+ 8000f0e:	f7ff fd5f 	bl	80009d0 <memset>
+ 8000f12:	9a06      	ldr	r2, [sp, #24]
+ 8000f14:	2300      	movs	r3, #0
+ 8000f16:	6062      	str	r2, [r4, #4]
+ 8000f18:	9a07      	ldr	r2, [sp, #28]
+ 8000f1a:	7023      	strb	r3, [r4, #0]
+ 8000f1c:	62a2      	str	r2, [r4, #40]	; 0x28
+ 8000f1e:	0022      	movs	r2, r4
+ 8000f20:	322c      	adds	r2, #44	; 0x2c
+ 8000f22:	6223      	str	r3, [r4, #32]
+ 8000f24:	6263      	str	r3, [r4, #36]	; 0x24
+ 8000f26:	60a7      	str	r7, [r4, #8]
+ 8000f28:	7013      	strb	r3, [r2, #0]
+ 8000f2a:	2380      	movs	r3, #128	; 0x80
+ 8000f2c:	0972      	lsrs	r2, r6, #5
+ 8000f2e:	039b      	lsls	r3, r3, #14
+ 8000f30:	429e      	cmp	r6, r3
+ 8000f32:	d300      	bcc.n	8000f36 <canardInit+0x36>
+ 8000f34:	4a0a      	ldr	r2, [pc, #40]	; (8000f60 <canardInit+0x60>)
+ 8000f36:	0020      	movs	r0, r4
+ 8000f38:	0029      	movs	r1, r5
+ 8000f3a:	2300      	movs	r3, #0
+ 8000f3c:	b296      	uxth	r6, r2
+ 8000f3e:	61e5      	str	r5, [r4, #28]
+ 8000f40:	3010      	adds	r0, #16
+ 8000f42:	429a      	cmp	r2, r3
+ 8000f44:	d806      	bhi.n	8000f54 <canardInit+0x54>
+ 8000f46:	2300      	movs	r3, #0
+ 8000f48:	6003      	str	r3, [r0, #0]
+ 8000f4a:	82a6      	strh	r6, [r4, #20]
+ 8000f4c:	82e3      	strh	r3, [r4, #22]
+ 8000f4e:	8323      	strh	r3, [r4, #24]
+ 8000f50:	60e3      	str	r3, [r4, #12]
+ 8000f52:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8000f54:	6001      	str	r1, [r0, #0]
+ 8000f56:	3301      	adds	r3, #1
+ 8000f58:	0008      	movs	r0, r1
+ 8000f5a:	3120      	adds	r1, #32
+ 8000f5c:	e7f1      	b.n	8000f42 <canardInit+0x42>
+ 8000f5e:	46c0      	nop			; (mov r8, r8)
+ 8000f60:	0000ffff 	.word	0x0000ffff
+
+08000f64 <canardSetLocalNodeID>:
+ 8000f64:	7803      	ldrb	r3, [r0, #0]
+ 8000f66:	2b00      	cmp	r3, #0
+ 8000f68:	d103      	bne.n	8000f72 <canardSetLocalNodeID+0xe>
+ 8000f6a:	b24b      	sxtb	r3, r1
+ 8000f6c:	2b00      	cmp	r3, #0
+ 8000f6e:	dd00      	ble.n	8000f72 <canardSetLocalNodeID+0xe>
+ 8000f70:	7001      	strb	r1, [r0, #0]
+ 8000f72:	4770      	bx	lr
+
+08000f74 <canardBroadcastObj>:
+ 8000f74:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8000f76:	000d      	movs	r5, r1
+ 8000f78:	69c9      	ldr	r1, [r1, #28]
+ 8000f7a:	0006      	movs	r6, r0
+ 8000f7c:	2900      	cmp	r1, #0
+ 8000f7e:	d102      	bne.n	8000f86 <canardBroadcastObj+0x12>
+ 8000f80:	8c2b      	ldrh	r3, [r5, #32]
+ 8000f82:	2b00      	cmp	r3, #0
+ 8000f84:	d136      	bne.n	8000ff4 <canardBroadcastObj+0x80>
+ 8000f86:	7e2f      	ldrb	r7, [r5, #24]
+ 8000f88:	2f1f      	cmp	r7, #31
+ 8000f8a:	d833      	bhi.n	8000ff4 <canardBroadcastObj+0x80>
+ 8000f8c:	7830      	ldrb	r0, [r6, #0]
+ 8000f8e:	2800      	cmp	r0, #0
+ 8000f90:	d121      	bne.n	8000fd6 <canardBroadcastObj+0x62>
+ 8000f92:	8c2a      	ldrh	r2, [r5, #32]
+ 8000f94:	2a07      	cmp	r2, #7
+ 8000f96:	d82a      	bhi.n	8000fee <canardBroadcastObj+0x7a>
+ 8000f98:	2303      	movs	r3, #3
+ 8000f9a:	8a2c      	ldrh	r4, [r5, #16]
+ 8000f9c:	4023      	ands	r3, r4
+ 8000f9e:	429c      	cmp	r4, r3
+ 8000fa0:	d128      	bne.n	8000ff4 <canardBroadcastObj+0x80>
+ 8000fa2:	4815      	ldr	r0, [pc, #84]	; (8000ff8 <canardBroadcastObj+0x84>)
+ 8000fa4:	f7ff fdc6 	bl	8000b34 <crcAdd>
+ 8000fa8:	4b14      	ldr	r3, [pc, #80]	; (8000ffc <canardBroadcastObj+0x88>)
+ 8000faa:	063f      	lsls	r7, r7, #24
+ 8000fac:	0224      	lsls	r4, r4, #8
+ 8000fae:	4018      	ands	r0, r3
+ 8000fb0:	433c      	orrs	r4, r7
+ 8000fb2:	0240      	lsls	r0, r0, #9
+ 8000fb4:	4a10      	ldr	r2, [pc, #64]	; (8000ff8 <canardBroadcastObj+0x84>)
+ 8000fb6:	4304      	orrs	r4, r0
+ 8000fb8:	002b      	movs	r3, r5
+ 8000fba:	0021      	movs	r1, r4
+ 8000fbc:	0030      	movs	r0, r6
+ 8000fbe:	f7ff feeb 	bl	8000d98 <enqueueTxFrames>
+ 8000fc2:	2800      	cmp	r0, #0
+ 8000fc4:	dd06      	ble.n	8000fd4 <canardBroadcastObj+0x60>
+ 8000fc6:	696a      	ldr	r2, [r5, #20]
+ 8000fc8:	7813      	ldrb	r3, [r2, #0]
+ 8000fca:	3301      	adds	r3, #1
+ 8000fcc:	b2db      	uxtb	r3, r3
+ 8000fce:	2b1f      	cmp	r3, #31
+ 8000fd0:	d80b      	bhi.n	8000fea <canardBroadcastObj+0x76>
+ 8000fd2:	7013      	strb	r3, [r2, #0]
+ 8000fd4:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8000fd6:	8a2c      	ldrh	r4, [r5, #16]
+ 8000fd8:	063f      	lsls	r7, r7, #24
+ 8000fda:	0224      	lsls	r4, r4, #8
+ 8000fdc:	433c      	orrs	r4, r7
+ 8000fde:	4304      	orrs	r4, r0
+ 8000fe0:	0028      	movs	r0, r5
+ 8000fe2:	f7ff fe0f 	bl	8000c04 <calculateCRC>
+ 8000fe6:	0002      	movs	r2, r0
+ 8000fe8:	e7e6      	b.n	8000fb8 <canardBroadcastObj+0x44>
+ 8000fea:	2300      	movs	r3, #0
+ 8000fec:	e7f1      	b.n	8000fd2 <canardBroadcastObj+0x5e>
+ 8000fee:	2004      	movs	r0, #4
+ 8000ff0:	4240      	negs	r0, r0
+ 8000ff2:	e7ef      	b.n	8000fd4 <canardBroadcastObj+0x60>
+ 8000ff4:	2002      	movs	r0, #2
+ 8000ff6:	e7fb      	b.n	8000ff0 <canardBroadcastObj+0x7c>
+ 8000ff8:	0000ffff 	.word	0x0000ffff
+ 8000ffc:	00007ffe 	.word	0x00007ffe
+
+08001000 <canardBroadcast>:
+ 8001000:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8001002:	0004      	movs	r4, r0
+ 8001004:	0016      	movs	r6, r2
+ 8001006:	001d      	movs	r5, r3
+ 8001008:	b08d      	sub	sp, #52	; 0x34
+ 800100a:	ab12      	add	r3, sp, #72	; 0x48
+ 800100c:	881b      	ldrh	r3, [r3, #0]
+ 800100e:	2228      	movs	r2, #40	; 0x28
+ 8001010:	9300      	str	r3, [sp, #0]
+ 8001012:	ab14      	add	r3, sp, #80	; 0x50
+ 8001014:	781b      	ldrb	r3, [r3, #0]
+ 8001016:	2100      	movs	r1, #0
+ 8001018:	9301      	str	r3, [sp, #4]
+ 800101a:	a802      	add	r0, sp, #8
+ 800101c:	ab16      	add	r3, sp, #88	; 0x58
+ 800101e:	881f      	ldrh	r7, [r3, #0]
+ 8001020:	f7ff fcd6 	bl	80009d0 <memset>
+ 8001024:	9a00      	ldr	r2, [sp, #0]
+ 8001026:	ab02      	add	r3, sp, #8
+ 8001028:	821a      	strh	r2, [r3, #16]
+ 800102a:	9b13      	ldr	r3, [sp, #76]	; 0x4c
+ 800102c:	9a01      	ldr	r2, [sp, #4]
+ 800102e:	9307      	str	r3, [sp, #28]
+ 8001030:	ab02      	add	r3, sp, #8
+ 8001032:	761a      	strb	r2, [r3, #24]
+ 8001034:	9b15      	ldr	r3, [sp, #84]	; 0x54
+ 8001036:	0020      	movs	r0, r4
+ 8001038:	9309      	str	r3, [sp, #36]	; 0x24
+ 800103a:	ab02      	add	r3, sp, #8
+ 800103c:	0019      	movs	r1, r3
+ 800103e:	9604      	str	r6, [sp, #16]
+ 8001040:	9505      	str	r5, [sp, #20]
+ 8001042:	841f      	strh	r7, [r3, #32]
+ 8001044:	f7ff ff96 	bl	8000f74 <canardBroadcastObj>
+ 8001048:	b00d      	add	sp, #52	; 0x34
+ 800104a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+0800104c <canardRequestOrRespondObj>:
+ 800104c:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 800104e:	69d3      	ldr	r3, [r2, #28]
+ 8001050:	0005      	movs	r5, r0
+ 8001052:	0014      	movs	r4, r2
+ 8001054:	9101      	str	r1, [sp, #4]
+ 8001056:	2b00      	cmp	r3, #0
+ 8001058:	d102      	bne.n	8001060 <canardRequestOrRespondObj+0x14>
+ 800105a:	8c13      	ldrh	r3, [r2, #32]
+ 800105c:	2b00      	cmp	r3, #0
+ 800105e:	d129      	bne.n	80010b4 <canardRequestOrRespondObj+0x68>
+ 8001060:	7e26      	ldrb	r6, [r4, #24]
+ 8001062:	2e1f      	cmp	r6, #31
+ 8001064:	d826      	bhi.n	80010b4 <canardRequestOrRespondObj+0x68>
+ 8001066:	782f      	ldrb	r7, [r5, #0]
+ 8001068:	2f00      	cmp	r7, #0
+ 800106a:	d026      	beq.n	80010ba <canardRequestOrRespondObj+0x6e>
+ 800106c:	0020      	movs	r0, r4
+ 800106e:	f7ff fdc9 	bl	8000c04 <calculateCRC>
+ 8001072:	7821      	ldrb	r1, [r4, #0]
+ 8001074:	9b01      	ldr	r3, [sp, #4]
+ 8001076:	03c9      	lsls	r1, r1, #15
+ 8001078:	021b      	lsls	r3, r3, #8
+ 800107a:	4319      	orrs	r1, r3
+ 800107c:	0636      	lsls	r6, r6, #24
+ 800107e:	4339      	orrs	r1, r7
+ 8001080:	4331      	orrs	r1, r6
+ 8001082:	8a26      	ldrh	r6, [r4, #16]
+ 8001084:	0002      	movs	r2, r0
+ 8001086:	0436      	lsls	r6, r6, #16
+ 8001088:	4331      	orrs	r1, r6
+ 800108a:	2680      	movs	r6, #128	; 0x80
+ 800108c:	0023      	movs	r3, r4
+ 800108e:	0028      	movs	r0, r5
+ 8001090:	4331      	orrs	r1, r6
+ 8001092:	f7ff fe81 	bl	8000d98 <enqueueTxFrames>
+ 8001096:	2800      	cmp	r0, #0
+ 8001098:	dd09      	ble.n	80010ae <canardRequestOrRespondObj+0x62>
+ 800109a:	7823      	ldrb	r3, [r4, #0]
+ 800109c:	2b01      	cmp	r3, #1
+ 800109e:	d106      	bne.n	80010ae <canardRequestOrRespondObj+0x62>
+ 80010a0:	6962      	ldr	r2, [r4, #20]
+ 80010a2:	7813      	ldrb	r3, [r2, #0]
+ 80010a4:	3301      	adds	r3, #1
+ 80010a6:	b2db      	uxtb	r3, r3
+ 80010a8:	2b1f      	cmp	r3, #31
+ 80010aa:	d801      	bhi.n	80010b0 <canardRequestOrRespondObj+0x64>
+ 80010ac:	7013      	strb	r3, [r2, #0]
+ 80010ae:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 80010b0:	2300      	movs	r3, #0
+ 80010b2:	e7fb      	b.n	80010ac <canardRequestOrRespondObj+0x60>
+ 80010b4:	2002      	movs	r0, #2
+ 80010b6:	4240      	negs	r0, r0
+ 80010b8:	e7f9      	b.n	80010ae <canardRequestOrRespondObj+0x62>
+ 80010ba:	2004      	movs	r0, #4
+ 80010bc:	e7fb      	b.n	80010b6 <canardRequestOrRespondObj+0x6a>
+
+080010be <canardRequestOrRespond>:
+ 80010be:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80010c0:	b08f      	sub	sp, #60	; 0x3c
+ 80010c2:	9303      	str	r3, [sp, #12]
+ 80010c4:	ab14      	add	r3, sp, #80	; 0x50
+ 80010c6:	781b      	ldrb	r3, [r3, #0]
+ 80010c8:	0005      	movs	r5, r0
+ 80010ca:	9300      	str	r3, [sp, #0]
+ 80010cc:	ab16      	add	r3, sp, #88	; 0x58
+ 80010ce:	781b      	ldrb	r3, [r3, #0]
+ 80010d0:	000e      	movs	r6, r1
+ 80010d2:	9301      	str	r3, [sp, #4]
+ 80010d4:	ab17      	add	r3, sp, #92	; 0x5c
+ 80010d6:	781c      	ldrb	r4, [r3, #0]
+ 80010d8:	ab19      	add	r3, sp, #100	; 0x64
+ 80010da:	881b      	ldrh	r3, [r3, #0]
+ 80010dc:	3c01      	subs	r4, #1
+ 80010de:	9302      	str	r3, [sp, #8]
+ 80010e0:	4263      	negs	r3, r4
+ 80010e2:	415c      	adcs	r4, r3
+ 80010e4:	0017      	movs	r7, r2
+ 80010e6:	2100      	movs	r1, #0
+ 80010e8:	2228      	movs	r2, #40	; 0x28
+ 80010ea:	a804      	add	r0, sp, #16
+ 80010ec:	f7ff fc70 	bl	80009d0 <memset>
+ 80010f0:	ab04      	add	r3, sp, #16
+ 80010f2:	701c      	strb	r4, [r3, #0]
+ 80010f4:	9b03      	ldr	r3, [sp, #12]
+ 80010f6:	9a00      	ldr	r2, [sp, #0]
+ 80010f8:	9307      	str	r3, [sp, #28]
+ 80010fa:	ab04      	add	r3, sp, #16
+ 80010fc:	821a      	strh	r2, [r3, #16]
+ 80010fe:	9b15      	ldr	r3, [sp, #84]	; 0x54
+ 8001100:	9a01      	ldr	r2, [sp, #4]
+ 8001102:	9309      	str	r3, [sp, #36]	; 0x24
+ 8001104:	ab04      	add	r3, sp, #16
+ 8001106:	761a      	strb	r2, [r3, #24]
+ 8001108:	9b18      	ldr	r3, [sp, #96]	; 0x60
+ 800110a:	9a02      	ldr	r2, [sp, #8]
+ 800110c:	930b      	str	r3, [sp, #44]	; 0x2c
+ 800110e:	ab04      	add	r3, sp, #16
+ 8001110:	841a      	strh	r2, [r3, #32]
+ 8001112:	0031      	movs	r1, r6
+ 8001114:	001a      	movs	r2, r3
+ 8001116:	0028      	movs	r0, r5
+ 8001118:	9706      	str	r7, [sp, #24]
+ 800111a:	f7ff ff97 	bl	800104c <canardRequestOrRespondObj>
+ 800111e:	b00f      	add	sp, #60	; 0x3c
+ 8001120:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+08001122 <canardPeekTxQueue>:
+ 8001122:	6a40      	ldr	r0, [r0, #36]	; 0x24
+ 8001124:	2800      	cmp	r0, #0
+ 8001126:	d000      	beq.n	800112a <canardPeekTxQueue+0x8>
+ 8001128:	3004      	adds	r0, #4
+ 800112a:	4770      	bx	lr
+
+0800112c <canardPopTxQueue>:
+ 800112c:	6a43      	ldr	r3, [r0, #36]	; 0x24
+ 800112e:	681a      	ldr	r2, [r3, #0]
+ 8001130:	6242      	str	r2, [r0, #36]	; 0x24
+ 8001132:	6902      	ldr	r2, [r0, #16]
+ 8001134:	601a      	str	r2, [r3, #0]
+ 8001136:	6103      	str	r3, [r0, #16]
+ 8001138:	8ac3      	ldrh	r3, [r0, #22]
+ 800113a:	3b01      	subs	r3, #1
+ 800113c:	82c3      	strh	r3, [r0, #22]
+ 800113e:	4770      	bx	lr
+
+08001140 <canardCleanupStaleTransfers>:
+ 8001140:	b573      	push	{r0, r1, r4, r5, r6, lr}
+ 8001142:	6a06      	ldr	r6, [r0, #32]
+ 8001144:	0004      	movs	r4, r0
+ 8001146:	0035      	movs	r5, r6
+ 8001148:	9200      	str	r2, [sp, #0]
+ 800114a:	9301      	str	r3, [sp, #4]
+ 800114c:	2d00      	cmp	r5, #0
+ 800114e:	d100      	bne.n	8001152 <canardCleanupStaleTransfers+0x12>
+ 8001150:	bd73      	pop	{r0, r1, r4, r5, r6, pc}
+ 8001152:	68a8      	ldr	r0, [r5, #8]
+ 8001154:	68e9      	ldr	r1, [r5, #12]
+ 8001156:	9a00      	ldr	r2, [sp, #0]
+ 8001158:	9b01      	ldr	r3, [sp, #4]
+ 800115a:	1a12      	subs	r2, r2, r0
+ 800115c:	418b      	sbcs	r3, r1
+ 800115e:	0011      	movs	r1, r2
+ 8001160:	2b00      	cmp	r3, #0
+ 8001162:	d102      	bne.n	800116a <canardCleanupStaleTransfers+0x2a>
+ 8001164:	4b11      	ldr	r3, [pc, #68]	; (80011ac <canardCleanupStaleTransfers+0x6c>)
+ 8001166:	4299      	cmp	r1, r3
+ 8001168:	d91d      	bls.n	80011a6 <canardCleanupStaleTransfers+0x66>
+ 800116a:	6a23      	ldr	r3, [r4, #32]
+ 800116c:	0029      	movs	r1, r5
+ 800116e:	0020      	movs	r0, r4
+ 8001170:	42ab      	cmp	r3, r5
+ 8001172:	d10d      	bne.n	8001190 <canardCleanupStaleTransfers+0x50>
+ 8001174:	f7ff fd68 	bl	8000c48 <releaseStatePayload.isra.0>
+ 8001178:	6a23      	ldr	r3, [r4, #32]
+ 800117a:	681e      	ldr	r6, [r3, #0]
+ 800117c:	6923      	ldr	r3, [r4, #16]
+ 800117e:	6226      	str	r6, [r4, #32]
+ 8001180:	602b      	str	r3, [r5, #0]
+ 8001182:	8ae3      	ldrh	r3, [r4, #22]
+ 8001184:	6125      	str	r5, [r4, #16]
+ 8001186:	3b01      	subs	r3, #1
+ 8001188:	82e3      	strh	r3, [r4, #22]
+ 800118a:	0033      	movs	r3, r6
+ 800118c:	001d      	movs	r5, r3
+ 800118e:	e7dd      	b.n	800114c <canardCleanupStaleTransfers+0xc>
+ 8001190:	f7ff fd5a 	bl	8000c48 <releaseStatePayload.isra.0>
+ 8001194:	682b      	ldr	r3, [r5, #0]
+ 8001196:	6922      	ldr	r2, [r4, #16]
+ 8001198:	6033      	str	r3, [r6, #0]
+ 800119a:	602a      	str	r2, [r5, #0]
+ 800119c:	8ae2      	ldrh	r2, [r4, #22]
+ 800119e:	6125      	str	r5, [r4, #16]
+ 80011a0:	3a01      	subs	r2, #1
+ 80011a2:	82e2      	strh	r2, [r4, #22]
+ 80011a4:	e7f2      	b.n	800118c <canardCleanupStaleTransfers+0x4c>
+ 80011a6:	002e      	movs	r6, r5
+ 80011a8:	682b      	ldr	r3, [r5, #0]
+ 80011aa:	e7ef      	b.n	800118c <canardCleanupStaleTransfers+0x4c>
+ 80011ac:	001e8480 	.word	0x001e8480
+
+080011b0 <canardDecodeScalar>:
+ 80011b0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80011b2:	b08d      	sub	sp, #52	; 0x34
+ 80011b4:	0005      	movs	r5, r0
+ 80011b6:	000c      	movs	r4, r1
+ 80011b8:	0017      	movs	r7, r2
+ 80011ba:	9305      	str	r3, [sp, #20]
+ 80011bc:	2800      	cmp	r0, #0
+ 80011be:	d100      	bne.n	80011c2 <canardDecodeScalar+0x12>
+ 80011c0:	e103      	b.n	80013ca <canardDecodeScalar+0x21a>
+ 80011c2:	9b12      	ldr	r3, [sp, #72]	; 0x48
+ 80011c4:	2b00      	cmp	r3, #0
+ 80011c6:	d100      	bne.n	80011ca <canardDecodeScalar+0x1a>
+ 80011c8:	e0ff      	b.n	80013ca <canardDecodeScalar+0x21a>
+ 80011ca:	1e53      	subs	r3, r2, #1
+ 80011cc:	2b3f      	cmp	r3, #63	; 0x3f
+ 80011ce:	d900      	bls.n	80011d2 <canardDecodeScalar+0x22>
+ 80011d0:	e0fb      	b.n	80013ca <canardDecodeScalar+0x21a>
+ 80011d2:	2a01      	cmp	r2, #1
+ 80011d4:	d103      	bne.n	80011de <canardDecodeScalar+0x2e>
+ 80011d6:	9b05      	ldr	r3, [sp, #20]
+ 80011d8:	2b00      	cmp	r3, #0
+ 80011da:	d000      	beq.n	80011de <canardDecodeScalar+0x2e>
+ 80011dc:	e0f5      	b.n	80013ca <canardDecodeScalar+0x21a>
+ 80011de:	2208      	movs	r2, #8
+ 80011e0:	2100      	movs	r1, #0
+ 80011e2:	a80a      	add	r0, sp, #40	; 0x28
+ 80011e4:	f7ff fbf4 	bl	80009d0 <memset>
+ 80011e8:	8aab      	ldrh	r3, [r5, #20]
+ 80011ea:	00db      	lsls	r3, r3, #3
+ 80011ec:	429c      	cmp	r4, r3
+ 80011ee:	d303      	bcc.n	80011f8 <canardDecodeScalar+0x48>
+ 80011f0:	2400      	movs	r4, #0
+ 80011f2:	0020      	movs	r0, r4
+ 80011f4:	b00d      	add	sp, #52	; 0x34
+ 80011f6:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 80011f8:	19e2      	adds	r2, r4, r7
+ 80011fa:	9702      	str	r7, [sp, #8]
+ 80011fc:	4293      	cmp	r3, r2
+ 80011fe:	d202      	bcs.n	8001206 <canardDecodeScalar+0x56>
+ 8001200:	1b1b      	subs	r3, r3, r4
+ 8001202:	b2db      	uxtb	r3, r3
+ 8001204:	9302      	str	r3, [sp, #8]
+ 8001206:	68eb      	ldr	r3, [r5, #12]
+ 8001208:	2b00      	cmp	r3, #0
+ 800120a:	d102      	bne.n	8001212 <canardDecodeScalar+0x62>
+ 800120c:	692b      	ldr	r3, [r5, #16]
+ 800120e:	2b00      	cmp	r3, #0
+ 8001210:	d07a      	beq.n	8001308 <canardDecodeScalar+0x158>
+ 8001212:	9b02      	ldr	r3, [sp, #8]
+ 8001214:	2600      	movs	r6, #0
+ 8001216:	9303      	str	r3, [sp, #12]
+ 8001218:	2c27      	cmp	r4, #39	; 0x27
+ 800121a:	d812      	bhi.n	8001242 <canardDecodeScalar+0x92>
+ 800121c:	2328      	movs	r3, #40	; 0x28
+ 800121e:	9e02      	ldr	r6, [sp, #8]
+ 8001220:	1b1b      	subs	r3, r3, r4
+ 8001222:	429e      	cmp	r6, r3
+ 8001224:	d300      	bcc.n	8001228 <canardDecodeScalar+0x78>
+ 8001226:	b2de      	uxtb	r6, r3
+ 8001228:	2300      	movs	r3, #0
+ 800122a:	9300      	str	r3, [sp, #0]
+ 800122c:	0021      	movs	r1, r4
+ 800122e:	ab0a      	add	r3, sp, #40	; 0x28
+ 8001230:	0032      	movs	r2, r6
+ 8001232:	68a8      	ldr	r0, [r5, #8]
+ 8001234:	f7ff fc28 	bl	8000a88 <copyBitArray>
+ 8001238:	9b02      	ldr	r3, [sp, #8]
+ 800123a:	19a4      	adds	r4, r4, r6
+ 800123c:	1b9b      	subs	r3, r3, r6
+ 800123e:	b2db      	uxtb	r3, r3
+ 8001240:	9303      	str	r3, [sp, #12]
+ 8001242:	2128      	movs	r1, #40	; 0x28
+ 8001244:	8aab      	ldrh	r3, [r5, #20]
+ 8001246:	4a6c      	ldr	r2, [pc, #432]	; (80013f8 <canardDecodeScalar+0x248>)
+ 8001248:	189b      	adds	r3, r3, r2
+ 800124a:	00db      	lsls	r3, r3, #3
+ 800124c:	9306      	str	r3, [sp, #24]
+ 800124e:	68eb      	ldr	r3, [r5, #12]
+ 8001250:	9307      	str	r3, [sp, #28]
+ 8001252:	9b07      	ldr	r3, [sp, #28]
+ 8001254:	2b00      	cmp	r3, #0
+ 8001256:	d002      	beq.n	800125e <canardDecodeScalar+0xae>
+ 8001258:	9b03      	ldr	r3, [sp, #12]
+ 800125a:	2b00      	cmp	r3, #0
+ 800125c:	d128      	bne.n	80012b0 <canardDecodeScalar+0x100>
+ 800125e:	6928      	ldr	r0, [r5, #16]
+ 8001260:	2800      	cmp	r0, #0
+ 8001262:	d008      	beq.n	8001276 <canardDecodeScalar+0xc6>
+ 8001264:	9b03      	ldr	r3, [sp, #12]
+ 8001266:	2b00      	cmp	r3, #0
+ 8001268:	d005      	beq.n	8001276 <canardDecodeScalar+0xc6>
+ 800126a:	9a03      	ldr	r2, [sp, #12]
+ 800126c:	1a61      	subs	r1, r4, r1
+ 800126e:	9600      	str	r6, [sp, #0]
+ 8001270:	ab0a      	add	r3, sp, #40	; 0x28
+ 8001272:	f7ff fc09 	bl	8000a88 <copyBitArray>
+ 8001276:	466b      	mov	r3, sp
+ 8001278:	2408      	movs	r4, #8
+ 800127a:	5f1c      	ldrsh	r4, [r3, r4]
+ 800127c:	9b02      	ldr	r3, [sp, #8]
+ 800127e:	2b00      	cmp	r3, #0
+ 8001280:	d0b6      	beq.n	80011f0 <canardDecodeScalar+0x40>
+ 8001282:	2507      	movs	r5, #7
+ 8001284:	422f      	tst	r7, r5
+ 8001286:	d006      	beq.n	8001296 <canardDecodeScalar+0xe6>
+ 8001288:	08fb      	lsrs	r3, r7, #3
+ 800128a:	a90a      	add	r1, sp, #40	; 0x28
+ 800128c:	5cca      	ldrb	r2, [r1, r3]
+ 800128e:	4278      	negs	r0, r7
+ 8001290:	4028      	ands	r0, r5
+ 8001292:	4102      	asrs	r2, r0
+ 8001294:	54ca      	strb	r2, [r1, r3]
+ 8001296:	2f08      	cmp	r7, #8
+ 8001298:	d93c      	bls.n	8001314 <canardDecodeScalar+0x164>
+ 800129a:	2f10      	cmp	r7, #16
+ 800129c:	d800      	bhi.n	80012a0 <canardDecodeScalar+0xf0>
+ 800129e:	e0a0      	b.n	80013e2 <canardDecodeScalar+0x232>
+ 80012a0:	2f20      	cmp	r7, #32
+ 80012a2:	d800      	bhi.n	80012a6 <canardDecodeScalar+0xf6>
+ 80012a4:	e0a2      	b.n	80013ec <canardDecodeScalar+0x23c>
+ 80012a6:	9a05      	ldr	r2, [sp, #20]
+ 80012a8:	2308      	movs	r3, #8
+ 80012aa:	2a00      	cmp	r2, #0
+ 80012ac:	d136      	bne.n	800131c <canardDecodeScalar+0x16c>
+ 80012ae:	e086      	b.n	80013be <canardDecodeScalar+0x20e>
+ 80012b0:	9b06      	ldr	r3, [sp, #24]
+ 80012b2:	9308      	str	r3, [sp, #32]
+ 80012b4:	2be0      	cmp	r3, #224	; 0xe0
+ 80012b6:	d901      	bls.n	80012bc <canardDecodeScalar+0x10c>
+ 80012b8:	23e0      	movs	r3, #224	; 0xe0
+ 80012ba:	9308      	str	r3, [sp, #32]
+ 80012bc:	9b08      	ldr	r3, [sp, #32]
+ 80012be:	185b      	adds	r3, r3, r1
+ 80012c0:	9309      	str	r3, [sp, #36]	; 0x24
+ 80012c2:	42a3      	cmp	r3, r4
+ 80012c4:	d917      	bls.n	80012f6 <canardDecodeScalar+0x146>
+ 80012c6:	9a03      	ldr	r2, [sp, #12]
+ 80012c8:	1b1b      	subs	r3, r3, r4
+ 80012ca:	9204      	str	r2, [sp, #16]
+ 80012cc:	429a      	cmp	r2, r3
+ 80012ce:	d301      	bcc.n	80012d4 <canardDecodeScalar+0x124>
+ 80012d0:	b2db      	uxtb	r3, r3
+ 80012d2:	9304      	str	r3, [sp, #16]
+ 80012d4:	9b07      	ldr	r3, [sp, #28]
+ 80012d6:	9a04      	ldr	r2, [sp, #16]
+ 80012d8:	1a61      	subs	r1, r4, r1
+ 80012da:	1d18      	adds	r0, r3, #4
+ 80012dc:	9600      	str	r6, [sp, #0]
+ 80012de:	ab0a      	add	r3, sp, #40	; 0x28
+ 80012e0:	f7ff fbd2 	bl	8000a88 <copyBitArray>
+ 80012e4:	9b04      	ldr	r3, [sp, #16]
+ 80012e6:	9a04      	ldr	r2, [sp, #16]
+ 80012e8:	199e      	adds	r6, r3, r6
+ 80012ea:	18e4      	adds	r4, r4, r3
+ 80012ec:	9b03      	ldr	r3, [sp, #12]
+ 80012ee:	b2f6      	uxtb	r6, r6
+ 80012f0:	1a9b      	subs	r3, r3, r2
+ 80012f2:	b2db      	uxtb	r3, r3
+ 80012f4:	9303      	str	r3, [sp, #12]
+ 80012f6:	9b06      	ldr	r3, [sp, #24]
+ 80012f8:	9a08      	ldr	r2, [sp, #32]
+ 80012fa:	9909      	ldr	r1, [sp, #36]	; 0x24
+ 80012fc:	1a9b      	subs	r3, r3, r2
+ 80012fe:	9306      	str	r3, [sp, #24]
+ 8001300:	9b07      	ldr	r3, [sp, #28]
+ 8001302:	681b      	ldr	r3, [r3, #0]
+ 8001304:	9307      	str	r3, [sp, #28]
+ 8001306:	e7a4      	b.n	8001252 <canardDecodeScalar+0xa2>
+ 8001308:	9300      	str	r3, [sp, #0]
+ 800130a:	0021      	movs	r1, r4
+ 800130c:	9a02      	ldr	r2, [sp, #8]
+ 800130e:	68a8      	ldr	r0, [r5, #8]
+ 8001310:	ab0a      	add	r3, sp, #40	; 0x28
+ 8001312:	e7ae      	b.n	8001272 <canardDecodeScalar+0xc2>
+ 8001314:	9b05      	ldr	r3, [sp, #20]
+ 8001316:	2b00      	cmp	r3, #0
+ 8001318:	d011      	beq.n	800133e <canardDecodeScalar+0x18e>
+ 800131a:	2301      	movs	r3, #1
+ 800131c:	00db      	lsls	r3, r3, #3
+ 800131e:	42bb      	cmp	r3, r7
+ 8001320:	d058      	beq.n	80013d4 <canardDecodeScalar+0x224>
+ 8001322:	2f08      	cmp	r7, #8
+ 8001324:	d810      	bhi.n	8001348 <canardDecodeScalar+0x198>
+ 8001326:	a90a      	add	r1, sp, #40	; 0x28
+ 8001328:	780a      	ldrb	r2, [r1, #0]
+ 800132a:	1e7b      	subs	r3, r7, #1
+ 800132c:	0010      	movs	r0, r2
+ 800132e:	40d8      	lsrs	r0, r3
+ 8001330:	2301      	movs	r3, #1
+ 8001332:	4218      	tst	r0, r3
+ 8001334:	d003      	beq.n	800133e <canardDecodeScalar+0x18e>
+ 8001336:	40bb      	lsls	r3, r7
+ 8001338:	425b      	negs	r3, r3
+ 800133a:	4313      	orrs	r3, r2
+ 800133c:	700b      	strb	r3, [r1, #0]
+ 800133e:	ab0a      	add	r3, sp, #40	; 0x28
+ 8001340:	781b      	ldrb	r3, [r3, #0]
+ 8001342:	9a12      	ldr	r2, [sp, #72]	; 0x48
+ 8001344:	7013      	strb	r3, [r2, #0]
+ 8001346:	e754      	b.n	80011f2 <canardDecodeScalar+0x42>
+ 8001348:	2f10      	cmp	r7, #16
+ 800134a:	d810      	bhi.n	800136e <canardDecodeScalar+0x1be>
+ 800134c:	a90a      	add	r1, sp, #40	; 0x28
+ 800134e:	880a      	ldrh	r2, [r1, #0]
+ 8001350:	1e7b      	subs	r3, r7, #1
+ 8001352:	0010      	movs	r0, r2
+ 8001354:	40d8      	lsrs	r0, r3
+ 8001356:	2301      	movs	r3, #1
+ 8001358:	4218      	tst	r0, r3
+ 800135a:	d003      	beq.n	8001364 <canardDecodeScalar+0x1b4>
+ 800135c:	40bb      	lsls	r3, r7
+ 800135e:	425b      	negs	r3, r3
+ 8001360:	4313      	orrs	r3, r2
+ 8001362:	800b      	strh	r3, [r1, #0]
+ 8001364:	ab0a      	add	r3, sp, #40	; 0x28
+ 8001366:	881b      	ldrh	r3, [r3, #0]
+ 8001368:	9a12      	ldr	r2, [sp, #72]	; 0x48
+ 800136a:	8013      	strh	r3, [r2, #0]
+ 800136c:	e741      	b.n	80011f2 <canardDecodeScalar+0x42>
+ 800136e:	2f20      	cmp	r7, #32
+ 8001370:	d80e      	bhi.n	8001390 <canardDecodeScalar+0x1e0>
+ 8001372:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 8001374:	1e7b      	subs	r3, r7, #1
+ 8001376:	0011      	movs	r1, r2
+ 8001378:	40d9      	lsrs	r1, r3
+ 800137a:	2301      	movs	r3, #1
+ 800137c:	4219      	tst	r1, r3
+ 800137e:	d003      	beq.n	8001388 <canardDecodeScalar+0x1d8>
+ 8001380:	40bb      	lsls	r3, r7
+ 8001382:	425b      	negs	r3, r3
+ 8001384:	4313      	orrs	r3, r2
+ 8001386:	930a      	str	r3, [sp, #40]	; 0x28
+ 8001388:	9b12      	ldr	r3, [sp, #72]	; 0x48
+ 800138a:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 800138c:	601a      	str	r2, [r3, #0]
+ 800138e:	e730      	b.n	80011f2 <canardDecodeScalar+0x42>
+ 8001390:	2f40      	cmp	r7, #64	; 0x40
+ 8001392:	d01d      	beq.n	80013d0 <canardDecodeScalar+0x220>
+ 8001394:	9d0a      	ldr	r5, [sp, #40]	; 0x28
+ 8001396:	9e0b      	ldr	r6, [sp, #44]	; 0x2c
+ 8001398:	0028      	movs	r0, r5
+ 800139a:	0031      	movs	r1, r6
+ 800139c:	1e7a      	subs	r2, r7, #1
+ 800139e:	f000 ff99 	bl	80022d4 <__aeabi_llsr>
+ 80013a2:	07c3      	lsls	r3, r0, #31
+ 80013a4:	d50b      	bpl.n	80013be <canardDecodeScalar+0x20e>
+ 80013a6:	003a      	movs	r2, r7
+ 80013a8:	2001      	movs	r0, #1
+ 80013aa:	2100      	movs	r1, #0
+ 80013ac:	f000 ff9e 	bl	80022ec <__aeabi_llsl>
+ 80013b0:	2300      	movs	r3, #0
+ 80013b2:	4242      	negs	r2, r0
+ 80013b4:	418b      	sbcs	r3, r1
+ 80013b6:	4315      	orrs	r5, r2
+ 80013b8:	431e      	orrs	r6, r3
+ 80013ba:	950a      	str	r5, [sp, #40]	; 0x28
+ 80013bc:	960b      	str	r6, [sp, #44]	; 0x2c
+ 80013be:	9912      	ldr	r1, [sp, #72]	; 0x48
+ 80013c0:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 80013c2:	9b0b      	ldr	r3, [sp, #44]	; 0x2c
+ 80013c4:	600a      	str	r2, [r1, #0]
+ 80013c6:	604b      	str	r3, [r1, #4]
+ 80013c8:	e713      	b.n	80011f2 <canardDecodeScalar+0x42>
+ 80013ca:	2402      	movs	r4, #2
+ 80013cc:	4264      	negs	r4, r4
+ 80013ce:	e710      	b.n	80011f2 <canardDecodeScalar+0x42>
+ 80013d0:	2409      	movs	r4, #9
+ 80013d2:	e7fb      	b.n	80013cc <canardDecodeScalar+0x21c>
+ 80013d4:	2f08      	cmp	r7, #8
+ 80013d6:	d9b2      	bls.n	800133e <canardDecodeScalar+0x18e>
+ 80013d8:	2f10      	cmp	r7, #16
+ 80013da:	d9c3      	bls.n	8001364 <canardDecodeScalar+0x1b4>
+ 80013dc:	2f20      	cmp	r7, #32
+ 80013de:	d8ee      	bhi.n	80013be <canardDecodeScalar+0x20e>
+ 80013e0:	e7d2      	b.n	8001388 <canardDecodeScalar+0x1d8>
+ 80013e2:	9a05      	ldr	r2, [sp, #20]
+ 80013e4:	2302      	movs	r3, #2
+ 80013e6:	2a00      	cmp	r2, #0
+ 80013e8:	d198      	bne.n	800131c <canardDecodeScalar+0x16c>
+ 80013ea:	e7bb      	b.n	8001364 <canardDecodeScalar+0x1b4>
+ 80013ec:	9a05      	ldr	r2, [sp, #20]
+ 80013ee:	2304      	movs	r3, #4
+ 80013f0:	2a00      	cmp	r2, #0
+ 80013f2:	d193      	bne.n	800131c <canardDecodeScalar+0x16c>
+ 80013f4:	e7c8      	b.n	8001388 <canardDecodeScalar+0x1d8>
+ 80013f6:	46c0      	nop			; (mov r8, r8)
+ 80013f8:	1ffffffb 	.word	0x1ffffffb
+
+080013fc <canardEncodeScalar>:
+ 80013fc:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80013fe:	b087      	sub	sp, #28
+ 8001400:	0015      	movs	r5, r2
+ 8001402:	001f      	movs	r7, r3
+ 8001404:	9002      	str	r0, [sp, #8]
+ 8001406:	9103      	str	r1, [sp, #12]
+ 8001408:	1c14      	adds	r4, r2, #0
+ 800140a:	2a00      	cmp	r2, #0
+ 800140c:	d100      	bne.n	8001410 <canardEncodeScalar+0x14>
+ 800140e:	2401      	movs	r4, #1
+ 8001410:	b2e3      	uxtb	r3, r4
+ 8001412:	2b40      	cmp	r3, #64	; 0x40
+ 8001414:	d900      	bls.n	8001418 <canardEncodeScalar+0x1c>
+ 8001416:	2440      	movs	r4, #64	; 0x40
+ 8001418:	ae04      	add	r6, sp, #16
+ 800141a:	2208      	movs	r2, #8
+ 800141c:	2100      	movs	r1, #0
+ 800141e:	0030      	movs	r0, r6
+ 8001420:	b2e4      	uxtb	r4, r4
+ 8001422:	f7ff fad5 	bl	80009d0 <memset>
+ 8001426:	2d01      	cmp	r5, #1
+ 8001428:	d814      	bhi.n	8001454 <canardEncodeScalar+0x58>
+ 800142a:	783b      	ldrb	r3, [r7, #0]
+ 800142c:	7033      	strb	r3, [r6, #0]
+ 800142e:	2007      	movs	r0, #7
+ 8001430:	4204      	tst	r4, r0
+ 8001432:	d005      	beq.n	8001440 <canardEncodeScalar+0x44>
+ 8001434:	08e1      	lsrs	r1, r4, #3
+ 8001436:	5c73      	ldrb	r3, [r6, r1]
+ 8001438:	4262      	negs	r2, r4
+ 800143a:	4002      	ands	r2, r0
+ 800143c:	4093      	lsls	r3, r2
+ 800143e:	5473      	strb	r3, [r6, r1]
+ 8001440:	9b03      	ldr	r3, [sp, #12]
+ 8001442:	0022      	movs	r2, r4
+ 8001444:	9300      	str	r3, [sp, #0]
+ 8001446:	2100      	movs	r1, #0
+ 8001448:	0030      	movs	r0, r6
+ 800144a:	9b02      	ldr	r3, [sp, #8]
+ 800144c:	f7ff fb1c 	bl	8000a88 <copyBitArray>
+ 8001450:	b007      	add	sp, #28
+ 8001452:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8001454:	2d08      	cmp	r5, #8
+ 8001456:	d9e8      	bls.n	800142a <canardEncodeScalar+0x2e>
+ 8001458:	2d10      	cmp	r5, #16
+ 800145a:	d802      	bhi.n	8001462 <canardEncodeScalar+0x66>
+ 800145c:	883b      	ldrh	r3, [r7, #0]
+ 800145e:	8033      	strh	r3, [r6, #0]
+ 8001460:	e7e5      	b.n	800142e <canardEncodeScalar+0x32>
+ 8001462:	2d20      	cmp	r5, #32
+ 8001464:	d802      	bhi.n	800146c <canardEncodeScalar+0x70>
+ 8001466:	683b      	ldr	r3, [r7, #0]
+ 8001468:	9304      	str	r3, [sp, #16]
+ 800146a:	e7e0      	b.n	800142e <canardEncodeScalar+0x32>
+ 800146c:	683a      	ldr	r2, [r7, #0]
+ 800146e:	687b      	ldr	r3, [r7, #4]
+ 8001470:	9204      	str	r2, [sp, #16]
+ 8001472:	9305      	str	r3, [sp, #20]
+ 8001474:	e7db      	b.n	800142e <canardEncodeScalar+0x32>
+
+08001476 <canardReleaseRxTransferPayload>:
+ 8001476:	b510      	push	{r4, lr}
+ 8001478:	68cb      	ldr	r3, [r1, #12]
+ 800147a:	2b00      	cmp	r3, #0
+ 800147c:	d103      	bne.n	8001486 <canardReleaseRxTransferPayload+0x10>
+ 800147e:	608b      	str	r3, [r1, #8]
+ 8001480:	610b      	str	r3, [r1, #16]
+ 8001482:	828b      	strh	r3, [r1, #20]
+ 8001484:	bd10      	pop	{r4, pc}
+ 8001486:	6904      	ldr	r4, [r0, #16]
+ 8001488:	681a      	ldr	r2, [r3, #0]
+ 800148a:	601c      	str	r4, [r3, #0]
+ 800148c:	6103      	str	r3, [r0, #16]
+ 800148e:	8ac3      	ldrh	r3, [r0, #22]
+ 8001490:	3b01      	subs	r3, #1
+ 8001492:	82c3      	strh	r3, [r0, #22]
+ 8001494:	60ca      	str	r2, [r1, #12]
+ 8001496:	e7ef      	b.n	8001478 <canardReleaseRxTransferPayload+0x2>
+
+08001498 <extractTransferType>:
+ 8001498:	0003      	movs	r3, r0
+ 800149a:	2002      	movs	r0, #2
+ 800149c:	061a      	lsls	r2, r3, #24
+ 800149e:	d502      	bpl.n	80014a6 <extractTransferType+0xe>
+ 80014a0:	0bd8      	lsrs	r0, r3, #15
+ 80014a2:	2301      	movs	r3, #1
+ 80014a4:	4018      	ands	r0, r3
+ 80014a6:	4770      	bx	lr
+
+080014a8 <extractDataType>:
+ 80014a8:	b510      	push	{r4, lr}
+ 80014aa:	0004      	movs	r4, r0
+ 80014ac:	f7ff fff4 	bl	8001498 <extractTransferType>
+ 80014b0:	0c23      	lsrs	r3, r4, #16
+ 80014b2:	b2db      	uxtb	r3, r3
+ 80014b4:	2802      	cmp	r0, #2
+ 80014b6:	d105      	bne.n	80014c4 <extractDataType+0x1c>
+ 80014b8:	0a23      	lsrs	r3, r4, #8
+ 80014ba:	b29b      	uxth	r3, r3
+ 80014bc:	0662      	lsls	r2, r4, #25
+ 80014be:	d101      	bne.n	80014c4 <extractDataType+0x1c>
+ 80014c0:	2203      	movs	r2, #3
+ 80014c2:	4013      	ands	r3, r2
+ 80014c4:	0018      	movs	r0, r3
+ 80014c6:	bd10      	pop	{r4, pc}
+
+080014c8 <canardHandleRxFrame>:
+ 80014c8:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80014ca:	680e      	ldr	r6, [r1, #0]
+ 80014cc:	b099      	sub	sp, #100	; 0x64
+ 80014ce:	9002      	str	r0, [sp, #8]
+ 80014d0:	0030      	movs	r0, r6
+ 80014d2:	9103      	str	r1, [sp, #12]
+ 80014d4:	9206      	str	r2, [sp, #24]
+ 80014d6:	9307      	str	r3, [sp, #28]
+ 80014d8:	f7ff ffde 	bl	8001498 <extractTransferType>
+ 80014dc:	2500      	movs	r5, #0
+ 80014de:	9008      	str	r0, [sp, #32]
+ 80014e0:	2802      	cmp	r0, #2
+ 80014e2:	d001      	beq.n	80014e8 <canardHandleRxFrame+0x20>
+ 80014e4:	0475      	lsls	r5, r6, #17
+ 80014e6:	0e6d      	lsrs	r5, r5, #25
+ 80014e8:	2e00      	cmp	r6, #0
+ 80014ea:	db00      	blt.n	80014ee <canardHandleRxFrame+0x26>
+ 80014ec:	e22b      	b.n	8001946 <canardHandleRxFrame+0x47e>
+ 80014ee:	23c0      	movs	r3, #192	; 0xc0
+ 80014f0:	0032      	movs	r2, r6
+ 80014f2:	05db      	lsls	r3, r3, #23
+ 80014f4:	401a      	ands	r2, r3
+ 80014f6:	9204      	str	r2, [sp, #16]
+ 80014f8:	421e      	tst	r6, r3
+ 80014fa:	d000      	beq.n	80014fe <canardHandleRxFrame+0x36>
+ 80014fc:	e223      	b.n	8001946 <canardHandleRxFrame+0x47e>
+ 80014fe:	9b03      	ldr	r3, [sp, #12]
+ 8001500:	7b1f      	ldrb	r7, [r3, #12]
+ 8001502:	2f00      	cmp	r7, #0
+ 8001504:	d100      	bne.n	8001508 <canardHandleRxFrame+0x40>
+ 8001506:	e21e      	b.n	8001946 <canardHandleRxFrame+0x47e>
+ 8001508:	9b08      	ldr	r3, [sp, #32]
+ 800150a:	2b02      	cmp	r3, #2
+ 800150c:	d004      	beq.n	8001518 <canardHandleRxFrame+0x50>
+ 800150e:	9b02      	ldr	r3, [sp, #8]
+ 8001510:	781b      	ldrb	r3, [r3, #0]
+ 8001512:	42ab      	cmp	r3, r5
+ 8001514:	d000      	beq.n	8001518 <canardHandleRxFrame+0x50>
+ 8001516:	e218      	b.n	800194a <canardHandleRxFrame+0x482>
+ 8001518:	00f3      	lsls	r3, r6, #3
+ 800151a:	0edb      	lsrs	r3, r3, #27
+ 800151c:	930d      	str	r3, [sp, #52]	; 0x34
+ 800151e:	237f      	movs	r3, #127	; 0x7f
+ 8001520:	0030      	movs	r0, r6
+ 8001522:	4033      	ands	r3, r6
+ 8001524:	930a      	str	r3, [sp, #40]	; 0x28
+ 8001526:	f7ff ffbf 	bl	80014a8 <extractDataType>
+ 800152a:	9b08      	ldr	r3, [sp, #32]
+ 800152c:	9a0a      	ldr	r2, [sp, #40]	; 0x28
+ 800152e:	041b      	lsls	r3, r3, #16
+ 8001530:	0492      	lsls	r2, r2, #18
+ 8001532:	4313      	orrs	r3, r2
+ 8001534:	066d      	lsls	r5, r5, #25
+ 8001536:	431d      	orrs	r5, r3
+ 8001538:	9b03      	ldr	r3, [sp, #12]
+ 800153a:	2200      	movs	r2, #0
+ 800153c:	19df      	adds	r7, r3, r7
+ 800153e:	78fb      	ldrb	r3, [r7, #3]
+ 8001540:	900b      	str	r0, [sp, #44]	; 0x2c
+ 8001542:	9305      	str	r3, [sp, #20]
+ 8001544:	2300      	movs	r3, #0
+ 8001546:	920e      	str	r2, [sp, #56]	; 0x38
+ 8001548:	930f      	str	r3, [sp, #60]	; 0x3c
+ 800154a:	9b05      	ldr	r3, [sp, #20]
+ 800154c:	4305      	orrs	r5, r0
+ 800154e:	09db      	lsrs	r3, r3, #7
+ 8001550:	9309      	str	r3, [sp, #36]	; 0x24
+ 8001552:	d06d      	beq.n	8001630 <canardHandleRxFrame+0x168>
+ 8001554:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+ 8001556:	0002      	movs	r2, r0
+ 8001558:	9802      	ldr	r0, [sp, #8]
+ 800155a:	9300      	str	r3, [sp, #0]
+ 800155c:	6846      	ldr	r6, [r0, #4]
+ 800155e:	9b08      	ldr	r3, [sp, #32]
+ 8001560:	a90e      	add	r1, sp, #56	; 0x38
+ 8001562:	47b0      	blx	r6
+ 8001564:	2800      	cmp	r0, #0
+ 8001566:	d073      	beq.n	8001650 <canardHandleRxFrame+0x188>
+ 8001568:	9b02      	ldr	r3, [sp, #8]
+ 800156a:	6a1f      	ldr	r7, [r3, #32]
+ 800156c:	2f00      	cmp	r7, #0
+ 800156e:	d109      	bne.n	8001584 <canardHandleRxFrame+0xbc>
+ 8001570:	0018      	movs	r0, r3
+ 8001572:	0029      	movs	r1, r5
+ 8001574:	300c      	adds	r0, #12
+ 8001576:	f7ff faf7 	bl	8000b68 <createRxState>
+ 800157a:	1e07      	subs	r7, r0, #0
+ 800157c:	d112      	bne.n	80015a4 <canardHandleRxFrame+0xdc>
+ 800157e:	2003      	movs	r0, #3
+ 8001580:	4240      	negs	r0, r0
+ 8001582:	e10a      	b.n	800179a <canardHandleRxFrame+0x2d2>
+ 8001584:	693b      	ldr	r3, [r7, #16]
+ 8001586:	429d      	cmp	r5, r3
+ 8001588:	d00e      	beq.n	80015a8 <canardHandleRxFrame+0xe0>
+ 800158a:	683f      	ldr	r7, [r7, #0]
+ 800158c:	2f00      	cmp	r7, #0
+ 800158e:	d1f9      	bne.n	8001584 <canardHandleRxFrame+0xbc>
+ 8001590:	9802      	ldr	r0, [sp, #8]
+ 8001592:	0029      	movs	r1, r5
+ 8001594:	300c      	adds	r0, #12
+ 8001596:	f7ff fae7 	bl	8000b68 <createRxState>
+ 800159a:	1e07      	subs	r7, r0, #0
+ 800159c:	d0ef      	beq.n	800157e <canardHandleRxFrame+0xb6>
+ 800159e:	9b02      	ldr	r3, [sp, #8]
+ 80015a0:	6a1b      	ldr	r3, [r3, #32]
+ 80015a2:	603b      	str	r3, [r7, #0]
+ 80015a4:	9b02      	ldr	r3, [sp, #8]
+ 80015a6:	621f      	str	r7, [r3, #32]
+ 80015a8:	68ba      	ldr	r2, [r7, #8]
+ 80015aa:	68fb      	ldr	r3, [r7, #12]
+ 80015ac:	0011      	movs	r1, r2
+ 80015ae:	4319      	orrs	r1, r3
+ 80015b0:	4248      	negs	r0, r1
+ 80015b2:	4141      	adcs	r1, r0
+ 80015b4:	b2c9      	uxtb	r1, r1
+ 80015b6:	468c      	mov	ip, r1
+ 80015b8:	9806      	ldr	r0, [sp, #24]
+ 80015ba:	9907      	ldr	r1, [sp, #28]
+ 80015bc:	1a80      	subs	r0, r0, r2
+ 80015be:	4199      	sbcs	r1, r3
+ 80015c0:	2601      	movs	r6, #1
+ 80015c2:	2900      	cmp	r1, #0
+ 80015c4:	d103      	bne.n	80015ce <canardHandleRxFrame+0x106>
+ 80015c6:	4b9a      	ldr	r3, [pc, #616]	; (8001830 <canardHandleRxFrame+0x368>)
+ 80015c8:	4298      	cmp	r0, r3
+ 80015ca:	d800      	bhi.n	80015ce <canardHandleRxFrame+0x106>
+ 80015cc:	1c0e      	adds	r6, r1, #0
+ 80015ce:	231f      	movs	r3, #31
+ 80015d0:	9a05      	ldr	r2, [sp, #20]
+ 80015d2:	7dfd      	ldrb	r5, [r7, #23]
+ 80015d4:	401a      	ands	r2, r3
+ 80015d6:	920c      	str	r2, [sp, #48]	; 0x30
+ 80015d8:	9a05      	ldr	r2, [sp, #20]
+ 80015da:	066d      	lsls	r5, r5, #25
+ 80015dc:	0eed      	lsrs	r5, r5, #27
+ 80015de:	4013      	ands	r3, r2
+ 80015e0:	1aea      	subs	r2, r5, r3
+ 80015e2:	b2f6      	uxtb	r6, r6
+ 80015e4:	b294      	uxth	r4, r2
+ 80015e6:	2a00      	cmp	r2, #0
+ 80015e8:	da02      	bge.n	80015f0 <canardHandleRxFrame+0x128>
+ 80015ea:	0022      	movs	r2, r4
+ 80015ec:	3220      	adds	r2, #32
+ 80015ee:	b212      	sxth	r2, r2
+ 80015f0:	1b5b      	subs	r3, r3, r5
+ 80015f2:	b29d      	uxth	r5, r3
+ 80015f4:	2b00      	cmp	r3, #0
+ 80015f6:	da02      	bge.n	80015fe <canardHandleRxFrame+0x136>
+ 80015f8:	002b      	movs	r3, r5
+ 80015fa:	3320      	adds	r3, #32
+ 80015fc:	b21b      	sxth	r3, r3
+ 80015fe:	4664      	mov	r4, ip
+ 8001600:	2c00      	cmp	r4, #0
+ 8001602:	d000      	beq.n	8001606 <canardHandleRxFrame+0x13e>
+ 8001604:	e07e      	b.n	8001704 <canardHandleRxFrame+0x23c>
+ 8001606:	2e00      	cmp	r6, #0
+ 8001608:	d17c      	bne.n	8001704 <canardHandleRxFrame+0x23c>
+ 800160a:	9c03      	ldr	r4, [sp, #12]
+ 800160c:	7ebe      	ldrb	r6, [r7, #26]
+ 800160e:	7b65      	ldrb	r5, [r4, #13]
+ 8001610:	42b5      	cmp	r5, r6
+ 8001612:	d124      	bne.n	800165e <canardHandleRxFrame+0x196>
+ 8001614:	9c09      	ldr	r4, [sp, #36]	; 0x24
+ 8001616:	2c00      	cmp	r4, #0
+ 8001618:	d035      	beq.n	8001686 <canardHandleRxFrame+0x1be>
+ 800161a:	687c      	ldr	r4, [r7, #4]
+ 800161c:	2c00      	cmp	r4, #0
+ 800161e:	d171      	bne.n	8001704 <canardHandleRxFrame+0x23c>
+ 8001620:	2a01      	cmp	r2, #1
+ 8001622:	dc6f      	bgt.n	8001704 <canardHandleRxFrame+0x23c>
+ 8001624:	2900      	cmp	r1, #0
+ 8001626:	d125      	bne.n	8001674 <canardHandleRxFrame+0x1ac>
+ 8001628:	4a82      	ldr	r2, [pc, #520]	; (8001834 <canardHandleRxFrame+0x36c>)
+ 800162a:	4290      	cmp	r0, r2
+ 800162c:	d822      	bhi.n	8001674 <canardHandleRxFrame+0x1ac>
+ 800162e:	e07c      	b.n	800172a <canardHandleRxFrame+0x262>
+ 8001630:	9b02      	ldr	r3, [sp, #8]
+ 8001632:	6a1f      	ldr	r7, [r3, #32]
+ 8001634:	2f00      	cmp	r7, #0
+ 8001636:	d10d      	bne.n	8001654 <canardHandleRxFrame+0x18c>
+ 8001638:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+ 800163a:	9a0b      	ldr	r2, [sp, #44]	; 0x2c
+ 800163c:	9300      	str	r3, [sp, #0]
+ 800163e:	9b02      	ldr	r3, [sp, #8]
+ 8001640:	9802      	ldr	r0, [sp, #8]
+ 8001642:	685d      	ldr	r5, [r3, #4]
+ 8001644:	a90e      	add	r1, sp, #56	; 0x38
+ 8001646:	9b08      	ldr	r3, [sp, #32]
+ 8001648:	47a8      	blx	r5
+ 800164a:	2800      	cmp	r0, #0
+ 800164c:	d000      	beq.n	8001650 <canardHandleRxFrame+0x188>
+ 800164e:	e0b0      	b.n	80017b2 <canardHandleRxFrame+0x2ea>
+ 8001650:	200c      	movs	r0, #12
+ 8001652:	e795      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 8001654:	693b      	ldr	r3, [r7, #16]
+ 8001656:	429d      	cmp	r5, r3
+ 8001658:	d0a6      	beq.n	80015a8 <canardHandleRxFrame+0xe0>
+ 800165a:	683f      	ldr	r7, [r7, #0]
+ 800165c:	e7ea      	b.n	8001634 <canardHandleRxFrame+0x16c>
+ 800165e:	2900      	cmp	r1, #0
+ 8001660:	d103      	bne.n	800166a <canardHandleRxFrame+0x1a2>
+ 8001662:	4a74      	ldr	r2, [pc, #464]	; (8001834 <canardHandleRxFrame+0x36c>)
+ 8001664:	4290      	cmp	r0, r2
+ 8001666:	d800      	bhi.n	800166a <canardHandleRxFrame+0x1a2>
+ 8001668:	e096      	b.n	8001798 <canardHandleRxFrame+0x2d0>
+ 800166a:	2000      	movs	r0, #0
+ 800166c:	9a09      	ldr	r2, [sp, #36]	; 0x24
+ 800166e:	4282      	cmp	r2, r0
+ 8001670:	d100      	bne.n	8001674 <canardHandleRxFrame+0x1ac>
+ 8001672:	e092      	b.n	800179a <canardHandleRxFrame+0x2d2>
+ 8001674:	2b0f      	cmp	r3, #15
+ 8001676:	dd45      	ble.n	8001704 <canardHandleRxFrame+0x23c>
+ 8001678:	2000      	movs	r0, #0
+ 800167a:	42b5      	cmp	r5, r6
+ 800167c:	d000      	beq.n	8001680 <canardHandleRxFrame+0x1b8>
+ 800167e:	e08c      	b.n	800179a <canardHandleRxFrame+0x2d2>
+ 8001680:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 8001682:	2b00      	cmp	r3, #0
+ 8001684:	d151      	bne.n	800172a <canardHandleRxFrame+0x262>
+ 8001686:	2101      	movs	r1, #1
+ 8001688:	9b05      	ldr	r3, [sp, #20]
+ 800168a:	095a      	lsrs	r2, r3, #5
+ 800168c:	7dfb      	ldrb	r3, [r7, #23]
+ 800168e:	400a      	ands	r2, r1
+ 8001690:	09d8      	lsrs	r0, r3, #7
+ 8001692:	4290      	cmp	r0, r2
+ 8001694:	d000      	beq.n	8001698 <canardHandleRxFrame+0x1d0>
+ 8001696:	e15a      	b.n	800194e <canardHandleRxFrame+0x486>
+ 8001698:	9a0c      	ldr	r2, [sp, #48]	; 0x30
+ 800169a:	065b      	lsls	r3, r3, #25
+ 800169c:	0edb      	lsrs	r3, r3, #27
+ 800169e:	4293      	cmp	r3, r2
+ 80016a0:	d000      	beq.n	80016a4 <canardHandleRxFrame+0x1dc>
+ 80016a2:	e156      	b.n	8001952 <canardHandleRxFrame+0x48a>
+ 80016a4:	9b05      	ldr	r3, [sp, #20]
+ 80016a6:	9a03      	ldr	r2, [sp, #12]
+ 80016a8:	9809      	ldr	r0, [sp, #36]	; 0x24
+ 80016aa:	7b12      	ldrb	r2, [r2, #12]
+ 80016ac:	099b      	lsrs	r3, r3, #6
+ 80016ae:	2800      	cmp	r0, #0
+ 80016b0:	d100      	bne.n	80016b4 <canardHandleRxFrame+0x1ec>
+ 80016b2:	e0a6      	b.n	8001802 <canardHandleRxFrame+0x33a>
+ 80016b4:	420b      	tst	r3, r1
+ 80016b6:	d000      	beq.n	80016ba <canardHandleRxFrame+0x1f2>
+ 80016b8:	e0c0      	b.n	800183c <canardHandleRxFrame+0x374>
+ 80016ba:	2a03      	cmp	r2, #3
+ 80016bc:	d800      	bhi.n	80016c0 <canardHandleRxFrame+0x1f8>
+ 80016be:	e14a      	b.n	8001956 <canardHandleRxFrame+0x48e>
+ 80016c0:	9806      	ldr	r0, [sp, #24]
+ 80016c2:	9907      	ldr	r1, [sp, #28]
+ 80016c4:	8afb      	ldrh	r3, [r7, #22]
+ 80016c6:	60b8      	str	r0, [r7, #8]
+ 80016c8:	60f9      	str	r1, [r7, #12]
+ 80016ca:	0a9b      	lsrs	r3, r3, #10
+ 80016cc:	029b      	lsls	r3, r3, #10
+ 80016ce:	82fb      	strh	r3, [r7, #22]
+ 80016d0:	9b03      	ldr	r3, [sp, #12]
+ 80016d2:	9802      	ldr	r0, [sp, #8]
+ 80016d4:	3306      	adds	r3, #6
+ 80016d6:	9305      	str	r3, [sp, #20]
+ 80016d8:	3a03      	subs	r2, #3
+ 80016da:	b2d3      	uxtb	r3, r2
+ 80016dc:	0039      	movs	r1, r7
+ 80016de:	9a05      	ldr	r2, [sp, #20]
+ 80016e0:	300c      	adds	r0, #12
+ 80016e2:	f7ff fac3 	bl	8000c6c <bufferBlockPushBytes>
+ 80016e6:	2800      	cmp	r0, #0
+ 80016e8:	da65      	bge.n	80017b6 <canardHandleRxFrame+0x2ee>
+ 80016ea:	0039      	movs	r1, r7
+ 80016ec:	9802      	ldr	r0, [sp, #8]
+ 80016ee:	f7ff faab 	bl	8000c48 <releaseStatePayload.isra.0>
+ 80016f2:	221f      	movs	r2, #31
+ 80016f4:	7dfb      	ldrb	r3, [r7, #23]
+ 80016f6:	065b      	lsls	r3, r3, #25
+ 80016f8:	0edb      	lsrs	r3, r3, #27
+ 80016fa:	3301      	adds	r3, #1
+ 80016fc:	4013      	ands	r3, r2
+ 80016fe:	029b      	lsls	r3, r3, #10
+ 8001700:	82fb      	strh	r3, [r7, #22]
+ 8001702:	e73c      	b.n	800157e <canardHandleRxFrame+0xb6>
+ 8001704:	2103      	movs	r1, #3
+ 8001706:	257c      	movs	r5, #124	; 0x7c
+ 8001708:	9b05      	ldr	r3, [sp, #20]
+ 800170a:	7dfa      	ldrb	r2, [r7, #23]
+ 800170c:	009b      	lsls	r3, r3, #2
+ 800170e:	400a      	ands	r2, r1
+ 8001710:	402b      	ands	r3, r5
+ 8001712:	4313      	orrs	r3, r2
+ 8001714:	75fb      	strb	r3, [r7, #23]
+ 8001716:	0039      	movs	r1, r7
+ 8001718:	9802      	ldr	r0, [sp, #8]
+ 800171a:	f7ff fa95 	bl	8000c48 <releaseStatePayload.isra.0>
+ 800171e:	9b03      	ldr	r3, [sp, #12]
+ 8001720:	7b5b      	ldrb	r3, [r3, #13]
+ 8001722:	76bb      	strb	r3, [r7, #26]
+ 8001724:	9b09      	ldr	r3, [sp, #36]	; 0x24
+ 8001726:	2b00      	cmp	r3, #0
+ 8001728:	d039      	beq.n	800179e <canardHandleRxFrame+0x2d6>
+ 800172a:	9b05      	ldr	r3, [sp, #20]
+ 800172c:	099b      	lsrs	r3, r3, #6
+ 800172e:	2b02      	cmp	r3, #2
+ 8001730:	d0a9      	beq.n	8001686 <canardHandleRxFrame+0x1be>
+ 8001732:	9a06      	ldr	r2, [sp, #24]
+ 8001734:	9b07      	ldr	r3, [sp, #28]
+ 8001736:	2100      	movs	r1, #0
+ 8001738:	60ba      	str	r2, [r7, #8]
+ 800173a:	60fb      	str	r3, [r7, #12]
+ 800173c:	a813      	add	r0, sp, #76	; 0x4c
+ 800173e:	2214      	movs	r2, #20
+ 8001740:	f7ff f946 	bl	80009d0 <memset>
+ 8001744:	9a06      	ldr	r2, [sp, #24]
+ 8001746:	9b07      	ldr	r3, [sp, #28]
+ 8001748:	9210      	str	r2, [sp, #64]	; 0x40
+ 800174a:	9311      	str	r3, [sp, #68]	; 0x44
+ 800174c:	9b03      	ldr	r3, [sp, #12]
+ 800174e:	ad10      	add	r5, sp, #64	; 0x40
+ 8001750:	3304      	adds	r3, #4
+ 8001752:	9312      	str	r3, [sp, #72]	; 0x48
+ 8001754:	9b03      	ldr	r3, [sp, #12]
+ 8001756:	0029      	movs	r1, r5
+ 8001758:	7b1b      	ldrb	r3, [r3, #12]
+ 800175a:	9802      	ldr	r0, [sp, #8]
+ 800175c:	3b01      	subs	r3, #1
+ 800175e:	b2db      	uxtb	r3, r3
+ 8001760:	82ab      	strh	r3, [r5, #20]
+ 8001762:	9b0b      	ldr	r3, [sp, #44]	; 0x2c
+ 8001764:	82eb      	strh	r3, [r5, #22]
+ 8001766:	9b08      	ldr	r3, [sp, #32]
+ 8001768:	762b      	strb	r3, [r5, #24]
+ 800176a:	9b0c      	ldr	r3, [sp, #48]	; 0x30
+ 800176c:	766b      	strb	r3, [r5, #25]
+ 800176e:	9b0d      	ldr	r3, [sp, #52]	; 0x34
+ 8001770:	76ab      	strb	r3, [r5, #26]
+ 8001772:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+ 8001774:	76eb      	strb	r3, [r5, #27]
+ 8001776:	9b02      	ldr	r3, [sp, #8]
+ 8001778:	332c      	adds	r3, #44	; 0x2c
+ 800177a:	781a      	ldrb	r2, [r3, #0]
+ 800177c:	2301      	movs	r3, #1
+ 800177e:	4053      	eors	r3, r2
+ 8001780:	772b      	strb	r3, [r5, #28]
+ 8001782:	9b02      	ldr	r3, [sp, #8]
+ 8001784:	689b      	ldr	r3, [r3, #8]
+ 8001786:	4798      	blx	r3
+ 8001788:	221f      	movs	r2, #31
+ 800178a:	7dfb      	ldrb	r3, [r7, #23]
+ 800178c:	065b      	lsls	r3, r3, #25
+ 800178e:	0edb      	lsrs	r3, r3, #27
+ 8001790:	3301      	adds	r3, #1
+ 8001792:	4013      	ands	r3, r2
+ 8001794:	029b      	lsls	r3, r3, #10
+ 8001796:	82fb      	strh	r3, [r7, #22]
+ 8001798:	2000      	movs	r0, #0
+ 800179a:	b019      	add	sp, #100	; 0x64
+ 800179c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800179e:	211f      	movs	r1, #31
+ 80017a0:	7dfa      	ldrb	r2, [r7, #23]
+ 80017a2:	0653      	lsls	r3, r2, #25
+ 80017a4:	0edb      	lsrs	r3, r3, #27
+ 80017a6:	3301      	adds	r3, #1
+ 80017a8:	400b      	ands	r3, r1
+ 80017aa:	009b      	lsls	r3, r3, #2
+ 80017ac:	43aa      	bics	r2, r5
+ 80017ae:	4313      	orrs	r3, r2
+ 80017b0:	75fb      	strb	r3, [r7, #23]
+ 80017b2:	200d      	movs	r0, #13
+ 80017b4:	e6e4      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 80017b6:	9b03      	ldr	r3, [sp, #12]
+ 80017b8:	4c1f      	ldr	r4, [pc, #124]	; (8001838 <canardHandleRxFrame+0x370>)
+ 80017ba:	889b      	ldrh	r3, [r3, #4]
+ 80017bc:	9d0e      	ldr	r5, [sp, #56]	; 0x38
+ 80017be:	9e0f      	ldr	r6, [sp, #60]	; 0x3c
+ 80017c0:	833b      	strh	r3, [r7, #24]
+ 80017c2:	9a04      	ldr	r2, [sp, #16]
+ 80017c4:	0028      	movs	r0, r5
+ 80017c6:	0031      	movs	r1, r6
+ 80017c8:	f000 fd84 	bl	80022d4 <__aeabi_llsr>
+ 80017cc:	b2c1      	uxtb	r1, r0
+ 80017ce:	0020      	movs	r0, r4
+ 80017d0:	f7ff f99e 	bl	8000b10 <crcAddByte>
+ 80017d4:	9b04      	ldr	r3, [sp, #16]
+ 80017d6:	0004      	movs	r4, r0
+ 80017d8:	3308      	adds	r3, #8
+ 80017da:	9304      	str	r3, [sp, #16]
+ 80017dc:	2b40      	cmp	r3, #64	; 0x40
+ 80017de:	d1f0      	bne.n	80017c2 <canardHandleRxFrame+0x2fa>
+ 80017e0:	9b03      	ldr	r3, [sp, #12]
+ 80017e2:	82b8      	strh	r0, [r7, #20]
+ 80017e4:	7b1a      	ldrb	r2, [r3, #12]
+ 80017e6:	9905      	ldr	r1, [sp, #20]
+ 80017e8:	3a03      	subs	r2, #3
+ 80017ea:	b2d2      	uxtb	r2, r2
+ 80017ec:	f7ff f9a2 	bl	8000b34 <crcAdd>
+ 80017f0:	2280      	movs	r2, #128	; 0x80
+ 80017f2:	217f      	movs	r1, #127	; 0x7f
+ 80017f4:	7dfb      	ldrb	r3, [r7, #23]
+ 80017f6:	82b8      	strh	r0, [r7, #20]
+ 80017f8:	439a      	bics	r2, r3
+ 80017fa:	400b      	ands	r3, r1
+ 80017fc:	4313      	orrs	r3, r2
+ 80017fe:	75fb      	strb	r3, [r7, #23]
+ 8001800:	e7ca      	b.n	8001798 <canardHandleRxFrame+0x2d0>
+ 8001802:	2b00      	cmp	r3, #0
+ 8001804:	d11a      	bne.n	800183c <canardHandleRxFrame+0x374>
+ 8001806:	9b03      	ldr	r3, [sp, #12]
+ 8001808:	9802      	ldr	r0, [sp, #8]
+ 800180a:	1d1d      	adds	r5, r3, #4
+ 800180c:	3a01      	subs	r2, #1
+ 800180e:	b2d3      	uxtb	r3, r2
+ 8001810:	0039      	movs	r1, r7
+ 8001812:	002a      	movs	r2, r5
+ 8001814:	300c      	adds	r0, #12
+ 8001816:	f7ff fa29 	bl	8000c6c <bufferBlockPushBytes>
+ 800181a:	2800      	cmp	r0, #0
+ 800181c:	da00      	bge.n	8001820 <canardHandleRxFrame+0x358>
+ 800181e:	e764      	b.n	80016ea <canardHandleRxFrame+0x222>
+ 8001820:	9b03      	ldr	r3, [sp, #12]
+ 8001822:	0029      	movs	r1, r5
+ 8001824:	7b1a      	ldrb	r2, [r3, #12]
+ 8001826:	8ab8      	ldrh	r0, [r7, #20]
+ 8001828:	3a01      	subs	r2, #1
+ 800182a:	b2d2      	uxtb	r2, r2
+ 800182c:	e7de      	b.n	80017ec <canardHandleRxFrame+0x324>
+ 800182e:	46c0      	nop			; (mov r8, r8)
+ 8001830:	001e8480 	.word	0x001e8480
+ 8001834:	000f4240 	.word	0x000f4240
+ 8001838:	0000ffff 	.word	0x0000ffff
+ 800183c:	1e53      	subs	r3, r2, #1
+ 800183e:	b2db      	uxtb	r3, r3
+ 8001840:	9305      	str	r3, [sp, #20]
+ 8001842:	8afb      	ldrh	r3, [r7, #22]
+ 8001844:	687e      	ldr	r6, [r7, #4]
+ 8001846:	059b      	lsls	r3, r3, #22
+ 8001848:	0d9b      	lsrs	r3, r3, #22
+ 800184a:	469c      	mov	ip, r3
+ 800184c:	2b04      	cmp	r3, #4
+ 800184e:	d859      	bhi.n	8001904 <canardHandleRxFrame+0x43c>
+ 8001850:	0019      	movs	r1, r3
+ 8001852:	9b03      	ldr	r3, [sp, #12]
+ 8001854:	003d      	movs	r5, r7
+ 8001856:	1d18      	adds	r0, r3, #4
+ 8001858:	2300      	movs	r3, #0
+ 800185a:	351b      	adds	r5, #27
+ 800185c:	9c05      	ldr	r4, [sp, #20]
+ 800185e:	429c      	cmp	r4, r3
+ 8001860:	d907      	bls.n	8001872 <canardHandleRxFrame+0x3aa>
+ 8001862:	7804      	ldrb	r4, [r0, #0]
+ 8001864:	3301      	adds	r3, #1
+ 8001866:	546c      	strb	r4, [r5, r1]
+ 8001868:	3101      	adds	r1, #1
+ 800186a:	b2db      	uxtb	r3, r3
+ 800186c:	3001      	adds	r0, #1
+ 800186e:	2905      	cmp	r1, #5
+ 8001870:	d1f4      	bne.n	800185c <canardHandleRxFrame+0x394>
+ 8001872:	9806      	ldr	r0, [sp, #24]
+ 8001874:	9907      	ldr	r1, [sp, #28]
+ 8001876:	9010      	str	r0, [sp, #64]	; 0x40
+ 8001878:	9111      	str	r1, [sp, #68]	; 0x44
+ 800187a:	0039      	movs	r1, r7
+ 800187c:	9805      	ldr	r0, [sp, #20]
+ 800187e:	311b      	adds	r1, #27
+ 8001880:	ad10      	add	r5, sp, #64	; 0x40
+ 8001882:	60a9      	str	r1, [r5, #8]
+ 8001884:	60ee      	str	r6, [r5, #12]
+ 8001886:	2100      	movs	r1, #0
+ 8001888:	4283      	cmp	r3, r0
+ 800188a:	d203      	bcs.n	8001894 <canardHandleRxFrame+0x3cc>
+ 800188c:	3304      	adds	r3, #4
+ 800188e:	b2d9      	uxtb	r1, r3
+ 8001890:	9b03      	ldr	r3, [sp, #12]
+ 8001892:	1859      	adds	r1, r3, r1
+ 8001894:	9b05      	ldr	r3, [sp, #20]
+ 8001896:	6129      	str	r1, [r5, #16]
+ 8001898:	4463      	add	r3, ip
+ 800189a:	82ab      	strh	r3, [r5, #20]
+ 800189c:	9b0b      	ldr	r3, [sp, #44]	; 0x2c
+ 800189e:	3a01      	subs	r2, #1
+ 80018a0:	82eb      	strh	r3, [r5, #22]
+ 80018a2:	9b08      	ldr	r3, [sp, #32]
+ 80018a4:	762b      	strb	r3, [r5, #24]
+ 80018a6:	9b0c      	ldr	r3, [sp, #48]	; 0x30
+ 80018a8:	766b      	strb	r3, [r5, #25]
+ 80018aa:	9b0d      	ldr	r3, [sp, #52]	; 0x34
+ 80018ac:	76ab      	strb	r3, [r5, #26]
+ 80018ae:	9b0a      	ldr	r3, [sp, #40]	; 0x28
+ 80018b0:	76eb      	strb	r3, [r5, #27]
+ 80018b2:	9b02      	ldr	r3, [sp, #8]
+ 80018b4:	332c      	adds	r3, #44	; 0x2c
+ 80018b6:	7819      	ldrb	r1, [r3, #0]
+ 80018b8:	2301      	movs	r3, #1
+ 80018ba:	404b      	eors	r3, r1
+ 80018bc:	772b      	strb	r3, [r5, #28]
+ 80018be:	2300      	movs	r3, #0
+ 80018c0:	9903      	ldr	r1, [sp, #12]
+ 80018c2:	8ab8      	ldrh	r0, [r7, #20]
+ 80018c4:	607b      	str	r3, [r7, #4]
+ 80018c6:	3104      	adds	r1, #4
+ 80018c8:	f7ff f934 	bl	8000b34 <crcAdd>
+ 80018cc:	8b3b      	ldrh	r3, [r7, #24]
+ 80018ce:	82b8      	strh	r0, [r7, #20]
+ 80018d0:	4283      	cmp	r3, r0
+ 80018d2:	d103      	bne.n	80018dc <canardHandleRxFrame+0x414>
+ 80018d4:	9802      	ldr	r0, [sp, #8]
+ 80018d6:	0029      	movs	r1, r5
+ 80018d8:	6883      	ldr	r3, [r0, #8]
+ 80018da:	4798      	blx	r3
+ 80018dc:	9802      	ldr	r0, [sp, #8]
+ 80018de:	a910      	add	r1, sp, #64	; 0x40
+ 80018e0:	f7ff fdc9 	bl	8001476 <canardReleaseRxTransferPayload>
+ 80018e4:	221f      	movs	r2, #31
+ 80018e6:	7dfb      	ldrb	r3, [r7, #23]
+ 80018e8:	2000      	movs	r0, #0
+ 80018ea:	065b      	lsls	r3, r3, #25
+ 80018ec:	0edb      	lsrs	r3, r3, #27
+ 80018ee:	3301      	adds	r3, #1
+ 80018f0:	4013      	ands	r3, r2
+ 80018f2:	029b      	lsls	r3, r3, #10
+ 80018f4:	82fb      	strh	r3, [r7, #22]
+ 80018f6:	8aba      	ldrh	r2, [r7, #20]
+ 80018f8:	8b3b      	ldrh	r3, [r7, #24]
+ 80018fa:	429a      	cmp	r2, r3
+ 80018fc:	d100      	bne.n	8001900 <canardHandleRxFrame+0x438>
+ 80018fe:	e74c      	b.n	800179a <canardHandleRxFrame+0x2d2>
+ 8001900:	3811      	subs	r0, #17
+ 8001902:	e74a      	b.n	800179a <canardHandleRxFrame+0x2d2>
+ 8001904:	0030      	movs	r0, r6
+ 8001906:	2105      	movs	r1, #5
+ 8001908:	1e33      	subs	r3, r6, #0
+ 800190a:	d0b2      	beq.n	8001872 <canardHandleRxFrame+0x3aa>
+ 800190c:	6803      	ldr	r3, [r0, #0]
+ 800190e:	2b00      	cmp	r3, #0
+ 8001910:	d116      	bne.n	8001940 <canardHandleRxFrame+0x478>
+ 8001912:	4663      	mov	r3, ip
+ 8001914:	1a59      	subs	r1, r3, r1
+ 8001916:	9b03      	ldr	r3, [sp, #12]
+ 8001918:	1d1d      	adds	r5, r3, #4
+ 800191a:	1d0b      	adds	r3, r1, #4
+ 800191c:	18c0      	adds	r0, r0, r3
+ 800191e:	466b      	mov	r3, sp
+ 8001920:	9c04      	ldr	r4, [sp, #16]
+ 8001922:	7c1b      	ldrb	r3, [r3, #16]
+ 8001924:	190c      	adds	r4, r1, r4
+ 8001926:	2c1b      	cmp	r4, #27
+ 8001928:	d8a3      	bhi.n	8001872 <canardHandleRxFrame+0x3aa>
+ 800192a:	9c05      	ldr	r4, [sp, #20]
+ 800192c:	429c      	cmp	r4, r3
+ 800192e:	d9a0      	bls.n	8001872 <canardHandleRxFrame+0x3aa>
+ 8001930:	9b04      	ldr	r3, [sp, #16]
+ 8001932:	9c04      	ldr	r4, [sp, #16]
+ 8001934:	5ceb      	ldrb	r3, [r5, r3]
+ 8001936:	5503      	strb	r3, [r0, r4]
+ 8001938:	0023      	movs	r3, r4
+ 800193a:	3301      	adds	r3, #1
+ 800193c:	9304      	str	r3, [sp, #16]
+ 800193e:	e7ee      	b.n	800191e <canardHandleRxFrame+0x456>
+ 8001940:	0018      	movs	r0, r3
+ 8001942:	311c      	adds	r1, #28
+ 8001944:	e7e2      	b.n	800190c <canardHandleRxFrame+0x444>
+ 8001946:	200a      	movs	r0, #10
+ 8001948:	e61a      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 800194a:	200b      	movs	r0, #11
+ 800194c:	e618      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 800194e:	200e      	movs	r0, #14
+ 8001950:	e616      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 8001952:	200f      	movs	r0, #15
+ 8001954:	e614      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 8001956:	2010      	movs	r0, #16
+ 8001958:	e612      	b.n	8001580 <canardHandleRxFrame+0xb8>
+ 800195a:	46c0      	nop			; (mov r8, r8)
+
+0800195c <convertFrameIDRegisterToCanard>:
+ 800195c:	0003      	movs	r3, r0
+ 800195e:	0d40      	lsrs	r0, r0, #21
+ 8001960:	075a      	lsls	r2, r3, #29
+ 8001962:	d503      	bpl.n	800196c <convertFrameIDRegisterToCanard+0x10>
+ 8001964:	2080      	movs	r0, #128	; 0x80
+ 8001966:	08da      	lsrs	r2, r3, #3
+ 8001968:	0600      	lsls	r0, r0, #24
+ 800196a:	4310      	orrs	r0, r2
+ 800196c:	079b      	lsls	r3, r3, #30
+ 800196e:	d502      	bpl.n	8001976 <convertFrameIDRegisterToCanard+0x1a>
+ 8001970:	2380      	movs	r3, #128	; 0x80
+ 8001972:	05db      	lsls	r3, r3, #23
+ 8001974:	4318      	orrs	r0, r3
+ 8001976:	4770      	bx	lr
+
+08001978 <processErrorStatus>:
+ 8001978:	4a0d      	ldr	r2, [pc, #52]	; (80019b0 <processErrorStatus+0x38>)
+ 800197a:	b530      	push	{r4, r5, lr}
+ 800197c:	6993      	ldr	r3, [r2, #24]
+ 800197e:	065b      	lsls	r3, r3, #25
+ 8001980:	0f5b      	lsrs	r3, r3, #29
+ 8001982:	d013      	beq.n	80019ac <processErrorStatus+0x34>
+ 8001984:	2300      	movs	r3, #0
+ 8001986:	2001      	movs	r0, #1
+ 8001988:	2100      	movs	r1, #0
+ 800198a:	6193      	str	r3, [r2, #24]
+ 800198c:	4b09      	ldr	r3, [pc, #36]	; (80019b4 <processErrorStatus+0x3c>)
+ 800198e:	689c      	ldr	r4, [r3, #8]
+ 8001990:	68dd      	ldr	r5, [r3, #12]
+ 8001992:	1900      	adds	r0, r0, r4
+ 8001994:	4169      	adcs	r1, r5
+ 8001996:	6098      	str	r0, [r3, #8]
+ 8001998:	60d9      	str	r1, [r3, #12]
+ 800199a:	4b07      	ldr	r3, [pc, #28]	; (80019b8 <processErrorStatus+0x40>)
+ 800199c:	781b      	ldrb	r3, [r3, #0]
+ 800199e:	2b00      	cmp	r3, #0
+ 80019a0:	d102      	bne.n	80019a8 <processErrorStatus+0x30>
+ 80019a2:	6993      	ldr	r3, [r2, #24]
+ 80019a4:	075b      	lsls	r3, r3, #29
+ 80019a6:	d501      	bpl.n	80019ac <processErrorStatus+0x34>
+ 80019a8:	4b04      	ldr	r3, [pc, #16]	; (80019bc <processErrorStatus+0x44>)
+ 80019aa:	6093      	str	r3, [r2, #8]
+ 80019ac:	bd30      	pop	{r4, r5, pc}
+ 80019ae:	46c0      	nop			; (mov r8, r8)
+ 80019b0:	40006400 	.word	0x40006400
+ 80019b4:	200021c0 	.word	0x200021c0
+ 80019b8:	200021bc 	.word	0x200021bc
+ 80019bc:	00808080 	.word	0x00808080
+
+080019c0 <canardSTM32Init>:
+ 80019c0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80019c2:	0005      	movs	r5, r0
+ 80019c4:	000f      	movs	r7, r1
+ 80019c6:	2902      	cmp	r1, #2
+ 80019c8:	d83c      	bhi.n	8001a44 <canardSTM32Init+0x84>
+ 80019ca:	2800      	cmp	r0, #0
+ 80019cc:	d03a      	beq.n	8001a44 <canardSTM32Init+0x84>
+ 80019ce:	2280      	movs	r2, #128	; 0x80
+ 80019d0:	8803      	ldrh	r3, [r0, #0]
+ 80019d2:	00d2      	lsls	r2, r2, #3
+ 80019d4:	3b01      	subs	r3, #1
+ 80019d6:	b29b      	uxth	r3, r3
+ 80019d8:	4293      	cmp	r3, r2
+ 80019da:	d233      	bcs.n	8001a44 <canardSTM32Init+0x84>
+ 80019dc:	7903      	ldrb	r3, [r0, #4]
+ 80019de:	3b01      	subs	r3, #1
+ 80019e0:	2b03      	cmp	r3, #3
+ 80019e2:	d82f      	bhi.n	8001a44 <canardSTM32Init+0x84>
+ 80019e4:	7883      	ldrb	r3, [r0, #2]
+ 80019e6:	3b01      	subs	r3, #1
+ 80019e8:	2b0f      	cmp	r3, #15
+ 80019ea:	d82b      	bhi.n	8001a44 <canardSTM32Init+0x84>
+ 80019ec:	78c3      	ldrb	r3, [r0, #3]
+ 80019ee:	3b01      	subs	r3, #1
+ 80019f0:	2b07      	cmp	r3, #7
+ 80019f2:	d827      	bhi.n	8001a44 <canardSTM32Init+0x84>
+ 80019f4:	2210      	movs	r2, #16
+ 80019f6:	2100      	movs	r1, #0
+ 80019f8:	483e      	ldr	r0, [pc, #248]	; (8001af4 <canardSTM32Init+0x134>)
+ 80019fa:	f7fe ffe9 	bl	80009d0 <memset>
+ 80019fe:	1ebb      	subs	r3, r7, #2
+ 8001a00:	425a      	negs	r2, r3
+ 8001a02:	4153      	adcs	r3, r2
+ 8001a04:	4a3c      	ldr	r2, [pc, #240]	; (8001af8 <canardSTM32Init+0x138>)
+ 8001a06:	26fa      	movs	r6, #250	; 0xfa
+ 8001a08:	7013      	strb	r3, [r2, #0]
+ 8001a0a:	2300      	movs	r3, #0
+ 8001a0c:	2202      	movs	r2, #2
+ 8001a0e:	4c3b      	ldr	r4, [pc, #236]	; (8001afc <canardSTM32Init+0x13c>)
+ 8001a10:	00b6      	lsls	r6, r6, #2
+ 8001a12:	6163      	str	r3, [r4, #20]
+ 8001a14:	6823      	ldr	r3, [r4, #0]
+ 8001a16:	4393      	bics	r3, r2
+ 8001a18:	6023      	str	r3, [r4, #0]
+ 8001a1a:	6823      	ldr	r3, [r4, #0]
+ 8001a1c:	3a01      	subs	r2, #1
+ 8001a1e:	4313      	orrs	r3, r2
+ 8001a20:	6023      	str	r3, [r4, #0]
+ 8001a22:	2201      	movs	r2, #1
+ 8001a24:	6863      	ldr	r3, [r4, #4]
+ 8001a26:	4213      	tst	r3, r2
+ 8001a28:	d12a      	bne.n	8001a80 <canardSTM32Init+0xc0>
+ 8001a2a:	20fa      	movs	r0, #250	; 0xfa
+ 8001a2c:	3e01      	subs	r6, #1
+ 8001a2e:	0080      	lsls	r0, r0, #2
+ 8001a30:	b2b6      	uxth	r6, r6
+ 8001a32:	f7fe ffb9 	bl	80009a8 <usleep>
+ 8001a36:	2e00      	cmp	r6, #0
+ 8001a38:	d1f3      	bne.n	8001a22 <canardSTM32Init+0x62>
+ 8001a3a:	2380      	movs	r3, #128	; 0x80
+ 8001a3c:	021b      	lsls	r3, r3, #8
+ 8001a3e:	4830      	ldr	r0, [pc, #192]	; (8001b00 <canardSTM32Init+0x140>)
+ 8001a40:	6023      	str	r3, [r4, #0]
+ 8001a42:	e001      	b.n	8001a48 <canardSTM32Init+0x88>
+ 8001a44:	2002      	movs	r0, #2
+ 8001a46:	4240      	negs	r0, r0
+ 8001a48:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8001a4a:	2380      	movs	r3, #128	; 0x80
+ 8001a4c:	009b      	lsls	r3, r3, #2
+ 8001a4e:	58e2      	ldr	r2, [r4, r3]
+ 8001a50:	492c      	ldr	r1, [pc, #176]	; (8001b04 <canardSTM32Init+0x144>)
+ 8001a52:	4011      	ands	r1, r2
+ 8001a54:	4a2c      	ldr	r2, [pc, #176]	; (8001b08 <canardSTM32Init+0x148>)
+ 8001a56:	430a      	orrs	r2, r1
+ 8001a58:	50e2      	str	r2, [r4, r3]
+ 8001a5a:	2281      	movs	r2, #129	; 0x81
+ 8001a5c:	492b      	ldr	r1, [pc, #172]	; (8001b0c <canardSTM32Init+0x14c>)
+ 8001a5e:	0092      	lsls	r2, r2, #2
+ 8001a60:	50a0      	str	r0, [r4, r2]
+ 8001a62:	3208      	adds	r2, #8
+ 8001a64:	50a1      	str	r1, [r4, r2]
+ 8001a66:	492a      	ldr	r1, [pc, #168]	; (8001b10 <canardSTM32Init+0x150>)
+ 8001a68:	3208      	adds	r2, #8
+ 8001a6a:	50a1      	str	r1, [r4, r2]
+ 8001a6c:	322c      	adds	r2, #44	; 0x2c
+ 8001a6e:	50a0      	str	r0, [r4, r2]
+ 8001a70:	3204      	adds	r2, #4
+ 8001a72:	50a0      	str	r0, [r4, r2]
+ 8001a74:	3a28      	subs	r2, #40	; 0x28
+ 8001a76:	50a6      	str	r6, [r4, r2]
+ 8001a78:	58e2      	ldr	r2, [r4, r3]
+ 8001a7a:	43b2      	bics	r2, r6
+ 8001a7c:	50e2      	str	r2, [r4, r3]
+ 8001a7e:	e7e3      	b.n	8001a48 <canardSTM32Init+0x88>
+ 8001a80:	2361      	movs	r3, #97	; 0x61
+ 8001a82:	22c0      	movs	r2, #192	; 0xc0
+ 8001a84:	21f0      	movs	r1, #240	; 0xf0
+ 8001a86:	6023      	str	r3, [r4, #0]
+ 8001a88:	792b      	ldrb	r3, [r5, #4]
+ 8001a8a:	0492      	lsls	r2, r2, #18
+ 8001a8c:	3b01      	subs	r3, #1
+ 8001a8e:	061b      	lsls	r3, r3, #24
+ 8001a90:	4013      	ands	r3, r2
+ 8001a92:	78aa      	ldrb	r2, [r5, #2]
+ 8001a94:	0309      	lsls	r1, r1, #12
+ 8001a96:	3a01      	subs	r2, #1
+ 8001a98:	0412      	lsls	r2, r2, #16
+ 8001a9a:	400a      	ands	r2, r1
+ 8001a9c:	21e0      	movs	r1, #224	; 0xe0
+ 8001a9e:	4313      	orrs	r3, r2
+ 8001aa0:	882a      	ldrh	r2, [r5, #0]
+ 8001aa2:	03c9      	lsls	r1, r1, #15
+ 8001aa4:	3a01      	subs	r2, #1
+ 8001aa6:	0592      	lsls	r2, r2, #22
+ 8001aa8:	0d92      	lsrs	r2, r2, #22
+ 8001aaa:	4313      	orrs	r3, r2
+ 8001aac:	78ea      	ldrb	r2, [r5, #3]
+ 8001aae:	3a01      	subs	r2, #1
+ 8001ab0:	0512      	lsls	r2, r2, #20
+ 8001ab2:	400a      	ands	r2, r1
+ 8001ab4:	4313      	orrs	r3, r2
+ 8001ab6:	2200      	movs	r2, #0
+ 8001ab8:	2f01      	cmp	r7, #1
+ 8001aba:	d101      	bne.n	8001ac0 <canardSTM32Init+0x100>
+ 8001abc:	2280      	movs	r2, #128	; 0x80
+ 8001abe:	0612      	lsls	r2, r2, #24
+ 8001ac0:	25fa      	movs	r5, #250	; 0xfa
+ 8001ac2:	2601      	movs	r6, #1
+ 8001ac4:	00ad      	lsls	r5, r5, #2
+ 8001ac6:	002f      	movs	r7, r5
+ 8001ac8:	4313      	orrs	r3, r2
+ 8001aca:	61e3      	str	r3, [r4, #28]
+ 8001acc:	6823      	ldr	r3, [r4, #0]
+ 8001ace:	43b3      	bics	r3, r6
+ 8001ad0:	6023      	str	r3, [r4, #0]
+ 8001ad2:	6863      	ldr	r3, [r4, #4]
+ 8001ad4:	0018      	movs	r0, r3
+ 8001ad6:	4030      	ands	r0, r6
+ 8001ad8:	4233      	tst	r3, r6
+ 8001ada:	d0b6      	beq.n	8001a4a <canardSTM32Init+0x8a>
+ 8001adc:	3d01      	subs	r5, #1
+ 8001ade:	0038      	movs	r0, r7
+ 8001ae0:	b2ad      	uxth	r5, r5
+ 8001ae2:	f7fe ff61 	bl	80009a8 <usleep>
+ 8001ae6:	2d00      	cmp	r5, #0
+ 8001ae8:	d1f3      	bne.n	8001ad2 <canardSTM32Init+0x112>
+ 8001aea:	2380      	movs	r3, #128	; 0x80
+ 8001aec:	021b      	lsls	r3, r3, #8
+ 8001aee:	4809      	ldr	r0, [pc, #36]	; (8001b14 <canardSTM32Init+0x154>)
+ 8001af0:	6023      	str	r3, [r4, #0]
+ 8001af2:	e7a9      	b.n	8001a48 <canardSTM32Init+0x88>
+ 8001af4:	200021c0 	.word	0x200021c0
+ 8001af8:	200021bc 	.word	0x200021bc
+ 8001afc:	40006400 	.word	0x40006400
+ 8001b00:	fffffc17 	.word	0xfffffc17
+ 8001b04:	ffffc0f1 	.word	0xffffc0f1
+ 8001b08:	00000e01 	.word	0x00000e01
+ 8001b0c:	0fffffff 	.word	0x0fffffff
+ 8001b10:	0aaaaaaa 	.word	0x0aaaaaaa
+ 8001b14:	fffffc16 	.word	0xfffffc16
+
+08001b18 <canardSTM32Transmit>:
+ 8001b18:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8001b1a:	0004      	movs	r4, r0
+ 8001b1c:	b085      	sub	sp, #20
+ 8001b1e:	2800      	cmp	r0, #0
+ 8001b20:	d100      	bne.n	8001b24 <canardSTM32Transmit+0xc>
+ 8001b22:	e079      	b.n	8001c18 <canardSTM32Transmit+0x100>
+ 8001b24:	6802      	ldr	r2, [r0, #0]
+ 8001b26:	2380      	movs	r3, #128	; 0x80
+ 8001b28:	0017      	movs	r7, r2
+ 8001b2a:	059b      	lsls	r3, r3, #22
+ 8001b2c:	401f      	ands	r7, r3
+ 8001b2e:	421a      	tst	r2, r3
+ 8001b30:	d000      	beq.n	8001b34 <canardSTM32Transmit+0x1c>
+ 8001b32:	e074      	b.n	8001c1e <canardSTM32Transmit+0x106>
+ 8001b34:	f7ff ff20 	bl	8001978 <processErrorStatus>
+ 8001b38:	22e0      	movs	r2, #224	; 0xe0
+ 8001b3a:	493b      	ldr	r1, [pc, #236]	; (8001c28 <canardSTM32Transmit+0x110>)
+ 8001b3c:	0552      	lsls	r2, r2, #21
+ 8001b3e:	688b      	ldr	r3, [r1, #8]
+ 8001b40:	4013      	ands	r3, r2
+ 8001b42:	4293      	cmp	r3, r2
+ 8001b44:	d066      	beq.n	8001c14 <canardSTM32Transmit+0xfc>
+ 8001b46:	2201      	movs	r2, #1
+ 8001b48:	688b      	ldr	r3, [r1, #8]
+ 8001b4a:	ad03      	add	r5, sp, #12
+ 8001b4c:	0e9b      	lsrs	r3, r3, #26
+ 8001b4e:	4013      	ands	r3, r2
+ 8001b50:	702b      	strb	r3, [r5, #0]
+ 8001b52:	688b      	ldr	r3, [r1, #8]
+ 8001b54:	0edb      	lsrs	r3, r3, #27
+ 8001b56:	4013      	ands	r3, r2
+ 8001b58:	706b      	strb	r3, [r5, #1]
+ 8001b5a:	688b      	ldr	r3, [r1, #8]
+ 8001b5c:	9501      	str	r5, [sp, #4]
+ 8001b5e:	0f1b      	lsrs	r3, r3, #28
+ 8001b60:	4013      	ands	r3, r2
+ 8001b62:	70ab      	strb	r3, [r5, #2]
+ 8001b64:	23ff      	movs	r3, #255	; 0xff
+ 8001b66:	9300      	str	r3, [sp, #0]
+ 8001b68:	9a01      	ldr	r2, [sp, #4]
+ 8001b6a:	b2fb      	uxtb	r3, r7
+ 8001b6c:	5cba      	ldrb	r2, [r7, r2]
+ 8001b6e:	2a00      	cmp	r2, #0
+ 8001b70:	d14e      	bne.n	8001c10 <canardSTM32Transmit+0xf8>
+ 8001b72:	003b      	movs	r3, r7
+ 8001b74:	4a2c      	ldr	r2, [pc, #176]	; (8001c28 <canardSTM32Transmit+0x110>)
+ 8001b76:	3318      	adds	r3, #24
+ 8001b78:	011b      	lsls	r3, r3, #4
+ 8001b7a:	6825      	ldr	r5, [r4, #0]
+ 8001b7c:	58d0      	ldr	r0, [r2, r3]
+ 8001b7e:	f7ff feed 	bl	800195c <convertFrameIDRegisterToCanard>
+ 8001b82:	0fee      	lsrs	r6, r5, #31
+ 8001b84:	46b4      	mov	ip, r6
+ 8001b86:	00ea      	lsls	r2, r5, #3
+ 8001b88:	00c3      	lsls	r3, r0, #3
+ 8001b8a:	08d1      	lsrs	r1, r2, #3
+ 8001b8c:	08db      	lsrs	r3, r3, #3
+ 8001b8e:	0fc6      	lsrs	r6, r0, #31
+ 8001b90:	45b4      	cmp	ip, r6
+ 8001b92:	d00f      	beq.n	8001bb4 <canardSTM32Transmit+0x9c>
+ 8001b94:	2d00      	cmp	r5, #0
+ 8001b96:	da00      	bge.n	8001b9a <canardSTM32Transmit+0x82>
+ 8001b98:	0d51      	lsrs	r1, r2, #21
+ 8001b9a:	2800      	cmp	r0, #0
+ 8001b9c:	da41      	bge.n	8001c22 <canardSTM32Transmit+0x10a>
+ 8001b9e:	0c9b      	lsrs	r3, r3, #18
+ 8001ba0:	428b      	cmp	r3, r1
+ 8001ba2:	d016      	beq.n	8001bd2 <canardSTM32Transmit+0xba>
+ 8001ba4:	4299      	cmp	r1, r3
+ 8001ba6:	419b      	sbcs	r3, r3
+ 8001ba8:	425b      	negs	r3, r3
+ 8001baa:	2b00      	cmp	r3, #0
+ 8001bac:	d111      	bne.n	8001bd2 <canardSTM32Transmit+0xba>
+ 8001bae:	2000      	movs	r0, #0
+ 8001bb0:	b005      	add	sp, #20
+ 8001bb2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8001bb4:	4299      	cmp	r1, r3
+ 8001bb6:	d1f5      	bne.n	8001ba4 <canardSTM32Transmit+0x8c>
+ 8001bb8:	2280      	movs	r2, #128	; 0x80
+ 8001bba:	05d2      	lsls	r2, r2, #23
+ 8001bbc:	4010      	ands	r0, r2
+ 8001bbe:	0006      	movs	r6, r0
+ 8001bc0:	0faa      	lsrs	r2, r5, #30
+ 8001bc2:	1e75      	subs	r5, r6, #1
+ 8001bc4:	41ae      	sbcs	r6, r5
+ 8001bc6:	2501      	movs	r5, #1
+ 8001bc8:	402a      	ands	r2, r5
+ 8001bca:	4296      	cmp	r6, r2
+ 8001bcc:	d0ea      	beq.n	8001ba4 <canardSTM32Transmit+0x8c>
+ 8001bce:	2800      	cmp	r0, #0
+ 8001bd0:	d0ed      	beq.n	8001bae <canardSTM32Transmit+0x96>
+ 8001bd2:	3701      	adds	r7, #1
+ 8001bd4:	2f03      	cmp	r7, #3
+ 8001bd6:	d1c7      	bne.n	8001b68 <canardSTM32Transmit+0x50>
+ 8001bd8:	9b00      	ldr	r3, [sp, #0]
+ 8001bda:	2bff      	cmp	r3, #255	; 0xff
+ 8001bdc:	d0e7      	beq.n	8001bae <canardSTM32Transmit+0x96>
+ 8001bde:	9b00      	ldr	r3, [sp, #0]
+ 8001be0:	6821      	ldr	r1, [r4, #0]
+ 8001be2:	011a      	lsls	r2, r3, #4
+ 8001be4:	4b11      	ldr	r3, [pc, #68]	; (8001c2c <canardSTM32Transmit+0x114>)
+ 8001be6:	18d2      	adds	r2, r2, r3
+ 8001be8:	7b23      	ldrb	r3, [r4, #12]
+ 8001bea:	6053      	str	r3, [r2, #4]
+ 8001bec:	68a3      	ldr	r3, [r4, #8]
+ 8001bee:	60d3      	str	r3, [r2, #12]
+ 8001bf0:	6863      	ldr	r3, [r4, #4]
+ 8001bf2:	6093      	str	r3, [r2, #8]
+ 8001bf4:	054b      	lsls	r3, r1, #21
+ 8001bf6:	2900      	cmp	r1, #0
+ 8001bf8:	da02      	bge.n	8001c00 <canardSTM32Transmit+0xe8>
+ 8001bfa:	2304      	movs	r3, #4
+ 8001bfc:	00c8      	lsls	r0, r1, #3
+ 8001bfe:	4303      	orrs	r3, r0
+ 8001c00:	0049      	lsls	r1, r1, #1
+ 8001c02:	d501      	bpl.n	8001c08 <canardSTM32Transmit+0xf0>
+ 8001c04:	2102      	movs	r1, #2
+ 8001c06:	430b      	orrs	r3, r1
+ 8001c08:	2001      	movs	r0, #1
+ 8001c0a:	4303      	orrs	r3, r0
+ 8001c0c:	6013      	str	r3, [r2, #0]
+ 8001c0e:	e7cf      	b.n	8001bb0 <canardSTM32Transmit+0x98>
+ 8001c10:	9300      	str	r3, [sp, #0]
+ 8001c12:	e7de      	b.n	8001bd2 <canardSTM32Transmit+0xba>
+ 8001c14:	9700      	str	r7, [sp, #0]
+ 8001c16:	e7e2      	b.n	8001bde <canardSTM32Transmit+0xc6>
+ 8001c18:	2002      	movs	r0, #2
+ 8001c1a:	4240      	negs	r0, r0
+ 8001c1c:	e7c8      	b.n	8001bb0 <canardSTM32Transmit+0x98>
+ 8001c1e:	4804      	ldr	r0, [pc, #16]	; (8001c30 <canardSTM32Transmit+0x118>)
+ 8001c20:	e7c6      	b.n	8001bb0 <canardSTM32Transmit+0x98>
+ 8001c22:	428b      	cmp	r3, r1
+ 8001c24:	d1be      	bne.n	8001ba4 <canardSTM32Transmit+0x8c>
+ 8001c26:	e7c2      	b.n	8001bae <canardSTM32Transmit+0x96>
+ 8001c28:	40006400 	.word	0x40006400
+ 8001c2c:	40006580 	.word	0x40006580
+ 8001c30:	fffffc15 	.word	0xfffffc15
+
+08001c34 <canardSTM32Receive>:
+ 8001c34:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 8001c36:	1e05      	subs	r5, r0, #0
+ 8001c38:	d02f      	beq.n	8001c9a <canardSTM32Receive+0x66>
+ 8001c3a:	4c19      	ldr	r4, [pc, #100]	; (8001ca0 <canardSTM32Receive+0x6c>)
+ 8001c3c:	f7ff fe9c 	bl	8001978 <processErrorStatus>
+ 8001c40:	6822      	ldr	r2, [r4, #0]
+ 8001c42:	2303      	movs	r3, #3
+ 8001c44:	0010      	movs	r0, r2
+ 8001c46:	4018      	ands	r0, r3
+ 8001c48:	421a      	tst	r2, r3
+ 8001c4a:	d124      	bne.n	8001c96 <canardSTM32Receive+0x62>
+ 8001c4c:	4c15      	ldr	r4, [pc, #84]	; (8001ca4 <canardSTM32Receive+0x70>)
+ 8001c4e:	6822      	ldr	r2, [r4, #0]
+ 8001c50:	421a      	tst	r2, r3
+ 8001c52:	d01f      	beq.n	8001c94 <canardSTM32Receive+0x60>
+ 8001c54:	4b14      	ldr	r3, [pc, #80]	; (8001ca8 <canardSTM32Receive+0x74>)
+ 8001c56:	9301      	str	r3, [sp, #4]
+ 8001c58:	6823      	ldr	r3, [r4, #0]
+ 8001c5a:	06db      	lsls	r3, r3, #27
+ 8001c5c:	d508      	bpl.n	8001c70 <canardSTM32Receive+0x3c>
+ 8001c5e:	2201      	movs	r2, #1
+ 8001c60:	2300      	movs	r3, #0
+ 8001c62:	4912      	ldr	r1, [pc, #72]	; (8001cac <canardSTM32Receive+0x78>)
+ 8001c64:	680e      	ldr	r6, [r1, #0]
+ 8001c66:	684f      	ldr	r7, [r1, #4]
+ 8001c68:	1992      	adds	r2, r2, r6
+ 8001c6a:	417b      	adcs	r3, r7
+ 8001c6c:	600a      	str	r2, [r1, #0]
+ 8001c6e:	604b      	str	r3, [r1, #4]
+ 8001c70:	9b01      	ldr	r3, [sp, #4]
+ 8001c72:	6818      	ldr	r0, [r3, #0]
+ 8001c74:	f7ff fe72 	bl	800195c <convertFrameIDRegisterToCanard>
+ 8001c78:	220f      	movs	r2, #15
+ 8001c7a:	9b01      	ldr	r3, [sp, #4]
+ 8001c7c:	6028      	str	r0, [r5, #0]
+ 8001c7e:	685b      	ldr	r3, [r3, #4]
+ 8001c80:	2001      	movs	r0, #1
+ 8001c82:	4013      	ands	r3, r2
+ 8001c84:	732b      	strb	r3, [r5, #12]
+ 8001c86:	9b01      	ldr	r3, [sp, #4]
+ 8001c88:	689a      	ldr	r2, [r3, #8]
+ 8001c8a:	68db      	ldr	r3, [r3, #12]
+ 8001c8c:	606a      	str	r2, [r5, #4]
+ 8001c8e:	60ab      	str	r3, [r5, #8]
+ 8001c90:	2338      	movs	r3, #56	; 0x38
+ 8001c92:	6023      	str	r3, [r4, #0]
+ 8001c94:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 8001c96:	4b06      	ldr	r3, [pc, #24]	; (8001cb0 <canardSTM32Receive+0x7c>)
+ 8001c98:	e7dd      	b.n	8001c56 <canardSTM32Receive+0x22>
+ 8001c9a:	2002      	movs	r0, #2
+ 8001c9c:	4240      	negs	r0, r0
+ 8001c9e:	e7f9      	b.n	8001c94 <canardSTM32Receive+0x60>
+ 8001ca0:	4000640c 	.word	0x4000640c
+ 8001ca4:	40006410 	.word	0x40006410
+ 8001ca8:	400065c0 	.word	0x400065c0
+ 8001cac:	200021c0 	.word	0x200021c0
+ 8001cb0:	400065b0 	.word	0x400065b0
+
+08001cb4 <uavcan_tunnel_Targetted_encode>:
+ 8001cb4:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 8001cb6:	000d      	movs	r5, r1
+ 8001cb8:	0006      	movs	r6, r0
+ 8001cba:	2100      	movs	r1, #0
+ 8001cbc:	0017      	movs	r7, r2
+ 8001cbe:	0028      	movs	r0, r5
+ 8001cc0:	227f      	movs	r2, #127	; 0x7f
+ 8001cc2:	f7fe fe85 	bl	80009d0 <memset>
+ 8001cc6:	0033      	movs	r3, r6
+ 8001cc8:	2208      	movs	r2, #8
+ 8001cca:	2100      	movs	r1, #0
+ 8001ccc:	0028      	movs	r0, r5
+ 8001cce:	f7ff fb95 	bl	80013fc <canardEncodeScalar>
+ 8001cd2:	2207      	movs	r2, #7
+ 8001cd4:	2108      	movs	r1, #8
+ 8001cd6:	0028      	movs	r0, r5
+ 8001cd8:	1c73      	adds	r3, r6, #1
+ 8001cda:	f7ff fb8f 	bl	80013fc <canardEncodeScalar>
+ 8001cde:	2205      	movs	r2, #5
+ 8001ce0:	210f      	movs	r1, #15
+ 8001ce2:	0028      	movs	r0, r5
+ 8001ce4:	1cb3      	adds	r3, r6, #2
+ 8001ce6:	f7ff fb89 	bl	80013fc <canardEncodeScalar>
+ 8001cea:	2204      	movs	r2, #4
+ 8001cec:	2114      	movs	r1, #20
+ 8001cee:	0028      	movs	r0, r5
+ 8001cf0:	1cf3      	adds	r3, r6, #3
+ 8001cf2:	f7ff fb83 	bl	80013fc <canardEncodeScalar>
+ 8001cf6:	2218      	movs	r2, #24
+ 8001cf8:	1d33      	adds	r3, r6, #4
+ 8001cfa:	0011      	movs	r1, r2
+ 8001cfc:	0028      	movs	r0, r5
+ 8001cfe:	f7ff fb7d 	bl	80013fc <canardEncodeScalar>
+ 8001d02:	7a32      	ldrb	r2, [r6, #8]
+ 8001d04:	1c13      	adds	r3, r2, #0
+ 8001d06:	2a78      	cmp	r2, #120	; 0x78
+ 8001d08:	d900      	bls.n	8001d0c <uavcan_tunnel_Targetted_encode+0x58>
+ 8001d0a:	2378      	movs	r3, #120	; 0x78
+ 8001d0c:	466a      	mov	r2, sp
+ 8001d0e:	2430      	movs	r4, #48	; 0x30
+ 8001d10:	71d3      	strb	r3, [r2, #7]
+ 8001d12:	2f00      	cmp	r7, #0
+ 8001d14:	d107      	bne.n	8001d26 <uavcan_tunnel_Targetted_encode+0x72>
+ 8001d16:	466b      	mov	r3, sp
+ 8001d18:	0021      	movs	r1, r4
+ 8001d1a:	2207      	movs	r2, #7
+ 8001d1c:	0028      	movs	r0, r5
+ 8001d1e:	3307      	adds	r3, #7
+ 8001d20:	f7ff fb6c 	bl	80013fc <canardEncodeScalar>
+ 8001d24:	3407      	adds	r4, #7
+ 8001d26:	2009      	movs	r0, #9
+ 8001d28:	0037      	movs	r7, r6
+ 8001d2a:	4240      	negs	r0, r0
+ 8001d2c:	3709      	adds	r7, #9
+ 8001d2e:	1b86      	subs	r6, r0, r6
+ 8001d30:	466b      	mov	r3, sp
+ 8001d32:	79da      	ldrb	r2, [r3, #7]
+ 8001d34:	19f3      	adds	r3, r6, r7
+ 8001d36:	429a      	cmp	r2, r3
+ 8001d38:	d802      	bhi.n	8001d40 <uavcan_tunnel_Targetted_encode+0x8c>
+ 8001d3a:	3407      	adds	r4, #7
+ 8001d3c:	08e0      	lsrs	r0, r4, #3
+ 8001d3e:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 8001d40:	003b      	movs	r3, r7
+ 8001d42:	0021      	movs	r1, r4
+ 8001d44:	2208      	movs	r2, #8
+ 8001d46:	0028      	movs	r0, r5
+ 8001d48:	f7ff fb58 	bl	80013fc <canardEncodeScalar>
+ 8001d4c:	3408      	adds	r4, #8
+ 8001d4e:	3701      	adds	r7, #1
+ 8001d50:	e7ee      	b.n	8001d30 <uavcan_tunnel_Targetted_encode+0x7c>
+
+08001d52 <uavcan_tunnel_Targetted_decode>:
+ 8001d52:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+ 8001d54:	7f04      	ldrb	r4, [r0, #28]
+ 8001d56:	0005      	movs	r5, r0
+ 8001d58:	000e      	movs	r6, r1
+ 8001d5a:	2c00      	cmp	r4, #0
+ 8001d5c:	d004      	beq.n	8001d68 <uavcan_tunnel_Targetted_decode+0x16>
+ 8001d5e:	8a83      	ldrh	r3, [r0, #20]
+ 8001d60:	2b7f      	cmp	r3, #127	; 0x7f
+ 8001d62:	d901      	bls.n	8001d68 <uavcan_tunnel_Targetted_decode+0x16>
+ 8001d64:	2001      	movs	r0, #1
+ 8001d66:	bdfe      	pop	{r1, r2, r3, r4, r5, r6, r7, pc}
+ 8001d68:	2300      	movs	r3, #0
+ 8001d6a:	2208      	movs	r2, #8
+ 8001d6c:	0019      	movs	r1, r3
+ 8001d6e:	0028      	movs	r0, r5
+ 8001d70:	9600      	str	r6, [sp, #0]
+ 8001d72:	f7ff fa1d 	bl	80011b0 <canardDecodeScalar>
+ 8001d76:	1c73      	adds	r3, r6, #1
+ 8001d78:	2207      	movs	r2, #7
+ 8001d7a:	2108      	movs	r1, #8
+ 8001d7c:	9300      	str	r3, [sp, #0]
+ 8001d7e:	0028      	movs	r0, r5
+ 8001d80:	2300      	movs	r3, #0
+ 8001d82:	f7ff fa15 	bl	80011b0 <canardDecodeScalar>
+ 8001d86:	1cb3      	adds	r3, r6, #2
+ 8001d88:	2205      	movs	r2, #5
+ 8001d8a:	210f      	movs	r1, #15
+ 8001d8c:	9300      	str	r3, [sp, #0]
+ 8001d8e:	0028      	movs	r0, r5
+ 8001d90:	2301      	movs	r3, #1
+ 8001d92:	f7ff fa0d 	bl	80011b0 <canardDecodeScalar>
+ 8001d96:	1cf3      	adds	r3, r6, #3
+ 8001d98:	2204      	movs	r2, #4
+ 8001d9a:	2114      	movs	r1, #20
+ 8001d9c:	9300      	str	r3, [sp, #0]
+ 8001d9e:	0028      	movs	r0, r5
+ 8001da0:	2300      	movs	r3, #0
+ 8001da2:	f7ff fa05 	bl	80011b0 <canardDecodeScalar>
+ 8001da6:	2218      	movs	r2, #24
+ 8001da8:	1d33      	adds	r3, r6, #4
+ 8001daa:	9300      	str	r3, [sp, #0]
+ 8001dac:	0011      	movs	r1, r2
+ 8001dae:	2300      	movs	r3, #0
+ 8001db0:	0028      	movs	r0, r5
+ 8001db2:	f7ff f9fd 	bl	80011b0 <canardDecodeScalar>
+ 8001db6:	2c00      	cmp	r4, #0
+ 8001db8:	d11b      	bne.n	8001df2 <uavcan_tunnel_Targetted_decode+0xa0>
+ 8001dba:	0033      	movs	r3, r6
+ 8001dbc:	3308      	adds	r3, #8
+ 8001dbe:	9300      	str	r3, [sp, #0]
+ 8001dc0:	2207      	movs	r2, #7
+ 8001dc2:	0023      	movs	r3, r4
+ 8001dc4:	2130      	movs	r1, #48	; 0x30
+ 8001dc6:	0028      	movs	r0, r5
+ 8001dc8:	f7ff f9f2 	bl	80011b0 <canardDecodeScalar>
+ 8001dcc:	3437      	adds	r4, #55	; 0x37
+ 8001dce:	7a33      	ldrb	r3, [r6, #8]
+ 8001dd0:	0037      	movs	r7, r6
+ 8001dd2:	2b78      	cmp	r3, #120	; 0x78
+ 8001dd4:	d8c6      	bhi.n	8001d64 <uavcan_tunnel_Targetted_decode+0x12>
+ 8001dd6:	7a32      	ldrb	r2, [r6, #8]
+ 8001dd8:	1bbb      	subs	r3, r7, r6
+ 8001dda:	4293      	cmp	r3, r2
+ 8001ddc:	d310      	bcc.n	8001e00 <uavcan_tunnel_Targetted_decode+0xae>
+ 8001dde:	7f2b      	ldrb	r3, [r5, #28]
+ 8001de0:	3407      	adds	r4, #7
+ 8001de2:	8aa8      	ldrh	r0, [r5, #20]
+ 8001de4:	08e4      	lsrs	r4, r4, #3
+ 8001de6:	2b00      	cmp	r3, #0
+ 8001de8:	d116      	bne.n	8001e18 <uavcan_tunnel_Targetted_decode+0xc6>
+ 8001dea:	42a0      	cmp	r0, r4
+ 8001dec:	4180      	sbcs	r0, r0
+ 8001dee:	4240      	negs	r0, r0
+ 8001df0:	e7b9      	b.n	8001d66 <uavcan_tunnel_Targetted_decode+0x14>
+ 8001df2:	8aab      	ldrh	r3, [r5, #20]
+ 8001df4:	2430      	movs	r4, #48	; 0x30
+ 8001df6:	00db      	lsls	r3, r3, #3
+ 8001df8:	3b30      	subs	r3, #48	; 0x30
+ 8001dfa:	08db      	lsrs	r3, r3, #3
+ 8001dfc:	7233      	strb	r3, [r6, #8]
+ 8001dfe:	e7e6      	b.n	8001dce <uavcan_tunnel_Targetted_decode+0x7c>
+ 8001e00:	003b      	movs	r3, r7
+ 8001e02:	3309      	adds	r3, #9
+ 8001e04:	0021      	movs	r1, r4
+ 8001e06:	9300      	str	r3, [sp, #0]
+ 8001e08:	2208      	movs	r2, #8
+ 8001e0a:	2300      	movs	r3, #0
+ 8001e0c:	0028      	movs	r0, r5
+ 8001e0e:	f7ff f9cf 	bl	80011b0 <canardDecodeScalar>
+ 8001e12:	3408      	adds	r4, #8
+ 8001e14:	3701      	adds	r7, #1
+ 8001e16:	e7de      	b.n	8001dd6 <uavcan_tunnel_Targetted_decode+0x84>
+ 8001e18:	1a20      	subs	r0, r4, r0
+ 8001e1a:	1e43      	subs	r3, r0, #1
+ 8001e1c:	4198      	sbcs	r0, r3
+ 8001e1e:	b2c0      	uxtb	r0, r0
+ 8001e20:	e7a1      	b.n	8001d66 <uavcan_tunnel_Targetted_decode+0x14>
+
+08001e22 <uavcan_protocol_NodeStatus_encode>:
+ 8001e22:	b570      	push	{r4, r5, r6, lr}
+ 8001e24:	000d      	movs	r5, r1
+ 8001e26:	0004      	movs	r4, r0
+ 8001e28:	2207      	movs	r2, #7
+ 8001e2a:	0028      	movs	r0, r5
+ 8001e2c:	2100      	movs	r1, #0
+ 8001e2e:	f7fe fdcf 	bl	80009d0 <memset>
+ 8001e32:	0028      	movs	r0, r5
+ 8001e34:	0023      	movs	r3, r4
+ 8001e36:	2220      	movs	r2, #32
+ 8001e38:	2100      	movs	r1, #0
+ 8001e3a:	f7ff fadf 	bl	80013fc <canardEncodeScalar>
+ 8001e3e:	0028      	movs	r0, r5
+ 8001e40:	1d23      	adds	r3, r4, #4
+ 8001e42:	2202      	movs	r2, #2
+ 8001e44:	2120      	movs	r1, #32
+ 8001e46:	f7ff fad9 	bl	80013fc <canardEncodeScalar>
+ 8001e4a:	0028      	movs	r0, r5
+ 8001e4c:	1d63      	adds	r3, r4, #5
+ 8001e4e:	2203      	movs	r2, #3
+ 8001e50:	2122      	movs	r1, #34	; 0x22
+ 8001e52:	f7ff fad3 	bl	80013fc <canardEncodeScalar>
+ 8001e56:	0028      	movs	r0, r5
+ 8001e58:	1da3      	adds	r3, r4, #6
+ 8001e5a:	2203      	movs	r2, #3
+ 8001e5c:	2125      	movs	r1, #37	; 0x25
+ 8001e5e:	f7ff facd 	bl	80013fc <canardEncodeScalar>
+ 8001e62:	0023      	movs	r3, r4
+ 8001e64:	0028      	movs	r0, r5
+ 8001e66:	2210      	movs	r2, #16
+ 8001e68:	2128      	movs	r1, #40	; 0x28
+ 8001e6a:	3308      	adds	r3, #8
+ 8001e6c:	f7ff fac6 	bl	80013fc <canardEncodeScalar>
+ 8001e70:	2007      	movs	r0, #7
+ 8001e72:	bd70      	pop	{r4, r5, r6, pc}
+
+08001e74 <uavcan_protocol_GetNodeInfoResponse_encode>:
+ 8001e74:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8001e76:	b085      	sub	sp, #20
+ 8001e78:	000c      	movs	r4, r1
+ 8001e7a:	9201      	str	r2, [sp, #4]
+ 8001e7c:	227a      	movs	r2, #122	; 0x7a
+ 8001e7e:	0005      	movs	r5, r0
+ 8001e80:	2100      	movs	r1, #0
+ 8001e82:	32ff      	adds	r2, #255	; 0xff
+ 8001e84:	0020      	movs	r0, r4
+ 8001e86:	f7fe fda3 	bl	80009d0 <memset>
+ 8001e8a:	002b      	movs	r3, r5
+ 8001e8c:	2220      	movs	r2, #32
+ 8001e8e:	2100      	movs	r1, #0
+ 8001e90:	0020      	movs	r0, r4
+ 8001e92:	f7ff fab3 	bl	80013fc <canardEncodeScalar>
+ 8001e96:	2202      	movs	r2, #2
+ 8001e98:	2120      	movs	r1, #32
+ 8001e9a:	0020      	movs	r0, r4
+ 8001e9c:	1d2b      	adds	r3, r5, #4
+ 8001e9e:	f7ff faad 	bl	80013fc <canardEncodeScalar>
+ 8001ea2:	2203      	movs	r2, #3
+ 8001ea4:	2122      	movs	r1, #34	; 0x22
+ 8001ea6:	0020      	movs	r0, r4
+ 8001ea8:	1d6b      	adds	r3, r5, #5
+ 8001eaa:	f7ff faa7 	bl	80013fc <canardEncodeScalar>
+ 8001eae:	2203      	movs	r2, #3
+ 8001eb0:	2125      	movs	r1, #37	; 0x25
+ 8001eb2:	0020      	movs	r0, r4
+ 8001eb4:	1dab      	adds	r3, r5, #6
+ 8001eb6:	f7ff faa1 	bl	80013fc <canardEncodeScalar>
+ 8001eba:	002b      	movs	r3, r5
+ 8001ebc:	2210      	movs	r2, #16
+ 8001ebe:	2128      	movs	r1, #40	; 0x28
+ 8001ec0:	0020      	movs	r0, r4
+ 8001ec2:	3308      	adds	r3, #8
+ 8001ec4:	f7ff fa9a 	bl	80013fc <canardEncodeScalar>
+ 8001ec8:	002b      	movs	r3, r5
+ 8001eca:	2208      	movs	r2, #8
+ 8001ecc:	2138      	movs	r1, #56	; 0x38
+ 8001ece:	0020      	movs	r0, r4
+ 8001ed0:	3310      	adds	r3, #16
+ 8001ed2:	f7ff fa93 	bl	80013fc <canardEncodeScalar>
+ 8001ed6:	002b      	movs	r3, r5
+ 8001ed8:	2208      	movs	r2, #8
+ 8001eda:	2140      	movs	r1, #64	; 0x40
+ 8001edc:	0020      	movs	r0, r4
+ 8001ede:	3311      	adds	r3, #17
+ 8001ee0:	f7ff fa8c 	bl	80013fc <canardEncodeScalar>
+ 8001ee4:	002b      	movs	r3, r5
+ 8001ee6:	2208      	movs	r2, #8
+ 8001ee8:	2148      	movs	r1, #72	; 0x48
+ 8001eea:	0020      	movs	r0, r4
+ 8001eec:	3312      	adds	r3, #18
+ 8001eee:	f7ff fa85 	bl	80013fc <canardEncodeScalar>
+ 8001ef2:	002b      	movs	r3, r5
+ 8001ef4:	2220      	movs	r2, #32
+ 8001ef6:	2150      	movs	r1, #80	; 0x50
+ 8001ef8:	0020      	movs	r0, r4
+ 8001efa:	3314      	adds	r3, #20
+ 8001efc:	f7ff fa7e 	bl	80013fc <canardEncodeScalar>
+ 8001f00:	002b      	movs	r3, r5
+ 8001f02:	2240      	movs	r2, #64	; 0x40
+ 8001f04:	2170      	movs	r1, #112	; 0x70
+ 8001f06:	0020      	movs	r0, r4
+ 8001f08:	3318      	adds	r3, #24
+ 8001f0a:	f7ff fa77 	bl	80013fc <canardEncodeScalar>
+ 8001f0e:	002b      	movs	r3, r5
+ 8001f10:	2208      	movs	r2, #8
+ 8001f12:	21b0      	movs	r1, #176	; 0xb0
+ 8001f14:	0020      	movs	r0, r4
+ 8001f16:	3320      	adds	r3, #32
+ 8001f18:	f7ff fa70 	bl	80013fc <canardEncodeScalar>
+ 8001f1c:	002b      	movs	r3, r5
+ 8001f1e:	2208      	movs	r2, #8
+ 8001f20:	21b8      	movs	r1, #184	; 0xb8
+ 8001f22:	0020      	movs	r0, r4
+ 8001f24:	002e      	movs	r6, r5
+ 8001f26:	3321      	adds	r3, #33	; 0x21
+ 8001f28:	f7ff fa68 	bl	80013fc <canardEncodeScalar>
+ 8001f2c:	27c0      	movs	r7, #192	; 0xc0
+ 8001f2e:	3622      	adds	r6, #34	; 0x22
+ 8001f30:	0033      	movs	r3, r6
+ 8001f32:	0039      	movs	r1, r7
+ 8001f34:	2208      	movs	r2, #8
+ 8001f36:	0020      	movs	r0, r4
+ 8001f38:	f7ff fa60 	bl	80013fc <canardEncodeScalar>
+ 8001f3c:	23a0      	movs	r3, #160	; 0xa0
+ 8001f3e:	3708      	adds	r7, #8
+ 8001f40:	3601      	adds	r6, #1
+ 8001f42:	005b      	lsls	r3, r3, #1
+ 8001f44:	429f      	cmp	r7, r3
+ 8001f46:	d1f3      	bne.n	8001f30 <uavcan_protocol_GetNodeInfoResponse_encode+0xbc>
+ 8001f48:	002b      	movs	r3, r5
+ 8001f4a:	3332      	adds	r3, #50	; 0x32
+ 8001f4c:	781b      	ldrb	r3, [r3, #0]
+ 8001f4e:	aa02      	add	r2, sp, #8
+ 8001f50:	71d3      	strb	r3, [r2, #7]
+ 8001f52:	0013      	movs	r3, r2
+ 8001f54:	0039      	movs	r1, r7
+ 8001f56:	2208      	movs	r2, #8
+ 8001f58:	0020      	movs	r0, r4
+ 8001f5a:	3307      	adds	r3, #7
+ 8001f5c:	f7ff fa4e 	bl	80013fc <canardEncodeScalar>
+ 8001f60:	2700      	movs	r7, #0
+ 8001f62:	00fb      	lsls	r3, r7, #3
+ 8001f64:	001e      	movs	r6, r3
+ 8001f66:	9300      	str	r3, [sp, #0]
+ 8001f68:	ab02      	add	r3, sp, #8
+ 8001f6a:	79db      	ldrb	r3, [r3, #7]
+ 8001f6c:	3649      	adds	r6, #73	; 0x49
+ 8001f6e:	36ff      	adds	r6, #255	; 0xff
+ 8001f70:	429f      	cmp	r7, r3
+ 8001f72:	d323      	bcc.n	8001fbc <uavcan_protocol_GetNodeInfoResponse_encode+0x148>
+ 8001f74:	2399      	movs	r3, #153	; 0x99
+ 8001f76:	005b      	lsls	r3, r3, #1
+ 8001f78:	5cea      	ldrb	r2, [r5, r3]
+ 8001f7a:	1c13      	adds	r3, r2, #0
+ 8001f7c:	2a50      	cmp	r2, #80	; 0x50
+ 8001f7e:	d900      	bls.n	8001f82 <uavcan_protocol_GetNodeInfoResponse_encode+0x10e>
+ 8001f80:	2350      	movs	r3, #80	; 0x50
+ 8001f82:	aa02      	add	r2, sp, #8
+ 8001f84:	71d3      	strb	r3, [r2, #7]
+ 8001f86:	9b01      	ldr	r3, [sp, #4]
+ 8001f88:	2b00      	cmp	r3, #0
+ 8001f8a:	d109      	bne.n	8001fa0 <uavcan_protocol_GetNodeInfoResponse_encode+0x12c>
+ 8001f8c:	0013      	movs	r3, r2
+ 8001f8e:	0031      	movs	r1, r6
+ 8001f90:	2207      	movs	r2, #7
+ 8001f92:	0020      	movs	r0, r4
+ 8001f94:	3307      	adds	r3, #7
+ 8001f96:	f7ff fa31 	bl	80013fc <canardEncodeScalar>
+ 8001f9a:	9e00      	ldr	r6, [sp, #0]
+ 8001f9c:	3650      	adds	r6, #80	; 0x50
+ 8001f9e:	36ff      	adds	r6, #255	; 0xff
+ 8001fa0:	002f      	movs	r7, r5
+ 8001fa2:	4810      	ldr	r0, [pc, #64]	; (8001fe4 <uavcan_protocol_GetNodeInfoResponse_encode+0x170>)
+ 8001fa4:	3734      	adds	r7, #52	; 0x34
+ 8001fa6:	37ff      	adds	r7, #255	; 0xff
+ 8001fa8:	1b45      	subs	r5, r0, r5
+ 8001faa:	aa02      	add	r2, sp, #8
+ 8001fac:	79d2      	ldrb	r2, [r2, #7]
+ 8001fae:	19eb      	adds	r3, r5, r7
+ 8001fb0:	4293      	cmp	r3, r2
+ 8001fb2:	d30d      	bcc.n	8001fd0 <uavcan_protocol_GetNodeInfoResponse_encode+0x15c>
+ 8001fb4:	3607      	adds	r6, #7
+ 8001fb6:	08f0      	lsrs	r0, r6, #3
+ 8001fb8:	b005      	add	sp, #20
+ 8001fba:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8001fbc:	002b      	movs	r3, r5
+ 8001fbe:	3333      	adds	r3, #51	; 0x33
+ 8001fc0:	19db      	adds	r3, r3, r7
+ 8001fc2:	2208      	movs	r2, #8
+ 8001fc4:	0031      	movs	r1, r6
+ 8001fc6:	0020      	movs	r0, r4
+ 8001fc8:	f7ff fa18 	bl	80013fc <canardEncodeScalar>
+ 8001fcc:	3701      	adds	r7, #1
+ 8001fce:	e7c8      	b.n	8001f62 <uavcan_protocol_GetNodeInfoResponse_encode+0xee>
+ 8001fd0:	003b      	movs	r3, r7
+ 8001fd2:	0031      	movs	r1, r6
+ 8001fd4:	2208      	movs	r2, #8
+ 8001fd6:	0020      	movs	r0, r4
+ 8001fd8:	f7ff fa10 	bl	80013fc <canardEncodeScalar>
+ 8001fdc:	3608      	adds	r6, #8
+ 8001fde:	3701      	adds	r7, #1
+ 8001fe0:	e7e3      	b.n	8001faa <uavcan_protocol_GetNodeInfoResponse_encode+0x136>
+ 8001fe2:	46c0      	nop			; (mov r8, r8)
+ 8001fe4:	fffffecd 	.word	0xfffffecd
+
+08001fe8 <__udivsi3>:
+ 8001fe8:	2200      	movs	r2, #0
+ 8001fea:	0843      	lsrs	r3, r0, #1
+ 8001fec:	428b      	cmp	r3, r1
+ 8001fee:	d374      	bcc.n	80020da <__udivsi3+0xf2>
+ 8001ff0:	0903      	lsrs	r3, r0, #4
+ 8001ff2:	428b      	cmp	r3, r1
+ 8001ff4:	d35f      	bcc.n	80020b6 <__udivsi3+0xce>
+ 8001ff6:	0a03      	lsrs	r3, r0, #8
+ 8001ff8:	428b      	cmp	r3, r1
+ 8001ffa:	d344      	bcc.n	8002086 <__udivsi3+0x9e>
+ 8001ffc:	0b03      	lsrs	r3, r0, #12
+ 8001ffe:	428b      	cmp	r3, r1
+ 8002000:	d328      	bcc.n	8002054 <__udivsi3+0x6c>
+ 8002002:	0c03      	lsrs	r3, r0, #16
+ 8002004:	428b      	cmp	r3, r1
+ 8002006:	d30d      	bcc.n	8002024 <__udivsi3+0x3c>
+ 8002008:	22ff      	movs	r2, #255	; 0xff
+ 800200a:	0209      	lsls	r1, r1, #8
+ 800200c:	ba12      	rev	r2, r2
+ 800200e:	0c03      	lsrs	r3, r0, #16
+ 8002010:	428b      	cmp	r3, r1
+ 8002012:	d302      	bcc.n	800201a <__udivsi3+0x32>
+ 8002014:	1212      	asrs	r2, r2, #8
+ 8002016:	0209      	lsls	r1, r1, #8
+ 8002018:	d065      	beq.n	80020e6 <__udivsi3+0xfe>
+ 800201a:	0b03      	lsrs	r3, r0, #12
+ 800201c:	428b      	cmp	r3, r1
+ 800201e:	d319      	bcc.n	8002054 <__udivsi3+0x6c>
+ 8002020:	e000      	b.n	8002024 <__udivsi3+0x3c>
+ 8002022:	0a09      	lsrs	r1, r1, #8
+ 8002024:	0bc3      	lsrs	r3, r0, #15
+ 8002026:	428b      	cmp	r3, r1
+ 8002028:	d301      	bcc.n	800202e <__udivsi3+0x46>
+ 800202a:	03cb      	lsls	r3, r1, #15
+ 800202c:	1ac0      	subs	r0, r0, r3
+ 800202e:	4152      	adcs	r2, r2
+ 8002030:	0b83      	lsrs	r3, r0, #14
+ 8002032:	428b      	cmp	r3, r1
+ 8002034:	d301      	bcc.n	800203a <__udivsi3+0x52>
+ 8002036:	038b      	lsls	r3, r1, #14
+ 8002038:	1ac0      	subs	r0, r0, r3
+ 800203a:	4152      	adcs	r2, r2
+ 800203c:	0b43      	lsrs	r3, r0, #13
+ 800203e:	428b      	cmp	r3, r1
+ 8002040:	d301      	bcc.n	8002046 <__udivsi3+0x5e>
+ 8002042:	034b      	lsls	r3, r1, #13
+ 8002044:	1ac0      	subs	r0, r0, r3
+ 8002046:	4152      	adcs	r2, r2
+ 8002048:	0b03      	lsrs	r3, r0, #12
+ 800204a:	428b      	cmp	r3, r1
+ 800204c:	d301      	bcc.n	8002052 <__udivsi3+0x6a>
+ 800204e:	030b      	lsls	r3, r1, #12
+ 8002050:	1ac0      	subs	r0, r0, r3
+ 8002052:	4152      	adcs	r2, r2
+ 8002054:	0ac3      	lsrs	r3, r0, #11
+ 8002056:	428b      	cmp	r3, r1
+ 8002058:	d301      	bcc.n	800205e <__udivsi3+0x76>
+ 800205a:	02cb      	lsls	r3, r1, #11
+ 800205c:	1ac0      	subs	r0, r0, r3
+ 800205e:	4152      	adcs	r2, r2
+ 8002060:	0a83      	lsrs	r3, r0, #10
+ 8002062:	428b      	cmp	r3, r1
+ 8002064:	d301      	bcc.n	800206a <__udivsi3+0x82>
+ 8002066:	028b      	lsls	r3, r1, #10
+ 8002068:	1ac0      	subs	r0, r0, r3
+ 800206a:	4152      	adcs	r2, r2
+ 800206c:	0a43      	lsrs	r3, r0, #9
+ 800206e:	428b      	cmp	r3, r1
+ 8002070:	d301      	bcc.n	8002076 <__udivsi3+0x8e>
+ 8002072:	024b      	lsls	r3, r1, #9
+ 8002074:	1ac0      	subs	r0, r0, r3
+ 8002076:	4152      	adcs	r2, r2
+ 8002078:	0a03      	lsrs	r3, r0, #8
+ 800207a:	428b      	cmp	r3, r1
+ 800207c:	d301      	bcc.n	8002082 <__udivsi3+0x9a>
+ 800207e:	020b      	lsls	r3, r1, #8
+ 8002080:	1ac0      	subs	r0, r0, r3
+ 8002082:	4152      	adcs	r2, r2
+ 8002084:	d2cd      	bcs.n	8002022 <__udivsi3+0x3a>
+ 8002086:	09c3      	lsrs	r3, r0, #7
+ 8002088:	428b      	cmp	r3, r1
+ 800208a:	d301      	bcc.n	8002090 <__udivsi3+0xa8>
+ 800208c:	01cb      	lsls	r3, r1, #7
+ 800208e:	1ac0      	subs	r0, r0, r3
+ 8002090:	4152      	adcs	r2, r2
+ 8002092:	0983      	lsrs	r3, r0, #6
+ 8002094:	428b      	cmp	r3, r1
+ 8002096:	d301      	bcc.n	800209c <__udivsi3+0xb4>
+ 8002098:	018b      	lsls	r3, r1, #6
+ 800209a:	1ac0      	subs	r0, r0, r3
+ 800209c:	4152      	adcs	r2, r2
+ 800209e:	0943      	lsrs	r3, r0, #5
+ 80020a0:	428b      	cmp	r3, r1
+ 80020a2:	d301      	bcc.n	80020a8 <__udivsi3+0xc0>
+ 80020a4:	014b      	lsls	r3, r1, #5
+ 80020a6:	1ac0      	subs	r0, r0, r3
+ 80020a8:	4152      	adcs	r2, r2
+ 80020aa:	0903      	lsrs	r3, r0, #4
+ 80020ac:	428b      	cmp	r3, r1
+ 80020ae:	d301      	bcc.n	80020b4 <__udivsi3+0xcc>
+ 80020b0:	010b      	lsls	r3, r1, #4
+ 80020b2:	1ac0      	subs	r0, r0, r3
+ 80020b4:	4152      	adcs	r2, r2
+ 80020b6:	08c3      	lsrs	r3, r0, #3
+ 80020b8:	428b      	cmp	r3, r1
+ 80020ba:	d301      	bcc.n	80020c0 <__udivsi3+0xd8>
+ 80020bc:	00cb      	lsls	r3, r1, #3
+ 80020be:	1ac0      	subs	r0, r0, r3
+ 80020c0:	4152      	adcs	r2, r2
+ 80020c2:	0883      	lsrs	r3, r0, #2
+ 80020c4:	428b      	cmp	r3, r1
+ 80020c6:	d301      	bcc.n	80020cc <__udivsi3+0xe4>
+ 80020c8:	008b      	lsls	r3, r1, #2
+ 80020ca:	1ac0      	subs	r0, r0, r3
+ 80020cc:	4152      	adcs	r2, r2
+ 80020ce:	0843      	lsrs	r3, r0, #1
+ 80020d0:	428b      	cmp	r3, r1
+ 80020d2:	d301      	bcc.n	80020d8 <__udivsi3+0xf0>
+ 80020d4:	004b      	lsls	r3, r1, #1
+ 80020d6:	1ac0      	subs	r0, r0, r3
+ 80020d8:	4152      	adcs	r2, r2
+ 80020da:	1a41      	subs	r1, r0, r1
+ 80020dc:	d200      	bcs.n	80020e0 <__udivsi3+0xf8>
+ 80020de:	4601      	mov	r1, r0
+ 80020e0:	4152      	adcs	r2, r2
+ 80020e2:	4610      	mov	r0, r2
+ 80020e4:	4770      	bx	lr
+ 80020e6:	e7ff      	b.n	80020e8 <__udivsi3+0x100>
+ 80020e8:	b501      	push	{r0, lr}
+ 80020ea:	2000      	movs	r0, #0
+ 80020ec:	f000 f8f0 	bl	80022d0 <__aeabi_idiv0>
+ 80020f0:	bd02      	pop	{r1, pc}
+ 80020f2:	46c0      	nop			; (mov r8, r8)
+
+080020f4 <__aeabi_uidivmod>:
+ 80020f4:	2900      	cmp	r1, #0
+ 80020f6:	d0f7      	beq.n	80020e8 <__udivsi3+0x100>
+ 80020f8:	e776      	b.n	8001fe8 <__udivsi3>
+ 80020fa:	4770      	bx	lr
+
+080020fc <__divsi3>:
+ 80020fc:	4603      	mov	r3, r0
+ 80020fe:	430b      	orrs	r3, r1
+ 8002100:	d47f      	bmi.n	8002202 <__divsi3+0x106>
+ 8002102:	2200      	movs	r2, #0
+ 8002104:	0843      	lsrs	r3, r0, #1
+ 8002106:	428b      	cmp	r3, r1
+ 8002108:	d374      	bcc.n	80021f4 <__divsi3+0xf8>
+ 800210a:	0903      	lsrs	r3, r0, #4
+ 800210c:	428b      	cmp	r3, r1
+ 800210e:	d35f      	bcc.n	80021d0 <__divsi3+0xd4>
+ 8002110:	0a03      	lsrs	r3, r0, #8
+ 8002112:	428b      	cmp	r3, r1
+ 8002114:	d344      	bcc.n	80021a0 <__divsi3+0xa4>
+ 8002116:	0b03      	lsrs	r3, r0, #12
+ 8002118:	428b      	cmp	r3, r1
+ 800211a:	d328      	bcc.n	800216e <__divsi3+0x72>
+ 800211c:	0c03      	lsrs	r3, r0, #16
+ 800211e:	428b      	cmp	r3, r1
+ 8002120:	d30d      	bcc.n	800213e <__divsi3+0x42>
+ 8002122:	22ff      	movs	r2, #255	; 0xff
+ 8002124:	0209      	lsls	r1, r1, #8
+ 8002126:	ba12      	rev	r2, r2
+ 8002128:	0c03      	lsrs	r3, r0, #16
+ 800212a:	428b      	cmp	r3, r1
+ 800212c:	d302      	bcc.n	8002134 <__divsi3+0x38>
+ 800212e:	1212      	asrs	r2, r2, #8
+ 8002130:	0209      	lsls	r1, r1, #8
+ 8002132:	d065      	beq.n	8002200 <__divsi3+0x104>
+ 8002134:	0b03      	lsrs	r3, r0, #12
+ 8002136:	428b      	cmp	r3, r1
+ 8002138:	d319      	bcc.n	800216e <__divsi3+0x72>
+ 800213a:	e000      	b.n	800213e <__divsi3+0x42>
+ 800213c:	0a09      	lsrs	r1, r1, #8
+ 800213e:	0bc3      	lsrs	r3, r0, #15
+ 8002140:	428b      	cmp	r3, r1
+ 8002142:	d301      	bcc.n	8002148 <__divsi3+0x4c>
+ 8002144:	03cb      	lsls	r3, r1, #15
+ 8002146:	1ac0      	subs	r0, r0, r3
+ 8002148:	4152      	adcs	r2, r2
+ 800214a:	0b83      	lsrs	r3, r0, #14
+ 800214c:	428b      	cmp	r3, r1
+ 800214e:	d301      	bcc.n	8002154 <__divsi3+0x58>
+ 8002150:	038b      	lsls	r3, r1, #14
+ 8002152:	1ac0      	subs	r0, r0, r3
+ 8002154:	4152      	adcs	r2, r2
+ 8002156:	0b43      	lsrs	r3, r0, #13
+ 8002158:	428b      	cmp	r3, r1
+ 800215a:	d301      	bcc.n	8002160 <__divsi3+0x64>
+ 800215c:	034b      	lsls	r3, r1, #13
+ 800215e:	1ac0      	subs	r0, r0, r3
+ 8002160:	4152      	adcs	r2, r2
+ 8002162:	0b03      	lsrs	r3, r0, #12
+ 8002164:	428b      	cmp	r3, r1
+ 8002166:	d301      	bcc.n	800216c <__divsi3+0x70>
+ 8002168:	030b      	lsls	r3, r1, #12
+ 800216a:	1ac0      	subs	r0, r0, r3
+ 800216c:	4152      	adcs	r2, r2
+ 800216e:	0ac3      	lsrs	r3, r0, #11
+ 8002170:	428b      	cmp	r3, r1
+ 8002172:	d301      	bcc.n	8002178 <__divsi3+0x7c>
+ 8002174:	02cb      	lsls	r3, r1, #11
+ 8002176:	1ac0      	subs	r0, r0, r3
+ 8002178:	4152      	adcs	r2, r2
+ 800217a:	0a83      	lsrs	r3, r0, #10
+ 800217c:	428b      	cmp	r3, r1
+ 800217e:	d301      	bcc.n	8002184 <__divsi3+0x88>
+ 8002180:	028b      	lsls	r3, r1, #10
+ 8002182:	1ac0      	subs	r0, r0, r3
+ 8002184:	4152      	adcs	r2, r2
+ 8002186:	0a43      	lsrs	r3, r0, #9
+ 8002188:	428b      	cmp	r3, r1
+ 800218a:	d301      	bcc.n	8002190 <__divsi3+0x94>
+ 800218c:	024b      	lsls	r3, r1, #9
+ 800218e:	1ac0      	subs	r0, r0, r3
+ 8002190:	4152      	adcs	r2, r2
+ 8002192:	0a03      	lsrs	r3, r0, #8
+ 8002194:	428b      	cmp	r3, r1
+ 8002196:	d301      	bcc.n	800219c <__divsi3+0xa0>
+ 8002198:	020b      	lsls	r3, r1, #8
+ 800219a:	1ac0      	subs	r0, r0, r3
+ 800219c:	4152      	adcs	r2, r2
+ 800219e:	d2cd      	bcs.n	800213c <__divsi3+0x40>
+ 80021a0:	09c3      	lsrs	r3, r0, #7
+ 80021a2:	428b      	cmp	r3, r1
+ 80021a4:	d301      	bcc.n	80021aa <__divsi3+0xae>
+ 80021a6:	01cb      	lsls	r3, r1, #7
+ 80021a8:	1ac0      	subs	r0, r0, r3
+ 80021aa:	4152      	adcs	r2, r2
+ 80021ac:	0983      	lsrs	r3, r0, #6
+ 80021ae:	428b      	cmp	r3, r1
+ 80021b0:	d301      	bcc.n	80021b6 <__divsi3+0xba>
+ 80021b2:	018b      	lsls	r3, r1, #6
+ 80021b4:	1ac0      	subs	r0, r0, r3
+ 80021b6:	4152      	adcs	r2, r2
+ 80021b8:	0943      	lsrs	r3, r0, #5
+ 80021ba:	428b      	cmp	r3, r1
+ 80021bc:	d301      	bcc.n	80021c2 <__divsi3+0xc6>
+ 80021be:	014b      	lsls	r3, r1, #5
+ 80021c0:	1ac0      	subs	r0, r0, r3
+ 80021c2:	4152      	adcs	r2, r2
+ 80021c4:	0903      	lsrs	r3, r0, #4
+ 80021c6:	428b      	cmp	r3, r1
+ 80021c8:	d301      	bcc.n	80021ce <__divsi3+0xd2>
+ 80021ca:	010b      	lsls	r3, r1, #4
+ 80021cc:	1ac0      	subs	r0, r0, r3
+ 80021ce:	4152      	adcs	r2, r2
+ 80021d0:	08c3      	lsrs	r3, r0, #3
+ 80021d2:	428b      	cmp	r3, r1
+ 80021d4:	d301      	bcc.n	80021da <__divsi3+0xde>
+ 80021d6:	00cb      	lsls	r3, r1, #3
+ 80021d8:	1ac0      	subs	r0, r0, r3
+ 80021da:	4152      	adcs	r2, r2
+ 80021dc:	0883      	lsrs	r3, r0, #2
+ 80021de:	428b      	cmp	r3, r1
+ 80021e0:	d301      	bcc.n	80021e6 <__divsi3+0xea>
+ 80021e2:	008b      	lsls	r3, r1, #2
+ 80021e4:	1ac0      	subs	r0, r0, r3
+ 80021e6:	4152      	adcs	r2, r2
+ 80021e8:	0843      	lsrs	r3, r0, #1
+ 80021ea:	428b      	cmp	r3, r1
+ 80021ec:	d301      	bcc.n	80021f2 <__divsi3+0xf6>
+ 80021ee:	004b      	lsls	r3, r1, #1
+ 80021f0:	1ac0      	subs	r0, r0, r3
+ 80021f2:	4152      	adcs	r2, r2
+ 80021f4:	1a41      	subs	r1, r0, r1
+ 80021f6:	d200      	bcs.n	80021fa <__divsi3+0xfe>
+ 80021f8:	4601      	mov	r1, r0
+ 80021fa:	4152      	adcs	r2, r2
+ 80021fc:	4610      	mov	r0, r2
+ 80021fe:	4770      	bx	lr
+ 8002200:	e05d      	b.n	80022be <__divsi3+0x1c2>
+ 8002202:	0fca      	lsrs	r2, r1, #31
+ 8002204:	d000      	beq.n	8002208 <__divsi3+0x10c>
+ 8002206:	4249      	negs	r1, r1
+ 8002208:	1003      	asrs	r3, r0, #32
+ 800220a:	d300      	bcc.n	800220e <__divsi3+0x112>
+ 800220c:	4240      	negs	r0, r0
+ 800220e:	4053      	eors	r3, r2
+ 8002210:	2200      	movs	r2, #0
+ 8002212:	469c      	mov	ip, r3
+ 8002214:	0903      	lsrs	r3, r0, #4
+ 8002216:	428b      	cmp	r3, r1
+ 8002218:	d32d      	bcc.n	8002276 <__divsi3+0x17a>
+ 800221a:	0a03      	lsrs	r3, r0, #8
+ 800221c:	428b      	cmp	r3, r1
+ 800221e:	d312      	bcc.n	8002246 <__divsi3+0x14a>
+ 8002220:	22fc      	movs	r2, #252	; 0xfc
+ 8002222:	0189      	lsls	r1, r1, #6
+ 8002224:	ba12      	rev	r2, r2
+ 8002226:	0a03      	lsrs	r3, r0, #8
+ 8002228:	428b      	cmp	r3, r1
+ 800222a:	d30c      	bcc.n	8002246 <__divsi3+0x14a>
+ 800222c:	0189      	lsls	r1, r1, #6
+ 800222e:	1192      	asrs	r2, r2, #6
+ 8002230:	428b      	cmp	r3, r1
+ 8002232:	d308      	bcc.n	8002246 <__divsi3+0x14a>
+ 8002234:	0189      	lsls	r1, r1, #6
+ 8002236:	1192      	asrs	r2, r2, #6
+ 8002238:	428b      	cmp	r3, r1
+ 800223a:	d304      	bcc.n	8002246 <__divsi3+0x14a>
+ 800223c:	0189      	lsls	r1, r1, #6
+ 800223e:	d03a      	beq.n	80022b6 <__divsi3+0x1ba>
+ 8002240:	1192      	asrs	r2, r2, #6
+ 8002242:	e000      	b.n	8002246 <__divsi3+0x14a>
+ 8002244:	0989      	lsrs	r1, r1, #6
+ 8002246:	09c3      	lsrs	r3, r0, #7
+ 8002248:	428b      	cmp	r3, r1
+ 800224a:	d301      	bcc.n	8002250 <__divsi3+0x154>
+ 800224c:	01cb      	lsls	r3, r1, #7
+ 800224e:	1ac0      	subs	r0, r0, r3
+ 8002250:	4152      	adcs	r2, r2
+ 8002252:	0983      	lsrs	r3, r0, #6
+ 8002254:	428b      	cmp	r3, r1
+ 8002256:	d301      	bcc.n	800225c <__divsi3+0x160>
+ 8002258:	018b      	lsls	r3, r1, #6
+ 800225a:	1ac0      	subs	r0, r0, r3
+ 800225c:	4152      	adcs	r2, r2
+ 800225e:	0943      	lsrs	r3, r0, #5
+ 8002260:	428b      	cmp	r3, r1
+ 8002262:	d301      	bcc.n	8002268 <__divsi3+0x16c>
+ 8002264:	014b      	lsls	r3, r1, #5
+ 8002266:	1ac0      	subs	r0, r0, r3
+ 8002268:	4152      	adcs	r2, r2
+ 800226a:	0903      	lsrs	r3, r0, #4
+ 800226c:	428b      	cmp	r3, r1
+ 800226e:	d301      	bcc.n	8002274 <__divsi3+0x178>
+ 8002270:	010b      	lsls	r3, r1, #4
+ 8002272:	1ac0      	subs	r0, r0, r3
+ 8002274:	4152      	adcs	r2, r2
+ 8002276:	08c3      	lsrs	r3, r0, #3
+ 8002278:	428b      	cmp	r3, r1
+ 800227a:	d301      	bcc.n	8002280 <__divsi3+0x184>
+ 800227c:	00cb      	lsls	r3, r1, #3
+ 800227e:	1ac0      	subs	r0, r0, r3
+ 8002280:	4152      	adcs	r2, r2
+ 8002282:	0883      	lsrs	r3, r0, #2
+ 8002284:	428b      	cmp	r3, r1
+ 8002286:	d301      	bcc.n	800228c <__divsi3+0x190>
+ 8002288:	008b      	lsls	r3, r1, #2
+ 800228a:	1ac0      	subs	r0, r0, r3
+ 800228c:	4152      	adcs	r2, r2
+ 800228e:	d2d9      	bcs.n	8002244 <__divsi3+0x148>
+ 8002290:	0843      	lsrs	r3, r0, #1
+ 8002292:	428b      	cmp	r3, r1
+ 8002294:	d301      	bcc.n	800229a <__divsi3+0x19e>
+ 8002296:	004b      	lsls	r3, r1, #1
+ 8002298:	1ac0      	subs	r0, r0, r3
+ 800229a:	4152      	adcs	r2, r2
+ 800229c:	1a41      	subs	r1, r0, r1
+ 800229e:	d200      	bcs.n	80022a2 <__divsi3+0x1a6>
+ 80022a0:	4601      	mov	r1, r0
+ 80022a2:	4663      	mov	r3, ip
+ 80022a4:	4152      	adcs	r2, r2
+ 80022a6:	105b      	asrs	r3, r3, #1
+ 80022a8:	4610      	mov	r0, r2
+ 80022aa:	d301      	bcc.n	80022b0 <__divsi3+0x1b4>
+ 80022ac:	4240      	negs	r0, r0
+ 80022ae:	2b00      	cmp	r3, #0
+ 80022b0:	d500      	bpl.n	80022b4 <__divsi3+0x1b8>
+ 80022b2:	4249      	negs	r1, r1
+ 80022b4:	4770      	bx	lr
+ 80022b6:	4663      	mov	r3, ip
+ 80022b8:	105b      	asrs	r3, r3, #1
+ 80022ba:	d300      	bcc.n	80022be <__divsi3+0x1c2>
+ 80022bc:	4240      	negs	r0, r0
+ 80022be:	b501      	push	{r0, lr}
+ 80022c0:	2000      	movs	r0, #0
+ 80022c2:	f000 f805 	bl	80022d0 <__aeabi_idiv0>
+ 80022c6:	bd02      	pop	{r1, pc}
+
+080022c8 <__aeabi_idivmod>:
+ 80022c8:	2900      	cmp	r1, #0
+ 80022ca:	d0f8      	beq.n	80022be <__divsi3+0x1c2>
+ 80022cc:	e716      	b.n	80020fc <__divsi3>
+ 80022ce:	4770      	bx	lr
+
+080022d0 <__aeabi_idiv0>:
+ 80022d0:	4770      	bx	lr
+ 80022d2:	46c0      	nop			; (mov r8, r8)
+
+080022d4 <__aeabi_llsr>:
+ 80022d4:	40d0      	lsrs	r0, r2
+ 80022d6:	000b      	movs	r3, r1
+ 80022d8:	40d1      	lsrs	r1, r2
+ 80022da:	469c      	mov	ip, r3
+ 80022dc:	3a20      	subs	r2, #32
+ 80022de:	40d3      	lsrs	r3, r2
+ 80022e0:	4318      	orrs	r0, r3
+ 80022e2:	4252      	negs	r2, r2
+ 80022e4:	4663      	mov	r3, ip
+ 80022e6:	4093      	lsls	r3, r2
+ 80022e8:	4318      	orrs	r0, r3
+ 80022ea:	4770      	bx	lr
+
+080022ec <__aeabi_llsl>:
+ 80022ec:	4091      	lsls	r1, r2
+ 80022ee:	0003      	movs	r3, r0
+ 80022f0:	4090      	lsls	r0, r2
+ 80022f2:	469c      	mov	ip, r3
+ 80022f4:	3a20      	subs	r2, #32
+ 80022f6:	4093      	lsls	r3, r2
+ 80022f8:	4319      	orrs	r1, r3
+ 80022fa:	4252      	negs	r2, r2
+ 80022fc:	4663      	mov	r3, ip
+ 80022fe:	40d3      	lsrs	r3, r2
+ 8002300:	4319      	orrs	r1, r3
+ 8002302:	4770      	bx	lr
+
+08002304 <__aeabi_lmul>:
+ 8002304:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8002306:	46ce      	mov	lr, r9
+ 8002308:	4647      	mov	r7, r8
+ 800230a:	b580      	push	{r7, lr}
+ 800230c:	0007      	movs	r7, r0
+ 800230e:	4699      	mov	r9, r3
+ 8002310:	0c3b      	lsrs	r3, r7, #16
+ 8002312:	469c      	mov	ip, r3
+ 8002314:	0413      	lsls	r3, r2, #16
+ 8002316:	0c1b      	lsrs	r3, r3, #16
+ 8002318:	001d      	movs	r5, r3
+ 800231a:	000e      	movs	r6, r1
+ 800231c:	4661      	mov	r1, ip
+ 800231e:	0400      	lsls	r0, r0, #16
+ 8002320:	0c14      	lsrs	r4, r2, #16
+ 8002322:	0c00      	lsrs	r0, r0, #16
+ 8002324:	4345      	muls	r5, r0
+ 8002326:	434b      	muls	r3, r1
+ 8002328:	4360      	muls	r0, r4
+ 800232a:	4361      	muls	r1, r4
+ 800232c:	18c0      	adds	r0, r0, r3
+ 800232e:	0c2c      	lsrs	r4, r5, #16
+ 8002330:	1820      	adds	r0, r4, r0
+ 8002332:	468c      	mov	ip, r1
+ 8002334:	4283      	cmp	r3, r0
+ 8002336:	d903      	bls.n	8002340 <__aeabi_lmul+0x3c>
+ 8002338:	2380      	movs	r3, #128	; 0x80
+ 800233a:	025b      	lsls	r3, r3, #9
+ 800233c:	4698      	mov	r8, r3
+ 800233e:	44c4      	add	ip, r8
+ 8002340:	4649      	mov	r1, r9
+ 8002342:	4379      	muls	r1, r7
+ 8002344:	4372      	muls	r2, r6
+ 8002346:	0c03      	lsrs	r3, r0, #16
+ 8002348:	4463      	add	r3, ip
+ 800234a:	042d      	lsls	r5, r5, #16
+ 800234c:	0c2d      	lsrs	r5, r5, #16
+ 800234e:	18c9      	adds	r1, r1, r3
+ 8002350:	0400      	lsls	r0, r0, #16
+ 8002352:	1940      	adds	r0, r0, r5
+ 8002354:	1889      	adds	r1, r1, r2
+ 8002356:	bcc0      	pop	{r6, r7}
+ 8002358:	46b9      	mov	r9, r7
+ 800235a:	46b0      	mov	r8, r6
+ 800235c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 800235e:	46c0      	nop			; (mov r8, r8)
+
+08002360 <node_name.1>:
+ 8002360:	6f63 2e6d 6961 6272 6172 6e69 632e 6e61     com.airbrain.can
+ 8002370:	6175 7472 0034 0000                         uart4...

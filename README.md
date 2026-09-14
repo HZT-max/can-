@@ -28,6 +28,7 @@
 | `11_bxcan_internal_loopback` | 使用静默内部回环隔离收发器和外部总线，再检查bxCAN退出初始化 | 待实物验证 |
 | `12_full_dronecan_uart4_retry` | 四路UART、完整DroneCAN隧道和节点服务；增加CAN上电重试与RX上拉 | 待实物验证 |
 | `13_full_retry_no_canrx_pullup` | 保留完整功能与CAN重试，仅取消CAN_RX弱上拉以定位根因 | 待实物验证 |
+| `14_full_canrx_pullup_single_init` | 保留完整功能与CAN_RX弱上拉，CAN只初始化一次以定位根因 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

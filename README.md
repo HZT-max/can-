@@ -31,9 +31,10 @@
 | `14_full_canrx_pullup_single_init` | 保留完整功能与CAN_RX弱上拉，CAN只初始化一次以定位根因 | 启动正常，但节点125尚未被地面站发现 |
 | `15_full_can_tx_diagnostic` | 保留第12版完整功能，RUN灯改为显示bxCAN发送确认或错误 | 待实物验证 |
 | `16_full_dual_led_can_activity` | RUN保持原业务状态，LED2显示获得ACK的CAN发送活动 | 待实物验证 |
-| `17_full_single_init_no_pullup` | 飞线修正后取消CAN_RX上拉，CAN仅初始化一次；保留完整业务和双LED诊断 | 待实物验证 |
+| `17_full_single_init_no_pullup` | 飞线修正后取消CAN_RX上拉，CAN仅初始化一次；保留完整业务和双LED诊断 | 已验证：节点125可被飞控发现，完整业务运行 |
 | `18_retry_no_pullup` | 飞线修正后保持无CAN_RX上拉，CAN初始化失败时每100 ms循环重试 | 待实物验证 |
 | `19_pullup_retry_uart_diagnostic` | 恢复CAN_RX上拉与循环重试，通过UART1打印CAN初始化和错误寄存器 | 待实物验证 |
+| `20_uart234_rx_dma_uart1_irq` | 基于17版；UART2/3/4使用循环DMA接收，UART1使用RXNE中断环形缓冲，保留完整业务 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 

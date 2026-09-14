@@ -33,6 +33,7 @@
 | `16_full_dual_led_can_activity` | RUN保持原业务状态，LED2显示获得ACK的CAN发送活动 | 待实物验证 |
 | `17_full_single_init_no_pullup` | 飞线修正后取消CAN_RX上拉，CAN仅初始化一次；保留完整业务和双LED诊断 | 待实物验证 |
 | `18_retry_no_pullup` | 飞线修正后保持无CAN_RX上拉，CAN初始化失败时每100 ms循环重试 | 待实物验证 |
+| `19_pullup_retry_uart_diagnostic` | 恢复CAN_RX上拉与循环重试，通过UART1打印CAN初始化和错误寄存器 | 待实物验证 |
 
 `03_hse_pll_48mhz` 已经实物确认闪灯，后续完整候选固件必须继承该版的启动、时钟和链接脚本。
 
